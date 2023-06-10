@@ -32,4 +32,9 @@ async def language_selection(callback: CallbackQuery):
 async def profile_search(callback: CallbackQuery):
     pass
 
+
+@router.callback_query(F.data == "destination_search")
+async def destination_search(callback: CallbackQuery):
+    pass
+
 # text.greet.format(name=msg.from_user.full_name),
