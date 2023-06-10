@@ -32,4 +32,8 @@ async def language_selection(callback: CallbackQuery):
 async def profile_search(callback: CallbackQuery):
     pass
 
+@router.callback_query(F.data == "visa_advisory")
+async def visa_advisory(callback: CallbackQuery):
+    pass
+
 # text.greet.format(name=msg.from_user.full_name),
