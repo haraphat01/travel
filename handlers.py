@@ -89,7 +89,18 @@ async def input_gender(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):
-    pass
+    await callback.message.answer(text=text.destination_search_question, reply_markup=kb.destination_search_menu)
+
+
+@router.callback_query(F.data == "country_search")
+async def country_search(callback: CallbackQuery):
+    await callback.message.answer(text=text.country_search_question, reply_markup=kb.country_search_menu)
+
+
+@router.callback_query(F.data == "country_of_city_search")
+async def country_of_city_search(callback: CallbackQuery):
+    await callback.message.answer(text=text.country_of_city_search_question, reply_markup=kb.country_search_menu)
+
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery):
