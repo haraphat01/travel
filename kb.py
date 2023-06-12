@@ -23,7 +23,16 @@ language = \
 
 destination_search_menu = [
     [InlineKeyboardButton(text="Country", callback_data="country_search"),
-     InlineKeyboardButton(text="City", callback_data="city")]
+     InlineKeyboardButton(text="City", callback_data="country_of_city_search")]
+]
+
+country_search_menu = [
+    [InlineKeyboardButton(text="Russia", callback_data="Russia"),
+     InlineKeyboardButton(text="United States of America", callback_data="USA")],
+    [InlineKeyboardButton(text="China", callback_data="China"),
+     InlineKeyboardButton(text="Germany", callback_data="Germany")],
+    [InlineKeyboardButton(text="France", callback_data="France"),
+     InlineKeyboardButton(text="South Korea", callback_data="Korea")]
 ]
 
 language_menu = InlineKeyboardMarkup(resize_keyabord = True, inline_keyboard=language)
@@ -31,3 +40,4 @@ language_menu = InlineKeyboardMarkup(resize_keyabord = True, inline_keyboard=lan
 menuRu = InlineKeyboardMarkup(inline_keyboard=russian_menu)
 menuEng = InlineKeyboardMarkup(inline_keyboard=english_menu)
 destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
+country_search_menu = InlineKeyboardMarkup(inline_keyboard=country_search_menu)
