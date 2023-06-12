@@ -26,8 +26,17 @@ ru_confirm_buttons = [
      InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
+ru_gender_buttons = [
+    [InlineKeyboardButton(text="Женщина", callback_data="women"),
+     InlineKeyboardButton(text="Мужчина", callback_data="man")],
+    [InlineKeyboardButton(text="Другое", callback_data="other")]
+]
+
 language_menu = InlineKeyboardMarkup(resize_keyboard = True, inline_keyboard=language)
 
 menuRu = InlineKeyboardMarkup(inline_keyboard=russian_menu)
 menuEng = InlineKeyboardMarkup(inline_keyboard=english_menu)
 confirm_menu = InlineKeyboardMarkup(inline_keyboard=ru_confirm_buttons)
+
+
+gender_menu = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
