@@ -35,7 +35,13 @@ async def profile_search(callback: CallbackQuery):
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):
+    await callback.message.answer(text=text.destination_search_question, reply_markup=kb.destination_search_menu)
+
+
+@router.callback_query(F.data == "country_search")
+async def city_search(callback: CallbackQuery):
     pass
+
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery):

@@ -21,7 +21,13 @@ language = \
      InlineKeyboardButton(text="🇺🇸English", callback_data="eng")]
 ]
 
+destination_search_menu = [
+    [InlineKeyboardButton(text="Country", callback_data="country_search"),
+     InlineKeyboardButton(text="City", callback_data="city")]
+]
+
 language_menu = InlineKeyboardMarkup(resize_keyabord = True, inline_keyboard=language)
 
 menuRu = InlineKeyboardMarkup(inline_keyboard=russian_menu)
 menuEng = InlineKeyboardMarkup(inline_keyboard=english_menu)
+destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
