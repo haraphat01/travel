@@ -23,7 +23,7 @@ async def start_handler(msg: Message) -> None:
 
 @router.callback_query(F.data == "ru")
 async def language_confirmation_ru(callback: CallbackQuery):
-    msg_text = text.menuRu
+    msg_text = text.main_menu['menu_ru']
     menu = kb.menuRu
     update = f"Update users set lang='ru' where id={callback.from_user.id}"
     db.cursor.execute(update)
@@ -32,26 +32,29 @@ async def language_confirmation_ru(callback: CallbackQuery):
 
 @router.callback_query(F.data == "eng")
 async def language_confirmation_ru(callback: CallbackQuery):
-    msg_text = text.menuEng
+    msg_text = text.main_menu['menu_eng']
     menu = kb.menuEng
     update = f"Update users set lang='eng' where id={callback.from_user.id}"
     db.cursor.execute(update)
     db.connect.commit()
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-@router.callback_query(F.data == "language")
-async def language_selection(callback: CallbackQuery):
-    await callback.message.answer(text="Choose the language: ", reply_markup=kb.language_menu)
-
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):
-    menu = kb.confirm_menu
-    await callback.message.answer(text=text.before_questions, reply_markup=menu)
+    db.cursor.execute(f"Select * from users where id={callback.from_user.id}")
+    record = db.cursor.fetchone()
+    menu = kb.confirm_menu[f'{record[1]}']
+    msg_text = text.questions[f'{record[1]}']['before_questions']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "next")
 async def questions(callback: CallbackQuery, state: FSMContext) -> None:
+    db.cursor.execute(f"Select * from users where id={callback.from_user.id}")
+    record = db.cursor.fetchone()
+
+    msg_text = text.questions[f'{record[1]}']['age']
     await state.set_state(questions_for_profile_search.question1)
-    await callback.message.answer(text="Назовите свой возраст:")
+    await callback.message.answer(text=msg_text)
 
 class questions_for_profile_search(StatesGroup):
 
@@ -71,21 +74,26 @@ async def input_age(msg: Message, state: FSMContext) -> None:
     update = f"Update users set age={msg.text} where id={msg.chat.id}"
     db.cursor.execute(update)
     db.connect.commit()
+
+    db.cursor.execute(f"Select * from users where id={msg.chat.id}")
+    record = db.cursor.fetchone()
+
+    msg_text = text.questions[f'{record[1]}']['gender']
+    menu = kb.gender_menu[f'{record[1]}']
     await state.set_state(questions_for_profile_search.question2)
-    await msg.answer(text="Теперь выбери свой пол", reply_markup=kb.gender_menu)
+    await msg.answer(text=msg_text, reply_markup=menu)
 
 
 @router.message(questions_for_profile_search.question2)
 async def input_gender(msg: Message, state: FSMContext) -> None:
     await state.update_data(gender=msg.text)
     await state.set_state(questions_for_profile_search.question3)
-    await msg.answer(text="Теперь выбери свой пол", reply_markup=kb.gender_menu)
+    await msg.answer(text="Теперь выбери свой пол", reply_markup=kb.gender_menu_ru)
 
-@router.message(questions_for_profile_search.question3)
-async def input_gender(msg: Message, state: FSMContext) -> None:
-    await state.update_data(budget=msg.text)
-    await state.set_state(questions_for_profile_search.question4)
-    await msg.answer(text="Теперь выбери свой пол", reply_markup=kb.gender_menu)
+@router.callback_query(F.data == "language")
+async def language_selection(callback: CallbackQuery):
+    await callback.message.answer(text="Choose the language: ", reply_markup=kb.language_menu)
+
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):

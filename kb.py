@@ -21,9 +21,15 @@ language = \
      InlineKeyboardButton(text="🇺🇸English", callback_data="eng")]
 ]
 
+
 ru_confirm_buttons = [
     [InlineKeyboardButton(text="✅Давай", callback_data="next"),
      InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+eng_confirm_buttons = [
+    [InlineKeyboardButton(text="✅Let's start", callback_data="next"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
 ru_gender_buttons = [
@@ -32,7 +38,12 @@ ru_gender_buttons = [
     [InlineKeyboardButton(text="Другое", callback_data="other")]
 ]
 
-language_menu = InlineKeyboardMarkup(resize_keyboard = True, inline_keyboard=language)
+eng_gender_buttons = [
+    [InlineKeyboardButton(text="Woman", callback_data="women"),
+     InlineKeyboardButton(text="Man", callback_data="man")],
+    [InlineKeyboardButton(text="Other", callback_data="other")]
+]
+
 destination_search_menu = [
     [InlineKeyboardButton(text="Country", callback_data="country_search"),
      InlineKeyboardButton(text="City", callback_data="country_of_city_search")]
@@ -47,13 +58,26 @@ country_search_menu = [
      InlineKeyboardButton(text="South Korea", callback_data="Korea")]
 ]
 
-language_menu = InlineKeyboardMarkup(resize_keyabord = True, inline_keyboard=language)
-
+language_menu = InlineKeyboardMarkup(resize_keyboard = True, inline_keyboard=language)
 menuRu = InlineKeyboardMarkup(inline_keyboard=russian_menu)
 menuEng = InlineKeyboardMarkup(inline_keyboard=english_menu)
-confirm_menu = InlineKeyboardMarkup(inline_keyboard=ru_confirm_buttons)
+
+confirm_menu_ru = InlineKeyboardMarkup(inline_keyboard=ru_confirm_buttons)
+confirm_menu_eng = InlineKeyboardMarkup(inline_keyboard=eng_confirm_buttons)
+
+confirm_menu = {
+    'ru': confirm_menu_ru,
+    'eng': confirm_menu_eng
+}
+
 destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
 country_search_menu = InlineKeyboardMarkup(inline_keyboard=country_search_menu)
 
 
-gender_menu = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
+gender_menu_ru = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
+gender_menu_eng = InlineKeyboardMarkup(inline_keyboard=eng_gender_buttons)
+
+gender_menu = {
+    'ru': gender_menu_ru,
+    'eng': gender_menu_eng
+}
