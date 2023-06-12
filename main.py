@@ -1,4 +1,5 @@
 import asyncio
+import sqlite3
 import logging
 
 from aiogram import Bot, Dispatcher
@@ -9,8 +10,9 @@ import config
 from handlers import router
 
 
+bot = Bot(token=config.BOT_TOKEN, parse_mode=ParseMode.HTML)
 async def main():
-    bot = Bot(token=config.BOT_TOKEN, parse_mode=ParseMode.HTML)
+    # bot = Bot(token=config.BOT_TOKEN, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)

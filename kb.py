@@ -21,7 +21,13 @@ language = \
      InlineKeyboardButton(text="🇺🇸English", callback_data="eng")]
 ]
 
-language_menu = InlineKeyboardMarkup(resize_keyabord = True, inline_keyboard=language)
+ru_confirm_buttons = [
+    [InlineKeyboardButton(text="✅Давай", callback_data="next"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+language_menu = InlineKeyboardMarkup(resize_keyboard = True, inline_keyboard=language)
 
 menuRu = InlineKeyboardMarkup(inline_keyboard=russian_menu)
 menuEng = InlineKeyboardMarkup(inline_keyboard=english_menu)
+confirm_menu = InlineKeyboardMarkup(inline_keyboard=ru_confirm_buttons)
