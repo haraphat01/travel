@@ -10,6 +10,12 @@ import db
 
 router = Router()
 
+def fetch_info(id):
+    db.cursor.execute(f"Select * from users where id={id}")
+    record = db.cursor.fetchone()
+    return record
+
+
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
     user_id = [msg.chat.id]
@@ -41,50 +47,48 @@ async def language_confirmation_ru(callback: CallbackQuery):
 
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):
-    db.cursor.execute(f"Select * from users where id={callback.from_user.id}")
-    record = db.cursor.fetchone()
+    record = fetch_info(callback.from_user.id)
+
     menu = kb.confirm_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['before_questions']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "next")
 async def questions(callback: CallbackQuery, state: FSMContext) -> None:
-    db.cursor.execute(f"Select * from users where id={callback.from_user.id}")
-    record = db.cursor.fetchone()
+    record = fetch_info(callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['age']
-    await state.set_state(questions_for_profile_search.question1)
+    await state.set_state(questions_for_profile_search.age)
     await callback.message.answer(text=msg_text)
 
 class questions_for_profile_search(StatesGroup):
 
-    question1 = State()
-    question2 = State()
-    question3 = State()
-    question4 = State()
-    question5 = State()
-    question6 = State()
-    question7 = State()
-    question8 = State()
-    question9 = State()
-    question10 = State()
+    age = State()
+    gender = State()
+    budget = State()
+    citizenship = State()
+    relocation_motive = State()
+    climate = State()
+    city_size = State()
+    continent = State()
+    medicine_level = State()
+    education_level = State()
 
-@router.message(questions_for_profile_search.question1)
+@router.message(questions_for_profile_search.age)
 async def input_age(msg: Message, state: FSMContext) -> None:
     update = f"Update users set age={msg.text} where id={msg.chat.id}"
     db.cursor.execute(update)
     db.connect.commit()
 
-    db.cursor.execute(f"Select * from users where id={msg.chat.id}")
-    record = db.cursor.fetchone()
+    record = fetch_info(msg.chat.id)
 
     msg_text = text.questions[f'{record[1]}']['gender']
     menu = kb.gender_menu[f'{record[1]}']
-    await state.set_state(questions_for_profile_search.question2)
+    await state.set_state(questions_for_profile_search.gender)
     await msg.answer(text=msg_text, reply_markup=menu)
 
 
-@router.message(questions_for_profile_search.question2)
+@router.message(questions_for_profile_search.gender)
 async def input_gender(msg: Message, state: FSMContext) -> None:
     await state.update_data(gender=msg.text)
     await state.set_state(questions_for_profile_search.question3)
