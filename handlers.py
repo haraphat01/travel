@@ -15,6 +15,11 @@ def fetch_info(id):
     record = db.cursor.fetchone()
     return record
 
+def update_bd(bd_field, updated_text, id) -> None:
+    update = f"Update users set {bd_field}={updated_text} where id={id}"
+    db.cursor.execute(update)
+    db.connect.commit()
+
 
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
@@ -31,18 +36,16 @@ async def start_handler(msg: Message) -> None:
 async def language_confirmation_ru(callback: CallbackQuery):
     msg_text = text.main_menu['menu_ru']
     menu = kb.menuRu
-    update = f"Update users set lang='ru' where id={callback.from_user.id}"
-    db.cursor.execute(update)
-    db.connect.commit()
+    update_bd('lang', "'ru'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "eng")
 async def language_confirmation_ru(callback: CallbackQuery):
     msg_text = text.main_menu['menu_eng']
     menu = kb.menuEng
-    update = f"Update users set lang='eng' where id={callback.from_user.id}"
-    db.cursor.execute(update)
-    db.connect.commit()
+
+    update_bd('lang', "'eng'", callback.from_user.id)
+
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "profile_search")
