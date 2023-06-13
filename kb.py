@@ -94,9 +94,32 @@ russian_experts_menu = [
     [InlineKeyboardButton(text="Адвокат", callback_data="lawyer"),
      InlineKeyboardButton(text="Специалист по налогообложению", callback_data="tax_prof"),
     InlineKeyboardButton(text="Агент по недвижимости", callback_data="real_estate_agent")],
-     [InlineKeyboardButton(text="Приятель по переезду", callback_data="relocation_buddy")],
+     [InlineKeyboardButton(text="Помощник по переезду", callback_data="relocation_buddy")],
      [InlineKeyboardButton(text="Иммиграционный советник", callback_data="immigration_adviser")]
      ]
 
 experts_menu_eng = InlineKeyboardMarkup(inline_keyboard=english_experts_menu)
 experts_menu_ru = InlineKeyboardMarkup(inline_keyboard=russian_experts_menu)
+
+experts_menu = {
+    'ru': experts_menu_ru,
+    'eng': experts_menu_eng
+}
+
+english_experts_options = [
+    [InlineKeyboardButton(text="✅Book appointment", callback_data="book_appointment"),
+     InlineKeyboardButton(text="❌Cancel", callback_data="cancel")]
+]
+
+russian_experts_options = [
+    [InlineKeyboardButton(text="✅Запись на прием", callback_data="book_appointment"),
+     InlineKeyboardButton(text="❌Отмена", callback_data="cancel")]
+]
+
+experts_options_eng = InlineKeyboardMarkup(inline_keyboard=english_experts_options)
+experts_options_ru = InlineKeyboardMarkup(inline_keyboard=russian_experts_options)
+
+experts_options = {
+    'ru': experts_options_ru,
+    'eng': experts_options_eng
+}
