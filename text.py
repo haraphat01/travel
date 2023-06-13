@@ -23,3 +23,31 @@ questions = {
         'gender': "Input your gender",
     }
 }
+
+experts_menu = {
+    'ru': {
+        'lawyer': "Адвокат",
+        'tax_professional': "Специалист по налогообложению",
+        'real_estate_agent': "Агент по недвижимости",
+        'relocation_buddy': "Помощник по переезду",
+        'immigration_adviser': "Иммиграционный советник",
+    },
+    'eng': {
+        'lawyer': "Lawyer",
+        'tax_professional': "Tax professional",
+        'real_estate_agent': "Real estate agent",
+        'relocation_buddy': "Relocation buddy",
+        'immigration_adviser': "Immigration adviser",
+    }
+}
+
+expert_options = {
+    'ru': {
+        'book_appointment': "Записаться на прием",
+        'cancel': "Отмена",
+    },
+    'eng': {
+        'book_appointment': "Book appointment",
+        'cancel': "Cancel",
+    }
+}
