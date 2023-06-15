@@ -121,4 +121,47 @@ async def country_of_city_search(callback: CallbackQuery):
 async def visa_advisory(callback: CallbackQuery):
     pass
 
+@router.callback_query(F.data == "contact_experts")
+async def contact_experts(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.experts_menu[f'{record[1]}']
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "lawyer")
+async def lawyer(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_options[f'{record[1]}']
+    msg_text = text.experts_menu[f'{record[1]}']['lawyer']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "tax_prof")
+async def lawyer(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_options[f'{record[1]}']
+    msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "real_estate_agent")
+async def lawyer(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_options[f'{record[1]}']
+    msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "relocation_buddy")
+async def lawyer(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_options[f'{record[1]}']
+    msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "immigration_adviser")
+async def lawyer(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_options[f'{record[1]}']
+    msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
 # text.greet.format(name=msg.from_user.full_name),
