@@ -7,6 +7,7 @@ from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 import kb
 import text
 import db
+import visaAdvisory
 
 router = Router()
 
@@ -117,9 +118,32 @@ async def country_of_city_search(callback: CallbackQuery):
     await callback.message.answer(text=text.country_of_city_search_question, reply_markup=kb.country_search_menu)
 
 
+class VisaAdvisory(StatesGroup):
+    citizenship = State()
+    destination = State()
+
+
+@router.message(VisaAdvisory.citizenship)
+async def inputCitizenship(msg: Message, state: FSMContext) -> None:
+    update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
+    await state.set_state(VisaAdvisory.destination)
+    await msg.answer(text="Теперь выбери страну назначения")
+
+
+@router.message(VisaAdvisory.destination)
+async def inputDestination(msg: Message, state: FSMContext) -> None:
+    update_bd("destination", f"'{msg.text}'", msg.chat.id)
+    await msg.answer(text="Ожидайте...")
+
+
 @router.callback_query(F.data == "visa_advisory")
-async def visa_advisory(callback: CallbackQuery):
-    pass
+async def visa_advisory(callback: CallbackQuery, state: FSMContext) -> None:
+    await callback.message.answer(text="Напишите вашу страну гражданства")
+    await state.set_state(VisaAdvisory.citizenship)
+    record = fetch_info(callback.from_user.id)
+    result = visaAdvisory.visaAdvisory(record[2], record[3])
+    await callback.message.answer(result)
+
 
 @router.callback_query(F.data == "contact_experts")
 async def contact_experts(callback: CallbackQuery):
