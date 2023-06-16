@@ -14,14 +14,26 @@ main_menu = {
 
 questions = {
     'ru': {
+        'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
+        'input_country': "4. Введите страну гражданином которой вы являетесь\nВводите с заглавной буквы",
         'before_questions': "Перед тем как я отправлю тебе варианты мест куда ты можешь переехать, мне нужно задать несколько вопросов.",
-        'age': "Введите ваш возраст",
-        'gender': "Введите ваш пол",
+        'age': "1. Введите ваш возраст",
+        'gender': "2. Введите ваш пол",
+        'budget': "3. Какой у вас бюджет?",
+        'citizenship': "4. Гражданином какой страны вы являетесь?",
+        'relocation_motive': "5. В связи с чем вы хотите переехать в другую страну?",
+        'climate': "6. Выберите предпочитаемые погодные условия"
     },
     'eng': {
+        "feedback": "Please evaluate the bot's work\n✨Do you like it?",
+        'input_country': "4. Enter the country of which you are a citizen\nEnter with a capital letter",
         'before_questions': "Before I send you options for places you can move to, I need to ask a few questions.",
-        'age': "Input your age",
-        'gender': "Input your gender",
+        'age': "1. Input your age",
+        'gender': "2. Input your gender",
+        'budget': "3. What is your budget?",
+        'citizenship': "4. What country are you a citizen of?",
+        'relocation_motive': "5. Why do you want to move to another country?",
+        'climate': "6. Select your preferred weather conditions"
     }
 }
 
