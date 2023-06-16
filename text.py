@@ -6,7 +6,6 @@ country_search_question_ru = "Выберите страну"
 country_of_city_search_question = "Select country of needed city"
 country_of_city_search_question_ru = "Выберите страну нужного города"
 
-
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
     'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
@@ -36,8 +35,18 @@ questions = {
         'climate': "6. Select your preferred weather conditions"
     }
 }
+questionsVisa = {
+    'ru': {
+        'destination': "Пожалуйста, напишите страну назначения",
+        'citizenship': "Пожалуйста, напишите вашу страну гражданства",
+    },
+    'eng': {
+        'destination': "Please, write your destination country",
+        'citizenship': "Please, write your citizenship country",
+    }
+}
 
-cont_exp_quest ={
+cont_exp_quest = {
     'cont_exp_ru': "Какие услуги вас интересуют?",
     'cont_exp_eng': "What services are you interested in?"
 }
