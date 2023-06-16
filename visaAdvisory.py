@@ -4,15 +4,22 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 
 
-def visaAdvisory(citizenship: str, destination: str ):
+
+def visaAdvisory(citizenship: str, destination: str, lang: str):
     passport = citizenship.lower()
     to = destination.lower()
 
-    passport_link = f"https://visaindex.com/country/{passport}-passport-ranking/"
+    passport_link_eng = f"https://visaindex.com/country/{passport}-passport-ranking/"
+    passport_link_ru = f"https://visaindex.com/ru/страна/{passport}-рейтинг-паспорта/"
+
+    url = {
+        'ru': passport_link_ru,
+        'eng': passport_link_eng
+    }
 
     dict = {}
 
-    response = requests.get(passport_link)
+    response = requests.get(url[f'{lang}'])
     soup = BeautifulSoup(response.text, 'lxml')
 
     data = soup.find_all("div", class_="col-title text-secondary font-weight-bold display-8")
