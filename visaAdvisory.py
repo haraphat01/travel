@@ -6,8 +6,8 @@ from pprint import pprint
 
 
 def visaAdvisory(citizenship: str, destination: str, lang: str):
-    passport = citizenship.lower()
-    to = destination.lower()
+    passport = destination.lower()
+    to = citizenship.lower()
 
     passport_link_eng = f"https://visaindex.com/country/{passport}-passport-ranking/"
     passport_link_ru = f"https://visaindex.com/ru/страна/{passport}-рейтинг-паспорта/"
@@ -33,7 +33,10 @@ def visaAdvisory(citizenship: str, destination: str, lang: str):
             dict.setdefault(element, [])
             dict[element].append(country_element)
 
+
+    pprint(dict)
     for key in dict:
         for v in dict[key]:
             if v == to:
+                print(v, key)
                 return key
