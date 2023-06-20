@@ -65,14 +65,12 @@ eng_confirm_buttons = [
 
 ru_gender_buttons = [
     [InlineKeyboardButton(text="Женщина", callback_data="women"),
-     InlineKeyboardButton(text="Мужчина", callback_data="man")],
-    [InlineKeyboardButton(text="Другое", callback_data="other")]
+     InlineKeyboardButton(text="Мужчина", callback_data="man")]
 ]
 
 eng_gender_buttons = [
     [InlineKeyboardButton(text="Woman", callback_data="women"),
      InlineKeyboardButton(text="Man", callback_data="man")],
-    [InlineKeyboardButton(text="Other", callback_data="other")]
 ]
 
 destination_search_menu_buttons_eng = [
