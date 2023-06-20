@@ -46,3 +46,20 @@ experts_menu = {
         'immigration_adviser': "See options of immigration advisers by country",
     }
 }
+
+booking_menu = {
+    'ru': {
+        'expert_lawyer': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @h333llworld",
+        'expert_tax_prof': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @mihdenis85",
+        'expert_real_estate_agent': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @Draxster1",
+        'expert_relocation_buddy': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @G3nD4",
+        'expert_immigration_adviser': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @frogycat",
+    },
+    'eng': {
+        'expert_lawyer': "To make an appointment, you'll need to contact our expert: @h333llworld",
+        'expert_tax_prof': "To make an appointment, you'll need to contact our expert: @mihdenis85",
+        'expert_real_estate_agent': "To make an appointment, you'll need to contact our expert: @Draxster1",
+        'expert_relocation_buddy': "To make an appointment, you'll need to contact our expert: @G3nD4",
+        'expert_immigration_adviser': "To make an appointment, you'll need to contact our expert: @frogycat",
+    }
+}

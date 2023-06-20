@@ -137,31 +137,43 @@ async def lawyer(callback: CallbackQuery):
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "tax_prof")
-async def lawyer(callback: CallbackQuery):
+async def tax_prof(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "real_estate_agent")
-async def lawyer(callback: CallbackQuery):
+async def real_estate_agent(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "relocation_buddy")
-async def lawyer(callback: CallbackQuery):
+async def relocation_buddy(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "immigration_adviser")
-async def lawyer(callback: CallbackQuery):
+async def immigration_adviser(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+@router.callback_query(F.data == "cancel")
+async def cancel(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_menu[f'{record[1]}']
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "book_appointment")
+async def cancel(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.booking_menu[f'expert_{record[1]}']
+    await callback.message.answer(text=msg_text)
 # text.greet.format(name=msg.from_user.full_name),

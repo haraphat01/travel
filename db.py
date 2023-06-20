@@ -17,7 +17,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     city_size TEXT,
     continent TEXT,
     medicine_level TEXT,
-    educational_level TEXT
+    educational_level TEXT,
+    experts TEXT,
 )""")
 
 connect.commit()
