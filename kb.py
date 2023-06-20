@@ -269,9 +269,6 @@ destination_res = {
     'eng': dest_menu_eng
 }
 
-destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
-country_search_menu = InlineKeyboardMarkup(inline_keyboard=country_search_menu)
-
 
 gender_menu_ru = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
 gender_menu_eng = InlineKeyboardMarkup(inline_keyboard=eng_gender_buttons)
