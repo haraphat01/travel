@@ -1,10 +1,4 @@
 greet = "Hello, {name}, I am Relovista bot"
-destination_search_question = "Do you want to search city or country?"
-destination_search_question_ru = "Вы хотите выбрать город или страну?"
-country_search_question = "Select country"
-country_search_question_ru = "Выберите страну"
-country_of_city_search_question = "Select country of needed city"
-country_of_city_search_question_ru = "Выберите страну нужного города"
 
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
@@ -13,6 +7,9 @@ main_menu = {
 
 questions = {
     'ru': {
+        'destination_search_question': "Вы хотите выбрть город или страну?",
+        'country_search_question': "Выберите страну",
+        'country_of_city_search_question': "Выберите страну нужного города",
         'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
         'input_country': "4. Введите страну гражданином которой вы являетесь\nВводите с заглавной буквы",
         'before_questions': "Перед тем как я отправлю тебе варианты мест куда ты можешь переехать, мне нужно задать несколько вопросов.",
@@ -24,6 +21,9 @@ questions = {
         'climate': "6. Выберите предпочитаемые погодные условия"
     },
     'eng': {
+        'destination_search_question': "Do you want to search city or country?",
+        'country_search_question': "Select country",
+        'country_of_city_search_question': "Select country of needed city",
         "feedback": "Please evaluate the bot's work\n✨Do you like it?",
         'input_country': "4. Enter the country of which you are a citizen\nEnter with a capital letter",
         'before_questions': "Before I send you options for places you can move to, I need to ask a few questions.",

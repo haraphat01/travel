@@ -343,17 +343,29 @@ async def language_selection(callback: CallbackQuery):
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):
-    await callback.message.answer(text=text.destination_search_question, reply_markup=kb.destination_search_menu)
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.destination_menu[f'{record[1]}']
+    msg_text = text.questions[f'{record[1]}']['destination_search_question']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
 @router.callback_query(F.data == "country_search")
 async def country_search(callback: CallbackQuery):
-    await callback.message.answer(text=text.country_search_question, reply_markup=kb.country_search_menu)
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.country_menu[f'{record[1]}']
+    msg_text = text.questions[f'{record[1]}']['country_search_question']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
 @router.callback_query(F.data == "country_of_city_search")
 async def country_of_city_search(callback: CallbackQuery):
-    await callback.message.answer(text=text.country_of_city_search_question, reply_markup=kb.country_search_menu)
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.country_menu[f'{record[1]}']
+    msg_text = text.questions[f'{record[1]}']['country_search_question']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
 class VisaAdvisory(StatesGroup):
@@ -437,5 +449,3 @@ async def lawyer(callback: CallbackQuery):
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
-# text.greet.format(name=msg.from_user.full_name),

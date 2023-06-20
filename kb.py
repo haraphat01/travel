@@ -75,12 +75,26 @@ eng_gender_buttons = [
     [InlineKeyboardButton(text="Other", callback_data="other")]
 ]
 
-destination_search_menu = [
+destination_search_menu_buttons_eng = [
     [InlineKeyboardButton(text="Country", callback_data="country_search"),
      InlineKeyboardButton(text="City", callback_data="country_of_city_search")]
 ]
 
-country_search_menu = [
+destination_search_menu_buttons_ru = [
+    [InlineKeyboardButton(text="Страна", callback_data="country_search"),
+     InlineKeyboardButton(text="Город", callback_data="country_of_city_search")]
+]
+
+country_search_menu_buttons_ru = [
+    [InlineKeyboardButton(text="Россия", callback_data="Russia"),
+     InlineKeyboardButton(text="Соединённые Штаты Америки", callback_data="USA")],
+    [InlineKeyboardButton(text="Китай", callback_data="China"),
+     InlineKeyboardButton(text="Германия", callback_data="Germany")],
+    [InlineKeyboardButton(text="Франция", callback_data="France"),
+     InlineKeyboardButton(text="Южная Корея", callback_data="Korea")]
+]
+
+country_search_menu_buttons_eng = [
     [InlineKeyboardButton(text="Russia", callback_data="Russia"),
      InlineKeyboardButton(text="United States of America", callback_data="USA")],
     [InlineKeyboardButton(text="China", callback_data="China"),
@@ -204,8 +218,21 @@ confirm_menu = {
     'eng': confirm_menu_eng
 }
 
-destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
-country_search_menu = InlineKeyboardMarkup(inline_keyboard=country_search_menu)
+destination_search_menu_ru = InlineKeyboardMarkup(inline_keyboard=destination_search_menu_buttons_ru)
+destination_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_search_menu_buttons_eng)
+
+destination_menu = {
+    'ru': destination_search_menu_ru,
+    'eng': destination_search_menu_eng
+}
+
+country_search_menu_ru = InlineKeyboardMarkup(inline_keyboard=country_search_menu_buttons_ru)
+country_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=country_search_menu_buttons_eng)
+
+country_menu = {
+    'ru': country_search_menu_ru,
+    'eng': country_search_menu_eng
+}
 
 
 gender_menu_ru = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
