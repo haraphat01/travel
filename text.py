@@ -7,7 +7,7 @@ main_menu = {
 
 questions = {
     'ru': {
-        'destination_search_question': "Вы хотите выбрть город или страну?",
+        'destination_search_question': "Вы хотите выбрать город или страну?",
         'country_search_question': "Выберите страну",
         'country_of_city_search_question': "Выберите страну нужного города",
         'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
