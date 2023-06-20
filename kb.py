@@ -128,58 +128,76 @@ age_menu_ru = InlineKeyboardMarkup(inline_keyboard=age_buttons_ru)
 age_menu_eng = InlineKeyboardMarkup(inline_keyboard=age_buttons_eng)
 
 budget_buttons_eng = [
-    [InlineKeyboardButton(text="<$2K/person", callback_data="1k")],
-    [InlineKeyboardButton(text="$2K - $5K/person", callback_data="2-5k")],
-    [InlineKeyboardButton(text=">$5K/person", callback_data="5k")]
+    [InlineKeyboardButton(text="💰$500 - $1K/person", callback_data="1k")],
+    [InlineKeyboardButton(text="💰$1K - $3K/person", callback_data="1-3k")],
+    [InlineKeyboardButton(text="💰$3K - $12K/person", callback_data="3k")]
 ]
 
 budget_buttons_ru = [
-    [InlineKeyboardButton(text="<$2K/человек", callback_data="1k")],
-    [InlineKeyboardButton(text="$2K - $5K/человек", callback_data="2-5k")],
-    [InlineKeyboardButton(text=">$5K/человек", callback_data="5k")]
+    [InlineKeyboardButton(text="💰₽40K - ₽80K/человек", callback_data="1k")],
+    [InlineKeyboardButton(text="💰₽80K - ₽250K/человек", callback_data="1-3k")],
+    [InlineKeyboardButton(text="💰₽250K - ₽1000K/человек", callback_data="3k")]
 ]
 
 citizenship_buttons_ru = [
-    [InlineKeyboardButton(text="США", callback_data="usa"),
-     InlineKeyboardButton(text="Россия", callback_data="russia")],
-    [InlineKeyboardButton(text="Израиль", callback_data="israel"),
-     InlineKeyboardButton(text="Евросоюз", callback_data="eu")],
-    [InlineKeyboardButton(text="Украина", callback_data="ukraine"),
-     InlineKeyboardButton(text="Казахстан", callback_data="kazah")],
-    [InlineKeyboardButton(text="Армения", callback_data="armenia"),
-     InlineKeyboardButton(text="Грузия", callback_data="georgia")],
-    [InlineKeyboardButton(text="Другое", callback_data="other_country")]
+    [InlineKeyboardButton(text="🇺🇸США", callback_data="usa"),
+     InlineKeyboardButton(text="🇷🇺Россия", callback_data="russia")],
+    [InlineKeyboardButton(text="🇮🇱Израиль", callback_data="israel"),
+     InlineKeyboardButton(text="🇪🇺Евросоюз", callback_data="eu")],
+    [InlineKeyboardButton(text="🇺🇦Украина", callback_data="ukraine"),
+     InlineKeyboardButton(text="🇰🇿Казахстан", callback_data="kazah")],
+    [InlineKeyboardButton(text="🇦🇲Армения", callback_data="armenia"),
+     InlineKeyboardButton(text="🇬🇪Грузия", callback_data="georgia")],
+    # [InlineKeyboardButton(text="Другое", callback_data="other_country")]
 ]
 
 citizenship_buttons_eng = [
-    [InlineKeyboardButton(text="USA", callback_data="usa"),
-     InlineKeyboardButton(text="Russia", callback_data="russia")],
-    [InlineKeyboardButton(text="Israel", callback_data="israel"),
-     InlineKeyboardButton(text="EU", callback_data="eu")],
-    [InlineKeyboardButton(text="Ukraine", callback_data="ukraine"),
-     InlineKeyboardButton(text="Kazakhstan", callback_data="kazah")],
-    [InlineKeyboardButton(text="Armenia", callback_data="armenia"),
-     InlineKeyboardButton(text="Georgia", callback_data="georgia")],
-    [InlineKeyboardButton(text="Other", callback_data="other_country")]
+    [InlineKeyboardButton(text="🇺🇸USA", callback_data="usa"),
+     InlineKeyboardButton(text="🇷🇺Russia", callback_data="russia")],
+    [InlineKeyboardButton(text="🇮🇱Israel", callback_data="israel"),
+     InlineKeyboardButton(text="🇪🇺EU", callback_data="eu")],
+    [InlineKeyboardButton(text="🇺🇦Ukraine", callback_data="ukraine"),
+     InlineKeyboardButton(text="🇰🇿Kazakhstan", callback_data="kazah")],
+    [InlineKeyboardButton(text="🇦🇲Armenia", callback_data="armenia"),
+     InlineKeyboardButton(text="🇬🇪Georgia", callback_data="georgia")],
+    # [InlineKeyboardButton(text="Other", callback_data="other_country")]
 ]
 
+buttons_alone_family_ru = [
+    [InlineKeyboardButton(text="🧍‍♂️Один", callback_data="alone"),
+     InlineKeyboardButton(text="👨‍👩‍👦С семьей", callback_data="family")]
+]
+
+buttons_alone_family_eng = [
+    [InlineKeyboardButton(text="🧍‍♂️Alone", callback_data="alone"),
+     InlineKeyboardButton(text="👨‍👩‍👦With family", callback_data="family")]
+]
+
+alone_family_ru = InlineKeyboardMarkup(inline_keyboard=buttons_alone_family_ru)
+alone_family_eng = InlineKeyboardMarkup(inline_keyboard=buttons_alone_family_eng)
+
+alone_or_family = {
+    'ru': alone_family_ru,
+    'eng': alone_family_eng
+}
+
 climate_buttons_eng = [
-    [InlineKeyboardButton(text="❄️Cold", callback_data="cold"),
-     InlineKeyboardButton(text="☁️Windy", callback_data="windy")],
-    [InlineKeyboardButton(text="☀️Hot", callback_data="hot")]
+    [InlineKeyboardButton(text="Equatorial", callback_data="equatorial"),
+     InlineKeyboardButton(text="Tropical", callback_data="tropical")],
+    [InlineKeyboardButton(text="Polar", callback_data="polar")]
 ]
 
 climate_buttons_ru = [
-    [InlineKeyboardButton(text="❄️Холодно", callback_data="cold"),
-     InlineKeyboardButton(text="☁️Ветрено", callback_data="windy")],
-    [InlineKeyboardButton(text="☀️Жарко", callback_data="hot")]
+    [InlineKeyboardButton(text="Экваториальный", callback_data="equatorial"),
+     InlineKeyboardButton(text="Тропический", callback_data="tropical")],
+    [InlineKeyboardButton(text="Полярный", callback_data="polar")]
 ]
 
 motive_buttons_ru = [
     [InlineKeyboardButton(text="🤴Бизнес", callback_data="business"),
      InlineKeyboardButton(text="⛵️Путешествие", callback_data="adventure")],
     [InlineKeyboardButton(text="📈Карьера", callback_data="career"),
-     InlineKeyboardButton(text="👨‍👩‍👧Семейные обстоятельства", callback_data="family")],
+     InlineKeyboardButton(text="👨‍👩‍👧Семейные обстоятельства", callback_data="family_op")],
     [InlineKeyboardButton(text="🗣Другое", callback_data="other_motive")]
 ]
 
@@ -187,7 +205,7 @@ motive_buttons_eng = [
     [InlineKeyboardButton(text="🤴Business", callback_data="business"),
      InlineKeyboardButton(text="⛵️Adventure", callback_data="adventure")],
     [InlineKeyboardButton(text="📈Career", callback_data="career"),
-     InlineKeyboardButton(text="👨‍👩‍👧Family", callback_data="family")],
+     InlineKeyboardButton(text="👨‍👩‍👧Family", callback_data="family_op")],
     [InlineKeyboardButton(text="🗣Other", callback_data="other_motive")]
 ]
 
@@ -233,6 +251,26 @@ country_menu = {
     'ru': country_search_menu_ru,
     'eng': country_search_menu_eng
 }
+destination_buttons_ru = [
+    [InlineKeyboardButton(text="✅Да", callback_data="yes"),
+     InlineKeyboardButton(text="❌Нет", callback_data="no")]
+]
+
+destination_buttons_eng = [
+    [InlineKeyboardButton(text="✅Yes", callback_data="yes"),
+     InlineKeyboardButton(text="❌No", callback_data="no")]
+]
+
+dest_menu_ru = InlineKeyboardMarkup(inline_keyboard=destination_buttons_ru)
+dest_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_buttons_eng)
+
+destination_res = {
+    'ru': dest_menu_ru,
+    'eng': dest_menu_eng
+}
+
+destination_search_menu = InlineKeyboardMarkup(inline_keyboard=destination_search_menu)
+country_search_menu = InlineKeyboardMarkup(inline_keyboard=country_search_menu)
 
 
 gender_menu_ru = InlineKeyboardMarkup(inline_keyboard=ru_gender_buttons)
@@ -299,4 +337,86 @@ experts_options_ru = InlineKeyboardMarkup(inline_keyboard=russian_experts_option
 experts_options = {
     'ru': experts_options_ru,
     'eng': experts_options_eng
+}
+
+new_lang_buttons_ru = [
+    [InlineKeyboardButton(text="✅Да", callback_data="yes_lang"),
+     InlineKeyboardButton(text="❌Нет", callback_data="no_lang")]
+]
+
+new_lang_buttons_eng = [
+    [InlineKeyboardButton(text="✅Yes", callback_data="yes_lang"),
+     InlineKeyboardButton(text="❌No", callback_data="no_lang")]
+]
+
+lang_menu_ru = InlineKeyboardMarkup(inline_keyboard=new_lang_buttons_ru)
+lang_menu_eng = InlineKeyboardMarkup(inline_keyboard=new_lang_buttons_eng)
+
+lang_menu = {
+    'ru': lang_menu_ru,
+    'eng': lang_menu_eng
+}
+
+priorities_buttons_ru = [
+    [InlineKeyboardButton(text="🏥Здравоохранение", callback_data="health_system"),
+     InlineKeyboardButton(text="🏫Образование", callback_data="education")],
+    [InlineKeyboardButton(text="🌳Природа", callback_data="nature"),
+     InlineKeyboardButton(text="🥂Развлечения", callback_data="city_life")],
+    [InlineKeyboardButton(text="🏘️Инфраструктура", callback_data="infrastructure")]
+]
+
+priorities_buttons_eng = [
+    [InlineKeyboardButton(text="🏥Health system", callback_data="health_system"),
+     InlineKeyboardButton(text="🏫Education", callback_data="education")],
+    [InlineKeyboardButton(text="🌳Nature", callback_data="nature"),
+     InlineKeyboardButton(text="🥂City life", callback_data="city_life")],
+    [InlineKeyboardButton(text="🏘️Infrastructure", callback_data="infrastructure")]
+]
+
+priorities_menu_ru = InlineKeyboardMarkup(inline_keyboard=priorities_buttons_ru)
+priorities_menu_eng = InlineKeyboardMarkup(inline_keyboard=priorities_buttons_eng)
+
+priorities_menu = {
+    'ru': priorities_menu_ru,
+    'eng': priorities_menu_eng
+}
+
+population_buttons_ru = [
+    [InlineKeyboardButton(text="🤏Маленький(<150K человек)", callback_data="population_150k"),
+     InlineKeyboardButton(text="🏠Средний(>200K человек)", callback_data="population_200k")],
+    [InlineKeyboardButton(text="🏙Большой(>500K человек)", callback_data="population_500k")]
+]
+
+population_buttons_eng = [
+    [InlineKeyboardButton(text="🤏Small(<150K people)", callback_data="population_150k"),
+     InlineKeyboardButton(text="🏠Medium(>200K people)", callback_data="population_200k")],
+    [InlineKeyboardButton(text="🏙Big(>500K people)", callback_data="population_500k")]
+]
+
+population_menu_ru = InlineKeyboardMarkup(inline_keyboard=population_buttons_ru)
+population_menu_eng = InlineKeyboardMarkup(inline_keyboard=population_buttons_eng)
+
+population_menu = {
+    'ru': population_menu_ru,
+    'eng': population_menu_eng
+}
+
+neighbours_buttons_ru = [
+    [InlineKeyboardButton(text="🥳Дружелюбные", callback_data="spicy"),
+     InlineKeyboardButton(text="😐Нормальные", callback_data="normal")],
+    [InlineKeyboardButton(text="😶Безразлично", callback_data="indifferent")]
+]
+
+neighbours_buttons_eng = [
+    [InlineKeyboardButton(text="🥳Spicy", callback_data="spicy"),
+     InlineKeyboardButton(text="😐Warm", callback_data="normal")],
+    [InlineKeyboardButton(text="😶Cold", callback_data="indifferent")]
+]
+
+neighbours_menu_ru = InlineKeyboardMarkup(inline_keyboard=neighbours_buttons_ru)
+neighbours_menu_eng = InlineKeyboardMarkup(inline_keyboard=neighbours_buttons_eng)
+
+neighbours_menu = {
+    'ru': neighbours_menu_ru,
+    'eng': neighbours_menu_eng
 }
