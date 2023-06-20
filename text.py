@@ -5,6 +5,17 @@ main_menu = {
     'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
 }
 
+to_edit = {
+    'ru': {
+        'language_confirmation': "\n\nРусский🇷🇺",
+        'profile_search': "\n\nПоиск по параметрам"
+    },
+    'eng': {
+        'language_confirmation': "\n\nEnglish🇺🇸",
+        'profile_search': "\n\nProfile search"
+    }
+}
+
 questions = {
     'ru': {
         'destination_search_question': "Вы хотите выбрать город или страну?",
