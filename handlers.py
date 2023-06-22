@@ -315,7 +315,7 @@ async def btn_no(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['usa']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -326,7 +326,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['russia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -337,7 +337,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['israel']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -348,7 +348,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['eu']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -359,7 +359,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['ukraine']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -370,8 +370,8 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
-    text_to_edit = text.to_edit[f'{record[1]}']['kazah']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
+    text_to_edit = text.to_edit[f'{record[1]}']['kazakhstan']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Kazakhstan'", callback.from_user.id)
@@ -381,7 +381,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['armenia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -392,7 +392,7 @@ async def usa(callback: CallbackQuery) -> None:
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['destination']
+    msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['georgia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -513,7 +513,7 @@ async def cold(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['new_language']
-    text_to_edit = text.to_edit[f'{record[1]}']['cold']
+    text_to_edit = text.to_edit[f'{record[1]}']['tropical']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('climate', "'tropical'", callback.from_user.id)
@@ -541,6 +541,11 @@ async def cold(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "yes_lang")
 async def new_lang_yes(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['new_language']
+    text_to_edit = text.to_edit[f'{record[1]}']['yes_lang']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('new_language', "'yes'", callback.from_user.id)
 
     menu = kb.priorities_menu[f'{record[1]}']
@@ -551,6 +556,11 @@ async def new_lang_yes(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "no_lang")
 async def new_lang_no(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['new_language']
+    text_to_edit = text.to_edit[f'{record[1]}']['no_lang']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('new_language', "'no'", callback.from_user.id)
 
     menu = kb.priorities_menu[f'{record[1]}']
@@ -561,6 +571,11 @@ async def new_lang_no(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "health_system")
 async def health_system(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['priorities']
+    text_to_edit = text.to_edit[f'{record[1]}']['health_system']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('priority', "'health_system'", callback.from_user.id)
 
     menu = kb.population_menu[f'{record[1]}']
@@ -571,6 +586,11 @@ async def health_system(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "education")
 async def education(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['priorities']
+    text_to_edit = text.to_edit[f'{record[1]}']['education']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('priority', "'education'", callback.from_user.id)
 
     menu = kb.population_menu[f'{record[1]}']
@@ -581,6 +601,11 @@ async def education(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "nature")
 async def nature(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['priorities']
+    text_to_edit = text.to_edit[f'{record[1]}']['nature']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('priority', "'nature'", callback.from_user.id)
 
     menu = kb.population_menu[f'{record[1]}']
@@ -591,6 +616,11 @@ async def nature(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "city_life")
 async def city_life(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['priorities']
+    text_to_edit = text.to_edit[f'{record[1]}']['city_life']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('priority', "'city_life'", callback.from_user.id)
 
     menu = kb.population_menu[f'{record[1]}']
@@ -601,6 +631,11 @@ async def city_life(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "infrastructure")
 async def infrastructure(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['priorities']
+    text_to_edit = text.to_edit[f'{record[1]}']['infrastructure']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('priority', "'infrastructure'", callback.from_user.id)
 
     menu = kb.population_menu[f'{record[1]}']
@@ -611,6 +646,11 @@ async def infrastructure(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_150k")
 async def population_150k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['population']
+    text_to_edit = text.to_edit[f'{record[1]}']['population_150k']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('city_size', "'150k'", callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
@@ -621,6 +661,11 @@ async def population_150k(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_200k")
 async def population_200k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['population']
+    text_to_edit = text.to_edit[f'{record[1]}']['population_200k']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('city_size', "'200k'", callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
@@ -631,6 +676,11 @@ async def population_200k(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_500k")
 async def population_500k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['population']
+    text_to_edit = text.to_edit[f'{record[1]}']['population_500k']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     update_bd('city_size', "'500k'", callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
@@ -643,6 +693,11 @@ async def population_500k(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "cold")
 async def wait(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['neighbours']
+    text_to_edit = text.to_edit[f'{record[1]}']['spicy_normal_cold']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
 
     msg_text = text.questions[f'{record[1]}']['wait']
     await callback.message.answer(text=msg_text)
@@ -667,6 +722,18 @@ async def language_selection(callback: CallbackQuery):
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):
+    msg_text = text.main_menu['menu_eng']
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
+    text_to_edit = text.to_edit[f'{record[1]}']['destination_search']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     record = fetch_info(callback.from_user.id)
 
     menu = kb.destination_menu[f'{record[1]}']
@@ -678,6 +745,11 @@ async def destination_search(callback: CallbackQuery):
 async def country_search(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
 
+    msg_text = text.questions[f'{record[1]}']['destination_search_question']
+    text_to_edit = text.to_edit[f'{record[1]}']['country_search']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.country_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['country_search_question']
     await callback.message.answer(text=msg_text, reply_markup=menu)
@@ -686,6 +758,11 @@ async def country_search(callback: CallbackQuery):
 @router.callback_query(F.data == "country_of_city_search")
 async def country_of_city_search(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['destination_search_question']
+    text_to_edit = text.to_edit[f'{record[1]}']['country_of_city_search']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
 
     menu = kb.country_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['country_search_question']
@@ -699,8 +776,8 @@ class VisaAdvisory(StatesGroup):
 
 @router.message(VisaAdvisory.citizenship)
 async def inputCitizenship(msg: Message, state: FSMContext) -> None:
-    await state.set_state(VisaAdvisory.destination)
     record = fetch_info(msg.chat.id)
+
     update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
 
     msg_text = text.questionsVisa[f'{record[1]}']['destination']
@@ -717,6 +794,18 @@ async def inputDestination(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery, state: FSMContext) -> None:
+    msg_text = text.main_menu['menu_eng']
+    record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
+    text_to_edit = text.to_edit[f'{record[1]}']['visa_advisory']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
     await state.set_state(VisaAdvisory.citizenship)
     record = fetch_info(callback.from_user.id)
     msg_text = text.questionsVisa[f'{record[1]}']['citizenship']
@@ -734,7 +823,18 @@ async def feedback(msg: Message):
 
 @router.callback_query(F.data == "contact_experts")
 async def contact_experts(callback: CallbackQuery):
+    msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
+    text_to_edit = text.to_edit[f'{record[1]}']['contact_experts']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
 
     menu = kb.experts_menu[f'{record[1]}']
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
@@ -744,6 +844,12 @@ async def contact_experts(callback: CallbackQuery):
 @router.callback_query(F.data == "lawyer")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['lawyer']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
     await callback.message.answer(text=msg_text, reply_markup=menu)
@@ -752,6 +858,12 @@ async def lawyer(callback: CallbackQuery):
 @router.callback_query(F.data == "tax_prof")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['tax_prof']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
     await callback.message.answer(text=msg_text, reply_markup=menu)
@@ -760,6 +872,12 @@ async def lawyer(callback: CallbackQuery):
 @router.callback_query(F.data == "real_estate_agent")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['real_estate_agent']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
     await callback.message.answer(text=msg_text, reply_markup=menu)
@@ -768,6 +886,12 @@ async def lawyer(callback: CallbackQuery):
 @router.callback_query(F.data == "relocation_buddy")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['relocation_buddy']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
     await callback.message.answer(text=msg_text, reply_markup=menu)
@@ -776,6 +900,12 @@ async def lawyer(callback: CallbackQuery):
 @router.callback_query(F.data == "immigration_adviser")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['immigration_adviser']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
     await callback.message.answer(text=msg_text, reply_markup=menu)
