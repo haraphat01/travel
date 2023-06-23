@@ -1,7 +1,7 @@
 import re
 import requests
 from pprint import pprint
-
+from bs4 import BeautifulSoup
 
 
 def visaAdvisory(citizenship: str, destination: str, lang: str):
@@ -37,5 +37,4 @@ def visaAdvisory(citizenship: str, destination: str, lang: str):
     for key in dict:
         for v in dict[key]:
             if v == to:
-                print(v, key)
                 return key

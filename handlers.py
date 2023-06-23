@@ -777,10 +777,10 @@ class VisaAdvisory(StatesGroup):
 @router.message(VisaAdvisory.citizenship)
 async def inputCitizenship(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.chat.id)
-
     update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
 
     msg_text = text.questionsVisa[f'{record[1]}']['destination']
+    await state.set_state(VisaAdvisory.destination)
     await msg.answer(text=msg_text)
 
 
