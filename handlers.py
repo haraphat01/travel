@@ -43,9 +43,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
 async def language_confirmation_ru(callback: CallbackQuery):
     msg_text = text.main_menu['menu_eng']
     menu = kb.menuEng
-
     update_bd('lang', "'eng'", callback.from_user.id)
-
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "profile_search")
@@ -134,6 +132,7 @@ async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
+    update_bd('experts', "'lawyer'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "tax_prof")
@@ -141,6 +140,7 @@ async def tax_prof(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
+    update_bd('experts', "'tax_prof'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "real_estate_agent")
@@ -148,6 +148,7 @@ async def real_estate_agent(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
+    update_bd('experts', "'real_estate_agent'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "relocation_buddy")
@@ -155,6 +156,7 @@ async def relocation_buddy(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
+    update_bd('experts', "'relocation_buddy'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "immigration_adviser")
@@ -162,6 +164,7 @@ async def immigration_adviser(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
+    update_bd('experts', "'immigration_adviser'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "cancel")
@@ -171,9 +174,12 @@ async def cancel(callback: CallbackQuery):
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 @router.callback_query(F.data == "book_appointment")
-async def cancel(callback: CallbackQuery):
+async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.booking_menu[f'expert_{record[1]}']
+    msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
+
+
 # text.greet.format(name=msg.from_user.full_name),
