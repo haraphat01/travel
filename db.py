@@ -9,6 +9,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     lang TEXT,
     destination TEXT,
     citizenship TEXT,
+    age TEXT,
     gender TEXT,
     budget TEXT,
     relocation_motive TEXT,
