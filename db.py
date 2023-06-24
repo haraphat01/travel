@@ -18,6 +18,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     alone_family TEXT,
     new_language TEXT,
     priority TEXT,
+    experts TEXT,
     admin TEXT
 )""")
 

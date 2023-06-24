@@ -845,6 +845,7 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
+    update_bd('experts', "'lawyer'", callback.from_user.id);
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "tax_prof")
