@@ -783,6 +783,9 @@ async def inputDestination(msg: Message, state: FSMContext) -> None:
     update_bd("destination", f"'{msg.text}'", msg.chat.id)
     record = fetch_info(msg.from_user.id)
     result = visaAdvisory.visaAdvisory(record[2], record[3], record[1])
+    if result is None:
+        await state.set_state(VisaAdvisory.citizenship)
+        await msg.answer(text="Try again")
     await msg.answer(text=result)
 
 
