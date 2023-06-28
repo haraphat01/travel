@@ -19,7 +19,15 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     new_language TEXT,
     priority TEXT,
     experts TEXT,
-    admin TEXT
+    admin TEXT,
+    "10:00" DEFAULT FALSE,
+    "11:00" DEFAULT FALSE,
+    "12:00" DEFAULT FALSE,
+    "13:00" DEFAULT FALSE,
+    "14:00" DEFAULT FALSE,
+    "15:00" DEFAULT FALSE,
+    "16:00" DEFAULT FALSE,
+    "18:00" DEFAULT FALSE
 )""")
 
 connect.commit()

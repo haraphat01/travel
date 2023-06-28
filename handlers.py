@@ -918,5 +918,12 @@ async def book_appointment(callback: CallbackQuery):
     msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
+@router.callback_query(F.data == "10")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.schedule_dates
+    msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 # text.greet.format(name=msg.from_user.full_name),
