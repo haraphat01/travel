@@ -15,9 +15,11 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     relocation_motive TEXT,
     climate TEXT,
     city_size TEXT,
-    continent TEXT,
-    medicine_level TEXT,
-    educational_level TEXT
+    alone_family TEXT,
+    new_language TEXT,
+    priority TEXT,
+    experts TEXT,
+    admin TEXT
 )""")
 
 connect.commit()
