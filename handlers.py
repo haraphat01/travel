@@ -84,12 +84,10 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', '
 DELAY_TIME = 0.3
 router = Router()
 
-
 def fetch_info(id):
     db.cursor.execute(f"Select * from users where id={id}")
     record = db.cursor.fetchone()
     return record
-
 
 def update_bd(bd_field, updated_text, id) -> None:
     update = f"Update users set {bd_field}={updated_text} where id={id}"
@@ -107,7 +105,6 @@ async def start_handler(msg: Message) -> None:
 
     await msg.answer(text="Choose the language: ", reply_markup=kb.language_menu)
 
-
 @router.callback_query(F.data == "ru")
 async def language_confirmation_ru(callback: CallbackQuery):
     msg_text = text.main_menu['menu_ru']
@@ -123,7 +120,6 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "eng")
 async def language_confirmation_ru(callback: CallbackQuery):
     msg_text = text.main_menu['menu_eng']
@@ -138,7 +134,6 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):
@@ -160,7 +155,6 @@ async def profile_search(callback: CallbackQuery):
     menu = kb.confirm_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['before_questions']
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "next")
 async def next(callback: CallbackQuery, state: FSMContext) -> None:
@@ -839,7 +833,6 @@ async def contact_experts(callback: CallbackQuery):
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "lawyer")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -851,11 +844,11 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
+    update_bd('experts', "'lawyer'", callback.from_user.id);
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "tax_prof")
-async def lawyer(callback: CallbackQuery):
+async def tax_prof(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
@@ -865,11 +858,11 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
+    update_bd('experts', "'tax_prof'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "real_estate_agent")
-async def lawyer(callback: CallbackQuery):
+async def real_estate_agent(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
@@ -879,11 +872,11 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
+    update_bd('experts', "'real_estate_agent'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "relocation_buddy")
-async def lawyer(callback: CallbackQuery):
+async def relocation_buddy(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
@@ -893,11 +886,11 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
+    update_bd('experts', "'relocation_buddy'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "immigration_adviser")
-async def lawyer(callback: CallbackQuery):
+async def immigration_adviser(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
@@ -907,4 +900,22 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
+    update_bd('experts', "'immigration_adviser'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "cancel")
+async def cancel(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    menu = kb.experts_menu[f'{record[1]}']
+    msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+
+@router.callback_query(F.data == "book_appointment")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+# text.greet.format(name=msg.from_user.full_name),

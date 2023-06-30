@@ -1,4 +1,11 @@
 greet = "Hello, {name}, I am Relovista bot"
+destination_search_question = "Do you want to search city or country?"
+destination_search_question_ru = "Вы хотите выбрать город или страну?"
+country_search_question = "Select country"
+country_search_question_ru = "Выберите страну"
+country_of_city_search_question = "Select country of needed city"
+country_of_city_search_question_ru = "Выберите страну нужного города"
+
 
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
@@ -184,5 +191,22 @@ experts_menu = {
         'real_estate_agent': "See options of real estate agents by country",
         'relocation_buddy': "See options of relocation buddies by country",
         'immigration_adviser': "See options of immigration advisers by country",
+    }
+}
+
+booking_menu = {
+    'ru': {
+        'expert_lawyer': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @h333llworld",
+        'expert_tax_prof': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @mihdenis85",
+        'expert_real_estate_agent': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @Draxster1",
+        'expert_relocation_buddy': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @G3nD4",
+        'expert_immigration_adviser': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @frogycat",
+    },
+    'eng': {
+        'expert_lawyer': "To make an appointment, you'll need to contact our expert: @h333llworld",
+        'expert_tax_prof': "To make an appointment, you'll need to contact our expert: @mihdenis85",
+        'expert_real_estate_agent': "To make an appointment, you'll need to contact our expert: @Draxster1",
+        'expert_relocation_buddy': "To make an appointment, you'll need to contact our expert: @G3nD4",
+        'expert_immigration_adviser': "To make an appointment, you'll need to contact our expert: @frogycat",
     }
 }
