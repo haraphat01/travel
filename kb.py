@@ -449,15 +449,15 @@ experts_options = {
 }
 
 date_schedule = [
-    [InlineKeyboardButton(text="10:00", callback_data="ten"),
-     InlineKeyboardButton(text="11:00", callback_data="eleven")],
-    [InlineKeyboardButton(text="12:00", callback_data="twelve"),
-     InlineKeyboardButton(text="13:00", callback_data="thirteen")],
-    [InlineKeyboardButton(text="14:00", callback_data="fourteen")],
-    InlineKeyboardButton(text="15:00", callback_data="fifteen"),
-    [InlineKeyboardButton(text="16:00", callback_data="sixteen"),
-     InlineKeyboardButton(text="17:00", callback_data="seventeen")],
-    [InlineKeyboardButton(text="18:00", callback_data="eighteen")]
+    [InlineKeyboardButton(text="10 a.m.", callback_data="ten"),
+     InlineKeyboardButton(text="11 a.m.", callback_data="eleven")],
+    [InlineKeyboardButton(text="12 p.m.", callback_data="twelve"),
+     InlineKeyboardButton(text="1 p.m.", callback_data="thirteen")],
+    [InlineKeyboardButton(text="2 p.m.", callback_data="fourteen"),
+     InlineKeyboardButton(text="3 p.m.", callback_data="fifteen")],
+    [InlineKeyboardButton(text="4 p.m.", callback_data="sixteen"),
+     InlineKeyboardButton(text="5 p.m.", callback_data="seventeen")],
+    [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
 ]
 
 schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
