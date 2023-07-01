@@ -22,4 +22,15 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     admin TEXT
 )""")
 
+cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
+    region TEXT,
+    population TEXT,
+    city_name TEXT,
+    country TEXT,
+    description TEXT,
+    image TEXT, 
+    cost_alone TEXT,
+    cost_family TEXT
+)""")
+
 connect.commit()
