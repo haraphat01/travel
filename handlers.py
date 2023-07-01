@@ -914,8 +914,67 @@ async def cancel(callback: CallbackQuery):
 @router.callback_query(F.data == "book_appointment")
 async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+    menu = kb.schedule_dates
     msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "ten")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
+@router.callback_query(F.data == "eleven")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+@router.callback_query(F.data == "twelve")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "thirteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "fourteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "fifteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+@router.callback_query(F.data == "sixteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "seventeen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "eighteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),

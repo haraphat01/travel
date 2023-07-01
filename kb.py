@@ -447,3 +447,17 @@ experts_options = {
     'ru': experts_options_ru,
     'eng': experts_options_eng
 }
+
+date_schedule = [
+    [InlineKeyboardButton(text="10 a.m.", callback_data="ten"),
+     InlineKeyboardButton(text="11 a.m.", callback_data="eleven")],
+    [InlineKeyboardButton(text="12 p.m.", callback_data="twelve"),
+     InlineKeyboardButton(text="1 p.m.", callback_data="thirteen")],
+    [InlineKeyboardButton(text="2 p.m.", callback_data="fourteen"),
+     InlineKeyboardButton(text="3 p.m.", callback_data="fifteen")],
+    [InlineKeyboardButton(text="4 p.m.", callback_data="sixteen"),
+     InlineKeyboardButton(text="5 p.m.", callback_data="seventeen")],
+    [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
+]
+
+schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
