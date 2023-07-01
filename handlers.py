@@ -94,7 +94,6 @@ def update_bd(bd_field, updated_text, id) -> None:
     db.cursor.execute(update)
     db.connect.commit()
 
-
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
     user_id = [msg.chat.id]
@@ -491,7 +490,7 @@ async def relocation_motive(callback: CallbackQuery) -> None:
 async def cold(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['new_language']
+    msg_text = text.questions[f'{record[1]}']['climate']
     text_to_edit = text.to_edit[f'{record[1]}']['equatorical']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -506,7 +505,7 @@ async def cold(callback: CallbackQuery) -> None:
 async def cold(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['new_language']
+    msg_text = text.questions[f'{record[1]}']['climate']
     text_to_edit = text.to_edit[f'{record[1]}']['tropical']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -521,7 +520,7 @@ async def cold(callback: CallbackQuery) -> None:
 async def cold(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 
-    msg_text = text.questions[f'{record[1]}']['new_language']
+    msg_text = text.questions[f'{record[1]}']['climate']
     text_to_edit = text.to_edit[f'{record[1]}']['polar']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
