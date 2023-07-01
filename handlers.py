@@ -81,7 +81,7 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', '
              'Танзания', 'Соединённые Штаты Америки', 'Виргинские Острова', 'Буркина-Фасо', 'Уругвай', 'Узбекистан',
              'Венесуэла', 'Уоллис и Футуна', 'Самоа', 'Йемен', 'Замбия']
 
-DELAY_TIME = 0.3
+DELAY_TIME = 0.1
 router = Router()
 
 def fetch_info(id):
