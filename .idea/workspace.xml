@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="Add time slots" />
+    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="Add time slots">
+      <change beforePath="$PROJECT_DIR$/.idea/RelovistaBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RelovistaBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +99,7 @@
       <workItem from="1686841235322" duration="302000" />
       <workItem from="1686841549572" duration="634000" />
       <workItem from="1688214228183" duration="2657000" />
-      <workItem from="1688229081932" duration="343000" />
+      <workItem from="1688229081932" duration="1089000" />
     </task>
     <task id="LOCAL-00001" summary="Add experts menu">
       <created>1686680404381</created>
@@ -124,7 +129,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688229290991</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add time slots">
+      <created>1688229657637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688229657637</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add time slots">
+      <created>1688229714450</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688229714450</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +179,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add time slots" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1688223290653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1688230143951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RelovistaBot$text.coverage" NAME="text Coverage Results" MODIFIED="1686678556184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
