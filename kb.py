@@ -111,33 +111,6 @@ destination_menu = {
     'eng': destination_search_menu_eng
 }
 
-# Destination search: country search
-destination_search_country_search_menu_buttons_ru = [
-    [InlineKeyboardButton(text="Россия", callback_data="Russia"),
-     InlineKeyboardButton(text="Соединённые Штаты Америки", callback_data="USA")],
-    [InlineKeyboardButton(text="Китай", callback_data="China"),
-     InlineKeyboardButton(text="Германия", callback_data="Germany")],
-    [InlineKeyboardButton(text="Франция", callback_data="France"),
-     InlineKeyboardButton(text="Южная Корея", callback_data="Korea")]
-]
-
-destination_search_country_search_menu_buttons_eng = [
-    [InlineKeyboardButton(text="Russia", callback_data="Russia"),
-     InlineKeyboardButton(text="United States of America", callback_data="USA")],
-    [InlineKeyboardButton(text="China", callback_data="China"),
-     InlineKeyboardButton(text="Germany", callback_data="Germany")],
-    [InlineKeyboardButton(text="France", callback_data="France"),
-     InlineKeyboardButton(text="South Korea", callback_data="Korea")]
-]
-
-country_search_menu_ru = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_ru)
-country_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_eng)
-
-country_menu = {
-    'ru': country_search_menu_ru,
-    'eng': country_search_menu_eng
-}
-
 # Profile search: gender
 ru_gender_buttons = [
     [InlineKeyboardButton(text="Женщина", callback_data="women"),
@@ -182,15 +155,15 @@ age_menu = {
 
 # Profile search: budget
 budget_buttons_eng = [
-    [InlineKeyboardButton(text="💰$500 - $1K/person", callback_data="1k")],
-    [InlineKeyboardButton(text="💰$1K - $3K/person", callback_data="1-3k")],
-    [InlineKeyboardButton(text="💰$3K - $12K/person", callback_data="3k")]
+    [InlineKeyboardButton(text="💰$500 - $2K/person", callback_data="1k")],
+    [InlineKeyboardButton(text="💰$2K - $8K/person", callback_data="1-3k")],
+    [InlineKeyboardButton(text="💰$8K/person and higher", callback_data="3k")]
 ]
 
 budget_buttons_ru = [
-    [InlineKeyboardButton(text="💰₽40K - ₽80K/человек", callback_data="1k")],
-    [InlineKeyboardButton(text="💰₽80K - ₽250K/человек", callback_data="1-3k")],
-    [InlineKeyboardButton(text="💰₽250K - ₽1000K/человек", callback_data="3k")]
+    [InlineKeyboardButton(text="💰₽40K - ₽200K/человек", callback_data="1k")],
+    [InlineKeyboardButton(text="💰₽200K - ₽700K/человек", callback_data="1-3k")],
+    [InlineKeyboardButton(text="💰₽700K/человек и выше", callback_data="3k")]
 ]
 
 budget_menu_eng = InlineKeyboardMarkup(inline_keyboard=budget_buttons_eng)
@@ -391,13 +364,13 @@ priorities_menu = {
 population_buttons_ru = [
     [InlineKeyboardButton(text="🤏Маленький(<150K человек)", callback_data="population_150k"),
      InlineKeyboardButton(text="🏠Средний(>200K человек)", callback_data="population_200k")],
-    [InlineKeyboardButton(text="🏙Большой(>500K человек)", callback_data="population_500k")]
+    [InlineKeyboardButton(text="🏙Большой(>1000K человек)", callback_data="population_500k")]
 ]
 
 population_buttons_eng = [
     [InlineKeyboardButton(text="🤏Small(<150K people)", callback_data="population_150k"),
      InlineKeyboardButton(text="🏠Medium(>200K people)", callback_data="population_200k")],
-    [InlineKeyboardButton(text="🏙Big(>500K people)", callback_data="population_500k")]
+    [InlineKeyboardButton(text="🏙Big(>1000K people)", callback_data="population_500k")]
 ]
 
 population_menu_ru = InlineKeyboardMarkup(inline_keyboard=population_buttons_ru)
@@ -461,3 +434,39 @@ date_schedule = [
 ]
 
 schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
+
+
+# Next City
+ru_next_city = [
+    [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city")],
+    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+eng_next_city = [
+    [InlineKeyboardButton(text="✅Next city", callback_data="next_city")],
+    [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+]
+
+ru_city_menu = InlineKeyboardMarkup(inline_keyboard=ru_next_city)
+eng_city_menu = InlineKeyboardMarkup(inline_keyboard=eng_next_city)
+
+city_menu = {
+    'ru': ru_city_menu,
+    'eng': eng_city_menu
+}
+
+ru_main = [
+    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+eng_main = [
+    [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+]
+
+ru_main_menu = InlineKeyboardMarkup(inline_keyboard=ru_main)
+eng_main_menu = InlineKeyboardMarkup(inline_keyboard=eng_main)
+
+main_menu = {
+    'ru': ru_main_menu,
+    'eng': eng_main_menu
+}
