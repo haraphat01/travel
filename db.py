@@ -20,6 +20,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     priority TEXT,
     experts TEXT,
     admin TEXT,
+    counter INTEGER DEFAULT 0,
     "10:00" DEFAULT FALSE,
     "11:00" DEFAULT FALSE,
     "12:00" DEFAULT FALSE,
@@ -32,13 +33,13 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
     region TEXT,
-    population TEXT,
+    population INTEGER,
     city_name TEXT,
     country TEXT,
     description TEXT,
     image TEXT, 
-    cost_alone TEXT,
-    cost_family TEXT
+    cost_alone INTEGER,
+    cost_family INTEGER
 )""")
 
 connect.commit()
