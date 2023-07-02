@@ -1,0 +1,11 @@
+version: "3.11"
+
+services:
+  telegram-bot:
+    container_name: relovista-bot
+    working_dir: /RelovistaBot
+    restart: always
+    build:
+        context: .
+        dockerfile: Dockerfile
+    command: sh -c "python main.py"

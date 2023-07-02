@@ -24,9 +24,9 @@ to_edit = {
         'career': "\n\nКарьера",
         'family': '\n\nСемья',
         'other': '\n\nДругое',
-        '1k': '\n\n💰₽40K-₽80K/человек',
-        '1-3k': '\n\n💰₽80K-₽250K/человек',
-        '3k': '\n\n💰₽250K-₽1000K/человек',
+        '1k': '\n\n💰₽40K-₽200K/человек',
+        '1-3k': '\n\n💰₽200K-₽700K/человек',
+        '3k': '\n\n💰₽700K/человек и выше',
         'choose_language': '\n\nВыбрать язык',
         'alone': '\n\nОдин',
         'with_family': '\n\nС семьей',
@@ -76,9 +76,9 @@ to_edit = {
         'career': "\n\nCareer",
         'family': '\n\nFamily',
         'other': '\n\nOther',
-        '1k': '\n\n💰$500-$1K/person',
-        '1-3k': '\n\n💰$1K-$3K/person',
-        '3k': '\n\n💰$3K-$12K/person',
+        '1k': '\n\n💰$500-$2K/person',
+        '1-3k': '\n\n💰$2K-$8K/person',
+        '3k': '\n\n💰$8K/person and higher',
         'choose_language': '\n\nChoose language',
         'alone': '\n\nAlone',
         'with_family': '\n\nWith family',
@@ -196,17 +196,39 @@ experts_menu = {
 
 booking_menu = {
     'ru': {
-        'expert_lawyer': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @h333llworld",
-        'expert_tax_prof': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @mihdenis85",
-        'expert_real_estate_agent': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @Draxster1",
-        'expert_relocation_buddy': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @G3nD4",
-        'expert_immigration_adviser': "Чтобы записаться на прием, вам нужно связаться с нашим экспертом: @frogycat",
+        'expert_lawyer': "Чтобы записаться на прием, вам нужно выбрать удобное для вас время:",
+        'expert_tax_prof': "Чтобы записаться на прием, вам нужно выбрать удобное для вас время:",
+        'expert_real_estate_agent': "Чтобы записаться на прием, вам нужно выбрать удобное для вас время:",
+        'expert_relocation_buddy': "Чтобы записаться на прием, вам нужно выбрать удобное для вас время:",
+        'expert_immigration_adviser': "Чтобы записаться на прием, вам нужно выбрать удобное для вас время:",
     },
     'eng': {
-        'expert_lawyer': "To make an appointment, you'll need to contact our expert: @h333llworld",
-        'expert_tax_prof': "To make an appointment, you'll need to contact our expert: @mihdenis85",
-        'expert_real_estate_agent': "To make an appointment, you'll need to contact our expert: @Draxster1",
-        'expert_relocation_buddy': "To make an appointment, you'll need to contact our expert: @G3nD4",
-        'expert_immigration_adviser': "To make an appointment, you'll need to contact our expert: @frogycat",
+        'expert_lawyer': "To make an appointment, you need to choose a time that is convenient for you:",
+        'expert_tax_prof': "To make an appointment, you need to choose a time that is convenient for you:",
+        'expert_real_estate_agent': "To make an appointment, you need to choose a time that is convenient for you:",
+        'expert_relocation_buddy': "To make an appointment, you need to choose a time that is convenient for you:",
+        'expert_immigration_adviser': "To make an appointment, you need to choose a time that is convenient for you:",
     }
+}
+
+already_book = {
+    'ru': {
+        'expert_lawyer': "Вы успешно записаны к адвокату!",
+        'expert_tax_prof': "Вы успешно записаны к налоговому специалисту!",
+        'expert_real_estate_agent': "Вы успешно записаны к агенту по недвижимости!",
+        'expert_relocation_buddy': "Вы успешно записаны к помошнику по переезду!",
+        'expert_immigration_adviser': "Вы успешно записаны к иммиграционному советнику!",
+    },
+    'eng': {
+        'expert_lawyer': "You are successfully enrolled with an lawyer!",
+        'expert_tax_prof': "You are successfully enrolled with an tax professional!",
+        'expert_real_estate_agent': "You are successfully enrolled with an real estate agent!",
+        'expert_relocation_buddy': "You are successfully enrolled with an relocation buddy!",
+        'expert_immigration_adviser': "You are successfully enrolled with an immigration adviser!",
+    }
+}
+
+error = {
+    'ru': "К сожалению, я не нашел городов, попробуйте другие страны!",
+    'eng': "I'm sorry I didn't find any cities, try another country!"
 }

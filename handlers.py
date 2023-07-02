@@ -81,21 +81,18 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', '
              'Танзания', 'Соединённые Штаты Америки', 'Виргинские Острова', 'Буркина-Фасо', 'Уругвай', 'Узбекистан',
              'Венесуэла', 'Уоллис и Футуна', 'Самоа', 'Йемен', 'Замбия']
 
-DELAY_TIME = 0.3
+DELAY_TIME = 0.1
 router = Router()
-
 
 def fetch_info(id):
     db.cursor.execute(f"Select * from users where id={id}")
     record = db.cursor.fetchone()
     return record
 
-
 def update_bd(bd_field, updated_text, id) -> None:
     update = f"Update users set {bd_field}={updated_text} where id={id}"
     db.cursor.execute(update)
     db.connect.commit()
-
 
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
@@ -108,9 +105,9 @@ async def start_handler(msg: Message) -> None:
 
     await msg.answer(text="Choose the language: ", reply_markup=kb.language_menu)
 
-
 @router.callback_query(F.data == "ru")
 async def language_confirmation_ru(callback: CallbackQuery):
+    update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_ru']
     record = fetch_info(callback.from_user.id)
     if record[10] == "True":
@@ -124,9 +121,9 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "eng")
 async def language_confirmation_ru(callback: CallbackQuery):
+    update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
     if record[10] == "True":
@@ -139,7 +136,6 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):
@@ -161,7 +157,6 @@ async def profile_search(callback: CallbackQuery):
     menu = kb.confirm_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['before_questions']
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "next")
 async def next(callback: CallbackQuery, state: FSMContext) -> None:
@@ -216,7 +211,7 @@ async def less_2k(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     record = fetch_info(callback.from_user.id)
-    update_bd('budget', "'500-1K'", callback.from_user.id)
+    update_bd('budget', 500, callback.from_user.id)
 
     menu = kb.alone_or_family[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['alone_family']
@@ -231,7 +226,7 @@ async def from_1_to_3(callback: CallbackQuery) -> None:
     text_to_edit = text.to_edit[f'{record[1]}']['1-3k']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('budget', "'1-3K'", callback.from_user.id)
+    update_bd('budget', 2000, callback.from_user.id)
 
     menu = kb.alone_or_family[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['alone_family']
@@ -246,7 +241,7 @@ async def greater_3k(callback: CallbackQuery) -> None:
     text_to_edit = text.to_edit[f'{record[1]}']['3k']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('budget', "'3-12K'", callback.from_user.id)
+    update_bd('budget', 8000, callback.from_user.id)
 
     menu = kb.alone_or_family[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['alone_family']
@@ -311,92 +306,176 @@ async def btn_no(callback: CallbackQuery) -> None:
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
+@router.callback_query(F.data == "next_city")
+async def nextCity(callback: CallbackQuery) -> None:
+    record = fetch_info(callback.from_user.id)
+    if (record[24] == 0):
+        data = results.by_country(callback.from_user.id)
+        menu = kb.city_menu[f'{record[1]}']
+        if (data == -1):
+            data = text.error[f'{record[1]}']
+            menu = kb.main_menu[f'{record[1]}']
+        await callback.message.edit_text(text=data, reply_markup=menu)
+        update_bd('counter', record[15] + 1, callback.from_user.id)
+    else:
+        data = results.by_user_preferences(callback.from_user.id)
+        menu = kb.city_menu[f'{record[1]}']
+        if (data == -1):
+            data = text.error[f'{record[1]}']
+            menu = kb.main_menu[f'{record[1]}']
+        await callback.message.edit_text(text=data, reply_markup=menu)
+        update_bd('counter', record[15] + 1, callback.from_user.id)
+
 @router.callback_query(F.data == "usa")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['usa']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Usa'", callback.from_user.id)
+    update_bd('citizenship', f"'United States'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "russia")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['russia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Russia'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "israel")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['israel']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Israel'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "eu")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['eu']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Europe'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "ukraine")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['ukraine']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Ukraine'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "kazah")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['kazakhstan']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Kazakhstan'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "armenia")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['armenia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Armenia'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "georgia")
 async def usa(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['citizenship']
     text_to_edit = text.to_edit[f'{record[1]}']['georgia']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'Georgia'", callback.from_user.id)
+    data = results.by_country(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "other_country")
@@ -646,12 +725,13 @@ async def infrastructure(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_150k")
 async def population_150k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['population']
     text_to_edit = text.to_edit[f'{record[1]}']['population_150k']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('city_size', "'150k'", callback.from_user.id)
+    update_bd('city_size', 150000, callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['neighbours']
@@ -661,12 +741,13 @@ async def population_150k(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_200k")
 async def population_200k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['population']
     text_to_edit = text.to_edit[f'{record[1]}']['population_200k']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('city_size', "'200k'", callback.from_user.id)
+    update_bd('city_size', 1000000, callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['neighbours']
@@ -676,12 +757,13 @@ async def population_200k(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "population_500k")
 async def population_500k(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', 0, callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['population']
     text_to_edit = text.to_edit[f'{record[1]}']['population_500k']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
-    update_bd('city_size', "'500k'", callback.from_user.id)
+    update_bd('city_size', 5000000, callback.from_user.id)
 
     menu = kb.neighbours_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['neighbours']
@@ -699,8 +781,14 @@ async def wait(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
 
-    msg_text = text.questions[f'{record[1]}']['wait']
-    await callback.message.answer(text=msg_text)
+    update_bd('by_country', 1, callback.from_user.id)
+    data = results.by_user_preferences(callback.from_user.id)
+    menu = kb.city_menu[f'{record[1]}']
+    if (data == -1):
+        data = text.error[f'{record[1]}']
+        menu = kb.main_menu[f'{record[1]}']
+    await callback.message.edit_text(text=data, reply_markup=menu)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
 
 
 @router.callback_query(F.data == "language")
@@ -750,7 +838,7 @@ async def country_search(callback: CallbackQuery):
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
 
-    menu = kb.country_menu[f'{record[1]}']
+    menu = kb.citizenship_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['country_search_question']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
@@ -764,7 +852,7 @@ async def country_of_city_search(callback: CallbackQuery):
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
 
-    menu = kb.country_menu[f'{record[1]}']
+    menu = kb.citizenship_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['country_search_question']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
@@ -810,8 +898,15 @@ async def inputDestination(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery, state: FSMContext) -> None:
+    msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
     msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
     text_to_edit = text.to_edit[f'{record[1]}']['visa_advisory']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
@@ -849,7 +944,6 @@ async def contact_experts(callback: CallbackQuery):
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "lawyer")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -863,7 +957,6 @@ async def lawyer(callback: CallbackQuery):
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
     update_bd('experts', "'lawyer'", callback.from_user.id);
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "tax_prof")
 async def tax_prof(callback: CallbackQuery):
@@ -879,7 +972,6 @@ async def tax_prof(callback: CallbackQuery):
     update_bd('experts', "'tax_prof'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "real_estate_agent")
 async def real_estate_agent(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -893,7 +985,6 @@ async def real_estate_agent(callback: CallbackQuery):
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
     update_bd('experts', "'real_estate_agent'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
-
 
 @router.callback_query(F.data == "relocation_buddy")
 async def relocation_buddy(callback: CallbackQuery):
@@ -909,7 +1000,6 @@ async def relocation_buddy(callback: CallbackQuery):
     update_bd('experts', "'relocation_buddy'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "immigration_adviser")
 async def immigration_adviser(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -924,7 +1014,6 @@ async def immigration_adviser(callback: CallbackQuery):
     update_bd('experts', "'immigration_adviser'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "cancel")
 async def cancel(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -936,7 +1025,68 @@ async def cancel(callback: CallbackQuery):
 @router.callback_query(F.data == "book_appointment")
 async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
+    menu = kb.schedule_dates
     msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "ten")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
+
+@router.callback_query(F.data == "eleven")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+@router.callback_query(F.data == "twelve")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "thirteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "fourteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "fifteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+@router.callback_query(F.data == "sixteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "seventeen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
+
+@router.callback_query(F.data == "eighteen")
+async def book_appointment(callback: CallbackQuery):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await callback.message.answer(text=msg_text)
+
 
 # text.greet.format(name=msg.from_user.full_name),
