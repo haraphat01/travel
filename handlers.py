@@ -877,9 +877,25 @@ async def inputCitizenship(msg: Message, state: FSMContext) -> None:
 async def inputDestination(msg: Message, state: FSMContext) -> None:
     update_bd("destination", f"'{msg.text}'", msg.chat.id)
     record = fetch_info(msg.from_user.id)
+    result = ""
     result = visaAdvisory.visaAdvisory(record[2], record[3], record[1])
-    await msg.answer(text=result)
+    if record[1] == "eng":
+        menu = kb.menu_eng
+        menu_text = text.main_menu['menu_eng']
+        try_again = "Something wrong, enter your citizenship again or go to menu"
+        kb_back = kb.back_menu_eng
+    else:
+        menu = kb.menu_ru
+        menu_text = text.main_menu['menu_ru']
+        try_again = "Что-то не так, введите вашу страну гражданства заново, либо вернитесь в меню"
+        kb_back = kb.back_menu_ru
+    if result is None:
+        await state.set_state(VisaAdvisory.citizenship)
 
+        await msg.answer(text=try_again, reply_markup=kb_back)
+    else:
+        await msg.answer(text=result)
+        await msg.answer(text=menu_text, reply_markup=menu)
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery, state: FSMContext) -> None:
@@ -1072,5 +1088,6 @@ async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
+
 
 # text.greet.format(name=msg.from_user.full_name),
