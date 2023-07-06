@@ -344,7 +344,7 @@ async def usa(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'United States'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
+    data = results.by_country(callback.from_user.id, destination_search=True)
     menu = kb.city_menu[f'{record[1]}']
     if (data == -1):
         data = text.error[f'{record[1]}']
