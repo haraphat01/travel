@@ -227,3 +227,20 @@ already_book = {
         'expert_immigration_adviser': "You are successfully enrolled with an immigration adviser!",
     }
 }
+
+error_book = {
+    'ru': {
+        'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_tax_prof': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_real_estate_agent': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_relocation_buddy': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+    },
+    'eng': {
+        'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_tax_prof': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+    }
+}

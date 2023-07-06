@@ -448,7 +448,7 @@ experts_options = {
     'eng': experts_options_eng
 }
 
-date_schedule = [
+english_date_schedule = [
     [InlineKeyboardButton(text="10 a.m.", callback_data="ten"),
      InlineKeyboardButton(text="11 a.m.", callback_data="eleven")],
     [InlineKeyboardButton(text="12 p.m.", callback_data="twelve"),
@@ -460,4 +460,22 @@ date_schedule = [
     [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
 ]
 
-schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
+russian_date_schedule = [
+    [InlineKeyboardButton(text="10:00", callback_data="ten"),
+     InlineKeyboardButton(text="11:00.", callback_data="eleven")],
+    [InlineKeyboardButton(text="12:00", callback_data="twelve"),
+     InlineKeyboardButton(text="13:00", callback_data="thirteen")],
+    [InlineKeyboardButton(text="14:00", callback_data="fourteen"),
+     InlineKeyboardButton(text="15:00", callback_data="fifteen")],
+    [InlineKeyboardButton(text="16:00", callback_data="sixteen"),
+     InlineKeyboardButton(text="17:00", callback_data="seventeen")],
+    [InlineKeyboardButton(text="18:00", callback_data="eighteen")]
+]
+
+schedule_dates_eng = InlineKeyboardMarkup(inline_keyboard=english_date_schedule)
+schedule_dates_ru = InlineKeyboardMarkup(inline_keyboard=russian_date_schedule)
+
+date_schedule = {
+    'ru': schedule_dates_ru,
+    'eng': schedule_dates_eng
+}
