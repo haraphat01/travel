@@ -8,7 +8,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     id TEXT PRIMARY KEY UNIQUE,
     lang TEXT,
     destination TEXT,
-    citizen ship TEXT,
+    citizenship TEXT,
     age TEXT,
     gender TEXT,
     budget TEXT,
@@ -20,7 +20,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     priority TEXT,
     experts TEXT,
     admin TEXT,
-    by_country TEXT,
+    counter INTEGER DEFAULT 0,
     ten TEXT DEFAULT FALSE,
     eleven TEXT DEFAULT FALSE,
     twelve TEXT DEFAULT FALSE,
@@ -29,7 +29,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     fifteen TEXT DEFAULT FALSE,
     sixteen TEXT DEFAULT FALSE,
     seventeen TEXT DEFAULT FALSE,
-    eighteen TEXT DEFAULT FALSE
+    eighteen TEXT DEFAULT FALSE,
+    by_country INTEGER
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
