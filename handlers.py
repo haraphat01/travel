@@ -1052,7 +1052,8 @@ async def ten(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][15] == "booked":
+        print(results[i][16])
+        if results[i][16] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1070,7 +1071,7 @@ async def eleven(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][16] == "booked":
+        if results[i][17] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1088,7 +1089,7 @@ async def twelve(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][17] == "booked":
+        if results[i][18] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1106,7 +1107,7 @@ async def thirteen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][18] == "booked":
+        if results[i][19] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1124,7 +1125,7 @@ async def fourteen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][19] == "booked":
+        if results[i][20] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1142,7 +1143,7 @@ async def fifteen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][20] == "booked":
+        if results[i][21] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1160,7 +1161,7 @@ async def sixteen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][21] == "booked":
+        if results[i][22] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1178,7 +1179,7 @@ async def seventeen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][22] == "booked":
+        if results[i][23] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
@@ -1196,7 +1197,7 @@ async def eighteen(callback: CallbackQuery):
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][23] == "booked":
+        if results[i][24] == "booked":
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
