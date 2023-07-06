@@ -125,6 +125,7 @@ questions = {
         'country_search_question': "Выберите страну",
         'country_of_city_search_question': "Выберите страну нужного города",
         'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
+        'afterfeedback': "Спасибо за отзыв!",
         'input_country': "6. Введите страну гражданином которой вы являетесь\nВводите с заглавной буквы",
         'before_questions': "Перед тем как я отправлю тебе варианты мест куда ты можешь переехать, мне нужно задать несколько вопросов.",
         'gender': "1. Введите ваш пол",
@@ -145,6 +146,7 @@ questions = {
         'country_search_question': "Select country",
         'country_of_city_search_question': "Select country of needed city",
         "feedback": "Please evaluate the bot's work\n✨Do you like it?",
+        'afterfeedback': "Thanks for feedback!",
         'input_country': "6. Enter the country of which you are a citizen\nEnter with a capital letter",
         'before_questions': "Before I send you options for places you can move to, I need to ask a few questions.",
         'gender': "1. Input your gender",
@@ -232,3 +234,9 @@ error = {
     'ru': "К сожалению, я не нашел городов, попробуйте другие страны!",
     'eng': "I'm sorry I didn't find any cities, try another country!"
 }
+
+try_again = {
+    'ru': "Что-то не так, введите вашу страну гражданства заново, либо вернитесь в меню",
+    'eng': "Something wrong, enter your citizenship again or go to menu"
+}
+

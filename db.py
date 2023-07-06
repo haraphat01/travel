@@ -20,6 +20,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     priority TEXT,
     experts TEXT,
     admin TEXT,
+    by_country TEXT,
+    feedback TEXT,
     counter INTEGER DEFAULT 0,
     "10:00" DEFAULT FALSE,
     "11:00" DEFAULT FALSE,

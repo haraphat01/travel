@@ -16,7 +16,8 @@ english_menu_buttons = [
      InlineKeyboardButton(text="🔍Profile Search", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Visa Advisory", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Contact Experts", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language")]
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language"),
+     InlineKeyboardButton(text="🌟Leave feedback", callback_data="feedback")]
 ]
 
 russian_menu_buttons = [
@@ -24,7 +25,8 @@ russian_menu_buttons = [
      InlineKeyboardButton(text="🔍Поиск по параметрам", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Визовая консультация", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Связаться с экспертами", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language")]
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language"),
+     InlineKeyboardButton(text="🌟Оставить отзыв", callback_data="feedback")]
 ]
 
 menu_ru = InlineKeyboardMarkup(inline_keyboard=russian_menu_buttons)
@@ -475,9 +477,28 @@ back_eng = [
      InlineKeyboardButton(text="Return to menu", callback_data="eng")
      ]
 ]
-back_ru= [
+back_ru = [
     [InlineKeyboardButton(text="Попробовать еще раз", callback_data="visa_advisory"),
      InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
 ]
 back_menu_ru = InlineKeyboardMarkup(inline_keyboard=back_ru)
 back_menu_eng = InlineKeyboardMarkup(inline_keyboard=back_eng)
+back_menu = {
+    'ru': back_menu_ru,
+    'eng': back_menu_eng
+}
+
+visaFeedback_ru = [
+    [InlineKeyboardButton(text="Оставить отзыв", callback_data="visa_feedback"),
+        InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
+]
+visaFeedback_eng = [
+    [InlineKeyboardButton(text="Leave feedback", callback_data="visa_feedback"),
+        InlineKeyboardButton(text="Return to menu", callback_data="eng")]
+]
+visaFeedback_menu_ru = InlineKeyboardMarkup(inline_keyboard=visaFeedback_ru)
+visaFeedback_menu_eng = InlineKeyboardMarkup(inline_keyboard=visaFeedback_eng)
+visaFeedback_menu = {
+    'ru': visaFeedback_menu_ru,
+    'eng': visaFeedback_menu_eng
+}
