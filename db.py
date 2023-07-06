@@ -33,13 +33,13 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
     region TEXT,
-    population TEXT,
+    population INTEGER,
     city_name TEXT,
     country TEXT,
     description TEXT,
     image TEXT, 
-    cost_alone TEXT,
-    cost_family TEXT
+    cost_alone INTEGER,
+    cost_family INTEGER
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS lawyer(
