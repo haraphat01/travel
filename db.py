@@ -20,8 +20,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     priority TEXT,
     experts TEXT,
     admin TEXT,
-    by_country TEXT,
-    feedback TEXT,
     counter INTEGER DEFAULT 0,
     ten TEXT DEFAULT FALSE,
     eleven TEXT DEFAULT FALSE,
@@ -32,7 +30,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     sixteen TEXT DEFAULT FALSE,
     seventeen TEXT DEFAULT FALSE,
     eighteen TEXT DEFAULT FALSE,
-    by_country INTEGER
+    by_country INTEGER,
+    feedback TEXT
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
