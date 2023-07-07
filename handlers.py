@@ -317,7 +317,7 @@ async def btn_no(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "next_city")
 async def nextCity(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
-    if (record[24] == 0):
+    if (record[25] == 0):
         data = results.by_country(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
         if (data == -1):
@@ -345,7 +345,7 @@ async def usa(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     update_bd('citizenship', f"'United States'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
+    data = results.by_country(callback.from_user.id, destination_search=True)
     menu = kb.city_menu[f'{record[1]}']
     if (data == -1):
         data = text.error[f'{record[1]}']
@@ -970,7 +970,7 @@ async def lawyer(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['lawyer']
-    update_bd('experts', "'lawyer'", callback.from_user.id);
+    update_bd('experts', "'lawyer'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
@@ -1045,71 +1045,171 @@ async def cancel(callback: CallbackQuery):
 @router.callback_query(F.data == "book_appointment")
 async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    menu = kb.schedule_dates
+    menu = kb.date_schedule[record[1]]
     msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 
 @router.callback_query(F.data == "ten")
-async def book_appointment(callback: CallbackQuery):
+async def ten(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        print(results[i][16])
+        if results[i][16] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('ten', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "eleven")
-async def book_appointment(callback: CallbackQuery):
+async def eleven(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][17] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('eleven', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "twelve")
-async def book_appointment(callback: CallbackQuery):
+async def twelve(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][18] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('twelve', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "thirteen")
-async def book_appointment(callback: CallbackQuery):
+async def thirteen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][19] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('thirteen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fourteen")
-async def book_appointment(callback: CallbackQuery):
+async def fourteen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][20] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('fourteen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fifteen")
-async def book_appointment(callback: CallbackQuery):
+async def fifteen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][21] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('fifteen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "sixteen")
-async def book_appointment(callback: CallbackQuery):
+async def sixteen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][22] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('sixteen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "seventeen")
-async def book_appointment(callback: CallbackQuery):
+async def seventeen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][23] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('seventeen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "eighteen")
-async def book_appointment(callback: CallbackQuery):
+async def eighteen(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    db.cursor.execute(f"Select * from users")
+    results = db.cursor.fetchall()
+    msg_text = "0"
+    is_booked = False
+    for i in range(len(results)):
+        if results[i][24] == "booked":
+            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
+            is_booked = True
+            break
+    if not is_booked:
+        update_bd('eighteen', "'booked'", callback.from_user.id)
+        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
     await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),

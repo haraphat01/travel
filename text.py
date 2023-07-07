@@ -146,7 +146,6 @@ questions = {
         'country_search_question': "Select country",
         'country_of_city_search_question': "Select country of needed city",
         "feedback": "Please evaluate the bot's work\n✨Do you like it?",
-        'afterfeedback': "Thanks for feedback!",
         'input_country': "6. Enter the country of which you are a citizen\nEnter with a capital letter",
         'before_questions': "Before I send you options for places you can move to, I need to ask a few questions.",
         'gender': "1. Input your gender",
@@ -240,3 +239,20 @@ try_again = {
     'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
+
+error_book = {
+    'ru': {
+        'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_tax_prof': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_real_estate_agent': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_relocation_buddy': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+    },
+    'eng': {
+        'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_tax_prof': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+    }
+}

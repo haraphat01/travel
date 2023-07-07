@@ -113,6 +113,33 @@ destination_menu = {
     'eng': destination_search_menu_eng
 }
 
+# Destination search: country search
+destination_search_country_search_menu_buttons_ru = [
+    [InlineKeyboardButton(text="Россия", callback_data="Russia"),
+     InlineKeyboardButton(text="Соединённые Штаты Америки", callback_data="USA")],
+    [InlineKeyboardButton(text="Китай", callback_data="China"),
+     InlineKeyboardButton(text="Германия", callback_data="Germany")],
+    [InlineKeyboardButton(text="Франция", callback_data="France"),
+     InlineKeyboardButton(text="Южная Корея", callback_data="Korea")]
+]
+
+destination_search_country_search_menu_buttons_eng = [
+    [InlineKeyboardButton(text="Russia", callback_data="Russia"),
+     InlineKeyboardButton(text="United States of America", callback_data="USA")],
+    [InlineKeyboardButton(text="China", callback_data="China"),
+     InlineKeyboardButton(text="Germany", callback_data="Germany")],
+    [InlineKeyboardButton(text="France", callback_data="France"),
+     InlineKeyboardButton(text="South Korea", callback_data="Korea")]
+]
+
+country_search_menu_ru = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_ru)
+country_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_eng)
+
+country_menu = {
+    'ru': country_search_menu_ru,
+    'eng': country_search_menu_eng
+}
+
 # Profile search: gender
 ru_gender_buttons = [
     [InlineKeyboardButton(text="Женщина", callback_data="women"),
@@ -423,7 +450,7 @@ experts_options = {
     'eng': experts_options_eng
 }
 
-date_schedule = [
+english_date_schedule = [
     [InlineKeyboardButton(text="10 a.m.", callback_data="ten"),
      InlineKeyboardButton(text="11 a.m.", callback_data="eleven")],
     [InlineKeyboardButton(text="12 p.m.", callback_data="twelve"),
@@ -435,7 +462,25 @@ date_schedule = [
     [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
 ]
 
-schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
+russian_date_schedule = [
+    [InlineKeyboardButton(text="10:00", callback_data="ten"),
+     InlineKeyboardButton(text="11:00.", callback_data="eleven")],
+    [InlineKeyboardButton(text="12:00", callback_data="twelve"),
+     InlineKeyboardButton(text="13:00", callback_data="thirteen")],
+    [InlineKeyboardButton(text="14:00", callback_data="fourteen"),
+     InlineKeyboardButton(text="15:00", callback_data="fifteen")],
+    [InlineKeyboardButton(text="16:00", callback_data="sixteen"),
+     InlineKeyboardButton(text="17:00", callback_data="seventeen")],
+    [InlineKeyboardButton(text="18:00", callback_data="eighteen")]
+]
+
+schedule_dates_eng = InlineKeyboardMarkup(inline_keyboard=english_date_schedule)
+schedule_dates_ru = InlineKeyboardMarkup(inline_keyboard=russian_date_schedule)
+
+date_schedule = {
+    'ru': schedule_dates_ru,
+    'eng': schedule_dates_eng
+}
 
 
 # Next City

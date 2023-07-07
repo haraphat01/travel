@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="" />
+    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="Fix bug with destination search" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +51,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;visaadvisory&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -108,6 +108,7 @@
       <workItem from="1688224208309" duration="34000" />
       <workItem from="1688224306864" duration="181000" />
       <workItem from="1688289765751" duration="12656000" />
+      <workItem from="1688658370750" duration="1756000" />
     </task>
     <task id="LOCAL-00001" summary="Add experts menu">
       <created>1686680404381</created>
@@ -152,7 +153,31 @@
       <option name="project" value="LOCAL" />
       <updated>1688233782062</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix bug with indices">
+      <option name="closed" value="true" />
+      <created>1688656666088</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688656666088</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fix serious problem with indices and db">
+      <option name="closed" value="true" />
+      <created>1688659612990</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688659612990</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix bug with destination search">
+      <option name="closed" value="true" />
+      <created>1688660123282</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688660123282</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,10 +212,13 @@
     <MESSAGE value="Add time slots" />
     <MESSAGE value="Fix db" />
     <MESSAGE value="Add token for a bot to work-in-progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add token for a bot to work-in-progress" />
+    <MESSAGE value="Fix bug with indices" />
+    <MESSAGE value="Fix serious problem with indices and db" />
+    <MESSAGE value="Fix bug with destination search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with destination search" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RelovistaBot$text.coverage" NAME="text Coverage Results" MODIFIED="1686678556184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1688314352023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1688660081413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
