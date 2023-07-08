@@ -106,7 +106,6 @@ async def start_handler(msg: Message) -> None:
         db.connect.commit()
     except Exception as ex:
         print(ex)
-
     await msg.answer(text="Choose the language: ", reply_markup=kb.language_menu)
 
 
