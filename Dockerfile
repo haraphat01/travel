@@ -10,6 +10,6 @@ COPY ./requirements.txt ./
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r ./requirements.txt
 
-COPY ../../Downloads/Telegram%20Desktop ./
+COPY ./ ./
 
 RUN chmod -R 777 ./
