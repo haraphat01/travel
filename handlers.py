@@ -106,7 +106,6 @@ async def start_handler(msg: Message) -> None:
         db.connect.commit()
     except Exception as ex:
         print(ex)
-
     await msg.answer(text="Choose the language: ", reply_markup=kb.language_menu)
 
 
@@ -128,7 +127,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
 
 
 @router.callback_query(F.data == "eng")
-async def language_confirmation_ru(callback: CallbackQuery):
+async def language_confirmation_eng(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
