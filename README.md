@@ -1,17 +1,50 @@
-# Relovista_official
+<div aligh="center">
+    [![Relovista][relovista-logo]][telegram-bot-link]
+    <h3>Relovista</h3>
+</div>
 
 
 
-## Getting started
+# Relovista
+## Telegram bot
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Agenda
+* [Supported languages](#supported-languages)
+* [Demo](#demo)
+* [How to use](#how-to-use)
+* [Features](#features)
+* [Requirements](#requirements)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Relovista is a special bot created to help professionals from various fields move to other countries.
+
+## Supported languages
+1) English
+2) Russian
+
+## Demo
+[Demo video][demo-link]
+
+
+## How to use
+[Deployed version of Telegram bot][telegram-bot-link]<br>
+[Local version of Telegram bot (**local run is required**)][telegram-test-bot-link]
+
+
+## Features
+
+### Five main sections:
+* #### Destination search<br>
+Destination search is search by country/city.
+* #### Profile search<br>
+Profile search is search by parameters (user should answer 10 questions and get most suitable cities).
+* #### Contact experts<br>
+Contact experts section is needed to make an appointment with specialists
+* #### Visa advisory
+Visa advisory section is needed to know whether user need visa to move from one country to another or not.
+* #### Feedback
+Feedback section is needed to live feedback about Telegram bot.
 
 ## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
 
 ```
 cd existing_repo
@@ -20,17 +53,46 @@ git branch -M main
 git push -uf origin main
 ```
 
+## Technologies used
+* Python 3
+* Aiogram 3
+* Sqlite
+* Docker
+
+## Requirements
+* aiofiles==23.1.0
+* aiogram==3.0.0b7
+* aiogram-media-group==0.5.1
+* aiohttp==3.8.4
+* aioschedule==0.5.2
+* aiosignal==1.3.1
+* async-timeout==4.0.2
+* asyncpg==0.27.0
+* attrs==22.2.0
+* bs4==0.0.1
+* certifi==2022.12.7
+* charset-normalizer==3.1.0
+* colorama==0.4.6
+* frozenlist==1.3.3
+* idna==3.4
+* magic-filter==1.0.9
+* multidict==6.0.4
+* pydantic==1.10.7
+* regex==2023.3.23
+* requests==2.28.2
+* tiktoken==0.3.3
+* tqdm==4.65.0
+* typing_extensions==4.5.0
+* urllib3==1.26.15
+* yarl==1.8.2
+* pytest==7.4.0
+* pytest-asyncio==0.21.0
+
+
 ## Integrate with your tools
 
 - [ ] [Set up project integrations](https://gitlab.pg.innopolis.university/d.mikhailov/relovista_official/-/settings/integrations)
 
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
 ## Test and Deploy
 
@@ -43,19 +105,6 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
 ***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
 ## Badges
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
@@ -86,7 +135,17 @@ You can also document commands to lint the code or run tests. These steps help t
 Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
+MIT License is used for this project.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Project team
+Denis Mikhailov (d.mikhailov@innopolis.university) - project manager, developer<br>
+Ilya Zubkov (i.zubkov@innopolis.university) - main developer<br>
+Fariz Rakhmatov (f.rakhmatov@innopolis.university) - developer<br>
+Radmir Tukeev (r.tukeev@innopolis.university) - developer
+
+
+[relovista-logo]: README_IMG/logo.jpg
+[demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
+[telegram-bot-link]: https://t.me/RelovistaBot
+[telegram-test-bot-link]: https://t.me/RelovistaTestBot
+
