@@ -219,7 +219,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     data = await state.get_data()
     db.cursor.execute(
         "INSERT INTO countries(population, city_name, country, description, image, cost_alone, cost_family) VALUES(?, ?, ?, ?, ?, ?, ?)",
-        (data['population'], data['city'], data['country'], data['description'], data['img'], data['costAlone'], data['costFamily']))
+        (data['population'], data['city'], data['country'], data['description'], data['img'], int(data['costAlone'])//90, int(data['costFamily'])// 90))
     db.connect.commit()
 
     await msg.answer(text="✅Success")
