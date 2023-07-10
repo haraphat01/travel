@@ -18,7 +18,7 @@ def by_country(id):
         return -1
 
 def by_user_preferences(id):
-    user_data = handlers.fetch_info(id)
+    user_data = handlers.fetch_info(id) 
     db.cursor.execute(f"Select * from countries where cost_alone < {user_data[6] * 4} AND population < {user_data[9]}")
     country_data = db.cursor.fetchall()
 

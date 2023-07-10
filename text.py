@@ -232,3 +232,30 @@ error = {
     'ru': "К сожалению, я не нашел городов, попробуйте другие страны!",
     'eng': "I'm sorry I didn't find any cities, try another country!"
 }
+
+admin_panel = {
+    'ru': {
+        'welcome': "Добро пожаловать в Админ панель!\n<b>Вводить на английском</b>",
+        'add_city': {
+            'country': "Введите страну",
+            'city': "Введите город",
+            'population': "Введите количество людей проживающих в этом городе",
+            'image': "Пришлите фотографию города",
+            'description': "Описание города",
+            'cost_alone': "Введите сумму проживания в месяц для одного человека",
+            'cost_family': "Введите сумму проживания в месяц для семьи"
+        }
+    },
+    'eng': {
+        'welcome': "Welcome to Admin panel!",
+        'add_city': {
+            'country': "Input country",
+            'city': "Input city",
+            'population': "Input population of the city",
+            'image': "Send photo of the city",
+            'description': "City description",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family"
+        }
+    }
+}

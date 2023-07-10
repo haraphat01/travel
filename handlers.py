@@ -12,6 +12,7 @@ import results
 import text
 import db
 import visaAdvisory
+from admin import *
 
 countries = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla',
              'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bangladesh',
@@ -111,7 +112,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_ru']
     record = fetch_info(callback.from_user.id)
-    if record[10] == "True":
+    if record[14] == "True":
         menu = kb.admin_menu_ru
     else:
         menu = kb.menu_ru
@@ -127,7 +128,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
-    if record[10] == "True":
+    if record[14] == "True":
         menu = kb.admin_menu_eng
     else:
         menu = kb.menu_eng
@@ -137,6 +138,100 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "admin")
+async def admin(callback: CallbackQuery) -> None:
+    record = fetch_info(callback.from_user.id)
+
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    menu = kb.admin_panel[f'{record[1]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+
+class AddCity(StatesGroup):
+    country = State()
+    city = State()
+    population = State()
+    image = State()
+    description = State()
+    costAlone = State()
+    costFamily = State()
+
+@router.message(AddCity.country)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    # db.cursor.execute("INSERT INTO countries(country) VALUES(?)", msg.text)
+    # db.connect.commit()
+    await state.update_data(country=msg.text)
+
+    await state.set_state(AddCity.city)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['city']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.city)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(city=msg.text)
+
+    await state.set_state(AddCity.population)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['population']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.population)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(population=msg.text)
+
+    await state.set_state(AddCity.image)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['image']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.image)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(img=msg.photo[-1].file_id)
+
+    await state.set_state(AddCity.description)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['description']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.description)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(description=msg.text)
+
+    await state.set_state(AddCity.costAlone)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['cost_alone']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.costAlone)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(costAlone=msg.text)
+
+    await state.set_state(AddCity.costFamily)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['cost_family']
+    await msg.answer(text=msg_text)
+
+@router.message(AddCity.costFamily)
+async def add_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(costFamily=msg.text)
+    data = await state.get_data()
+    db.cursor.execute(
+        "INSERT INTO countries(population, city_name, country, description, image, cost_alone, cost_family) VALUES(?, ?, ?, ?, ?, ?, ?)",
+        (data['population'], data['city'], data['country'], data['description'], data['img'], data['costAlone'], data['costFamily']))
+    db.connect.commit()
+
+    await msg.answer(text="✅Success")
+
+@router.callback_query(F.data == "add_city")
+async def city(callback: CallbackQuery, state: FSMContext):
+    record = fetch_info(callback.from_user.id)
+    await state.set_state(AddCity.country)
+    msg_text = text.admin_panel[f'{record[1]}']['add_city']['country']
+    await callback.message.answer(text=msg_text)
+
 
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):

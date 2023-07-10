@@ -81,6 +81,24 @@ admin_menu = {
     'eng': admin_menu_eng
 }
 
+ru_admin_panel_buttons = [
+    [InlineKeyboardButton(text="Добавить город", callback_data="add_city"),
+     InlineKeyboardButton(text="Добавить эксперта", callback_data="add_expert")]
+]
+
+eng_admin_panel_buttons = [
+    [InlineKeyboardButton(text="Add new city", callback_data="add_city"),
+     InlineKeyboardButton(text="Add new expert", callback_data="add_expert")]
+]
+
+admin_panel_ru = InlineKeyboardMarkup(inline_keyboard=ru_admin_panel_buttons)
+admin_panel_eng = InlineKeyboardMarkup(inline_keyboard=eng_admin_panel_buttons)
+
+admin_panel = {
+    'ru': admin_panel_ru,
+    'eng': admin_panel_eng
+}
+
 # Feedback
 feedback_buttons = [
     [InlineKeyboardButton(text="⭐️", callback_data="1star"),
