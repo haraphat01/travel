@@ -1,43 +1,21 @@
 # Relovista
 ## Telegram bot
 
+## Agenda
+* [Supported languages](#supported-languages)
+* [Demo (video)](demo-(video))
+* [How to use](how-to-use)
+* Features
+* Requirements
+
 Relovista is a special bot created to help professionals from various fields move to other countries.
 
 ## Supported languages
 1) English
 2) Russian
 
-## Screenshots
-
-### Choosing language menu and main menu
-![img.png](README_IMG/choosing_language.png)
-
-### Destination search menu
-![img.png](README_IMG/destination_search_menu.png)
-
-![img.png](README_IMG/destination_search_results.png)
-
-### Profile search menu
-![img.png](README_IMG/profile_search.png)
-![img_1.png](README_IMG/profile_search1.png)
-![img_2.png](README_IMG/profile_search2.png)
-![img_3.png](README_IMG/profile_search3.png)
-![img_4.png](README_IMG/profile_search4.png)
-![img_5.png](README_IMG/profile_search5.png)
-![img_6.png](README_IMG/profile_search6.png)
-![img_7.png](README_IMG/profile_search7.png)
-![img_8.png](README_IMG/profile_search8.png)
-![img_9.png](README_IMG/profile_search9.png)
-![img_10.png](README_IMG/profile_search10.png)
-![img_11.png](README_IMG/profile_search11.png)
-
-### Contact experts menu
-
-### Visa advisory menu
-
-### Feedback section
-
-### Admin panel (only for users with administrator privileges)
+## Demo (video)
+https://www.youtube.com/watch?v=N_mcxFjSv-A
 
 
 ## How to use
@@ -61,9 +39,6 @@ Feedback section is needed to live feedback about Telegram bot.
 
 ## Add your files
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
 ```
 cd existing_repo
 git remote add origin https://gitlab.pg.innopolis.university/d.mikhailov/relovista_official.git
@@ -72,7 +47,34 @@ git push -uf origin main
 ```
 
 ## Requirements
-Check requirements.txt
+aiofiles==23.1.0<br>
+aiogram==3.0.0b7
+aiogram-media-group==0.5.1
+aiohttp==3.8.4
+aioschedule==0.5.2
+aiosignal==1.3.1
+async-timeout==4.0.2
+asyncpg==0.27.0
+attrs==22.2.0
+bs4==0.0.1
+certifi==2022.12.7
+charset-normalizer==3.1.0
+colorama==0.4.6
+frozenlist==1.3.3
+idna==3.4
+magic-filter==1.0.9
+multidict==6.0.4
+pydantic==1.10.7
+regex==2023.3.23
+requests==2.28.2
+tiktoken==0.3.3
+tqdm==4.65.0
+typing_extensions==4.5.0
+urllib3==1.26.15
+yarl==1.8.2
+pytest==7.4.0
+pytest-asyncio==0.21.0
+
 
 ## Integrate with your tools
 
