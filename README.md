@@ -1,12 +1,19 @@
+<div aligh="center">
+    [![Relovista][relovista-logo]][telegram-bot-link]
+    <h3>Relovista</h3>
+</div>
+
+
+
 # Relovista
 ## Telegram bot
 
 ## Agenda
 * [Supported languages](#supported-languages)
-* [Demo (video)](demo-(video))
-* [How to use](how-to-use)
-* Features
-* Requirements
+* [Demo](#demo)
+* [How to use](#how-to-use)
+* [Features](#features)
+* [Requirements](#requirements)
 
 Relovista is a special bot created to help professionals from various fields move to other countries.
 
@@ -14,13 +21,13 @@ Relovista is a special bot created to help professionals from various fields mov
 1) English
 2) Russian
 
-## Demo (video)
-https://www.youtube.com/watch?v=N_mcxFjSv-A
+## Demo
+[Demo video][demo-link]
 
 
 ## How to use
-https://t.me/RelovistaBot - deployed version of Telegram bot<br>
-https://t.me/RelovistaTestBot - local version (**local run is required**)
+[Deployed version of Telegram bot][telegram-bot-link]<br>
+[Local version of Telegram bot (**local run is required**)][telegram-test-bot-link]
 
 
 ## Features
@@ -46,34 +53,40 @@ git branch -M main
 git push -uf origin main
 ```
 
+## Technologies used
+* Python 3
+* Aiogram 3
+* Sqlite
+* Docker
+
 ## Requirements
-aiofiles==23.1.0<br>
-aiogram==3.0.0b7
-aiogram-media-group==0.5.1
-aiohttp==3.8.4
-aioschedule==0.5.2
-aiosignal==1.3.1
-async-timeout==4.0.2
-asyncpg==0.27.0
-attrs==22.2.0
-bs4==0.0.1
-certifi==2022.12.7
-charset-normalizer==3.1.0
-colorama==0.4.6
-frozenlist==1.3.3
-idna==3.4
-magic-filter==1.0.9
-multidict==6.0.4
-pydantic==1.10.7
-regex==2023.3.23
-requests==2.28.2
-tiktoken==0.3.3
-tqdm==4.65.0
-typing_extensions==4.5.0
-urllib3==1.26.15
-yarl==1.8.2
-pytest==7.4.0
-pytest-asyncio==0.21.0
+* aiofiles==23.1.0
+* aiogram==3.0.0b7
+* aiogram-media-group==0.5.1
+* aiohttp==3.8.4
+* aioschedule==0.5.2
+* aiosignal==1.3.1
+* async-timeout==4.0.2
+* asyncpg==0.27.0
+* attrs==22.2.0
+* bs4==0.0.1
+* certifi==2022.12.7
+* charset-normalizer==3.1.0
+* colorama==0.4.6
+* frozenlist==1.3.3
+* idna==3.4
+* magic-filter==1.0.9
+* multidict==6.0.4
+* pydantic==1.10.7
+* regex==2023.3.23
+* requests==2.28.2
+* tiktoken==0.3.3
+* tqdm==4.65.0
+* typing_extensions==4.5.0
+* urllib3==1.26.15
+* yarl==1.8.2
+* pytest==7.4.0
+* pytest-asyncio==0.21.0
 
 
 ## Integrate with your tools
@@ -122,7 +135,17 @@ You can also document commands to lint the code or run tests. These steps help t
 Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
+MIT License is used for this project.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Project team
+Denis Mikhailov (d.mikhailov@innopolis.university) - project manager, developer<br>
+Ilya Zubkov (i.zubkov@innopolis.university) - main developer<br>
+Fariz Rakhmatov (f.rakhmatov@innopolis.university) - developer<br>
+Radmir Tukeev (r.tukeev@innopolis.university) - developer
+
+
+[relovista-logo]: README_IMG/logo.jpg
+[demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
+[telegram-bot-link]: https://t.me/RelovistaBot
+[telegram-test-bot-link]: https://t.me/RelovistaTestBot
+
