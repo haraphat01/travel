@@ -16,7 +16,8 @@ english_menu_buttons = [
      InlineKeyboardButton(text="🔍Profile Search", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Visa Advisory", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Contact Experts", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language")]
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language"),
+     InlineKeyboardButton(text="🌟Leave feedback", callback_data="feedback")]
 ]
 
 russian_menu_buttons = [
@@ -24,7 +25,8 @@ russian_menu_buttons = [
      InlineKeyboardButton(text="🔍Поиск по параметрам", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Визовая консультация", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Связаться с экспертами", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language")]
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language"),
+     InlineKeyboardButton(text="🌟Оставить отзыв", callback_data="feedback")]
 ]
 
 menu_ru = InlineKeyboardMarkup(inline_keyboard=russian_menu_buttons)
@@ -127,6 +129,33 @@ destination_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_s
 destination_menu = {
     'ru': destination_search_menu_ru,
     'eng': destination_search_menu_eng
+}
+
+# Destination search: country search
+destination_search_country_search_menu_buttons_ru = [
+    [InlineKeyboardButton(text="Россия", callback_data="Russia"),
+     InlineKeyboardButton(text="Соединённые Штаты Америки", callback_data="USA")],
+    [InlineKeyboardButton(text="Китай", callback_data="China"),
+     InlineKeyboardButton(text="Германия", callback_data="Germany")],
+    [InlineKeyboardButton(text="Франция", callback_data="France"),
+     InlineKeyboardButton(text="Южная Корея", callback_data="Korea")]
+]
+
+destination_search_country_search_menu_buttons_eng = [
+    [InlineKeyboardButton(text="Russia", callback_data="Russia"),
+     InlineKeyboardButton(text="United States of America", callback_data="USA")],
+    [InlineKeyboardButton(text="China", callback_data="China"),
+     InlineKeyboardButton(text="Germany", callback_data="Germany")],
+    [InlineKeyboardButton(text="France", callback_data="France"),
+     InlineKeyboardButton(text="South Korea", callback_data="Korea")]
+]
+
+country_search_menu_ru = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_ru)
+country_search_menu_eng = InlineKeyboardMarkup(inline_keyboard=destination_search_country_search_menu_buttons_eng)
+
+country_menu = {
+    'ru': country_search_menu_ru,
+    'eng': country_search_menu_eng
 }
 
 # Profile search: gender
@@ -439,7 +468,7 @@ experts_options = {
     'eng': experts_options_eng
 }
 
-date_schedule = [
+english_date_schedule = [
     [InlineKeyboardButton(text="10 a.m.", callback_data="ten"),
      InlineKeyboardButton(text="11 a.m.", callback_data="eleven")],
     [InlineKeyboardButton(text="12 p.m.", callback_data="twelve"),
@@ -451,7 +480,25 @@ date_schedule = [
     [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
 ]
 
-schedule_dates = InlineKeyboardMarkup(inline_keyboard=date_schedule)
+russian_date_schedule = [
+    [InlineKeyboardButton(text="10:00", callback_data="ten"),
+     InlineKeyboardButton(text="11:00.", callback_data="eleven")],
+    [InlineKeyboardButton(text="12:00", callback_data="twelve"),
+     InlineKeyboardButton(text="13:00", callback_data="thirteen")],
+    [InlineKeyboardButton(text="14:00", callback_data="fourteen"),
+     InlineKeyboardButton(text="15:00", callback_data="fifteen")],
+    [InlineKeyboardButton(text="16:00", callback_data="sixteen"),
+     InlineKeyboardButton(text="17:00", callback_data="seventeen")],
+    [InlineKeyboardButton(text="18:00", callback_data="eighteen")]
+]
+
+schedule_dates_eng = InlineKeyboardMarkup(inline_keyboard=english_date_schedule)
+schedule_dates_ru = InlineKeyboardMarkup(inline_keyboard=russian_date_schedule)
+
+date_schedule = {
+    'ru': schedule_dates_ru,
+    'eng': schedule_dates_eng
+}
 
 
 # Next City
@@ -487,4 +534,34 @@ eng_main_menu = InlineKeyboardMarkup(inline_keyboard=eng_main)
 main_menu = {
     'ru': ru_main_menu,
     'eng': eng_main_menu
+}
+back_eng = [
+    [InlineKeyboardButton(text="Try again", callback_data="visa_advisory"),
+     InlineKeyboardButton(text="Return to menu", callback_data="eng")
+     ]
+]
+back_ru = [
+    [InlineKeyboardButton(text="Попробовать еще раз", callback_data="visa_advisory"),
+     InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
+]
+back_menu_ru = InlineKeyboardMarkup(inline_keyboard=back_ru)
+back_menu_eng = InlineKeyboardMarkup(inline_keyboard=back_eng)
+back_menu = {
+    'ru': back_menu_ru,
+    'eng': back_menu_eng
+}
+
+visaFeedback_ru = [
+    [InlineKeyboardButton(text="Оставить отзыв", callback_data="visa_feedback"),
+        InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
+]
+visaFeedback_eng = [
+    [InlineKeyboardButton(text="Leave feedback", callback_data="visa_feedback"),
+        InlineKeyboardButton(text="Return to menu", callback_data="eng")]
+]
+visaFeedback_menu_ru = InlineKeyboardMarkup(inline_keyboard=visaFeedback_ru)
+visaFeedback_menu_eng = InlineKeyboardMarkup(inline_keyboard=visaFeedback_eng)
+visaFeedback_menu = {
+    'ru': visaFeedback_menu_ru,
+    'eng': visaFeedback_menu_eng
 }

@@ -1,10 +1,16 @@
 import db
 import handlers
 
-def by_country(id):
+def by_country(id, destination_search=False):
     user_data = handlers.fetch_info(id)
     country = f"'{user_data[3]}'"
-    db.cursor.execute(f"Select * from countries where country = {country} AND cost_alone < {user_data[6] * 4}")
+    if destination_search:
+        db.cursor.execute(f"Select * from countries where country = {country}")
+    else:
+        try:
+            db.cursor.execute(f"Select * from countries where country = {country} AND cost_alone < {user_data[6] * 4}")
+        except Exception as ex:
+            db.cursor.execute(f"Select * from countries where country = {country}")
     country_data = db.cursor.fetchall()
 
     try:

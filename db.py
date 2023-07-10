@@ -21,14 +21,17 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     experts TEXT,
     admin TEXT,
     counter INTEGER DEFAULT 0,
-    "10:00" DEFAULT FALSE,
-    "11:00" DEFAULT FALSE,
-    "12:00" DEFAULT FALSE,
-    "13:00" DEFAULT FALSE,
-    "14:00" DEFAULT FALSE,
-    "15:00" DEFAULT FALSE,
-    "16:00" DEFAULT FALSE,
-    "18:00" DEFAULT FALSE
+    ten TEXT DEFAULT FALSE,
+    eleven TEXT DEFAULT FALSE,
+    twelve TEXT DEFAULT FALSE,
+    thirteen TEXT DEFAULT FALSE,
+    fourteen TEXT DEFAULT FALSE,
+    fifteen TEXT DEFAULT FALSE,
+    sixteen TEXT DEFAULT FALSE,
+    seventeen TEXT DEFAULT FALSE,
+    eighteen TEXT DEFAULT FALSE,
+    by_country INTEGER,
+    feedback TEXT
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
@@ -40,6 +43,66 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
     image TEXT, 
     cost_alone INTEGER,
     cost_family INTEGER
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS lawyer(
+    ten TEXT,
+    eleven TEXT,
+    twelve TEXT,
+    thirteen TEXT,
+    fourteen TEXT,
+    fifteen TEXT,
+    sixteen TEXT,
+    seventeen TEXT,
+    eighteen TEXT 
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS tax_prof(
+    ten TEXT,
+    eleven TEXT,
+    twelve TEXT,
+    thirteen TEXT,
+    fourteen TEXT,
+    fifteen TEXT,
+    sixteen TEXT,
+    seventeen TEXT,
+    eighteen TEXT 
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS real_estate_agent(
+    ten TEXT,
+    eleven TEXT,
+    twelve TEXT,
+    thirteen TEXT,
+    fourteen TEXT,
+    fifteen TEXT,
+    sixteen TEXT,
+    seventeen TEXT,
+    eighteen TEXT 
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS relocation_buddy(
+    ten TEXT,
+    eleven TEXT,
+    twelve TEXT,
+    thirteen TEXT,
+    fourteen TEXT,
+    fifteen TEXT,
+    sixteen TEXT,
+    seventeen TEXT,
+    eighteen TEXT 
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS immigration_adviser(
+    ten TEXT,
+    eleven TEXT,
+    twelve TEXT,
+    thirteen TEXT,
+    fourteen TEXT,
+    fifteen TEXT,
+    sixteen TEXT,
+    seventeen TEXT,
+    eighteen TEXT 
 )""")
 
 connect.commit()
