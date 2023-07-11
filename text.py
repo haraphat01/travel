@@ -256,3 +256,8 @@ error_book = {
         'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
     }
 }
+
+expert_country = {
+    'ru': "Пожалуйста введите страну, в которой вы хотите найти эксперта:",
+    'eng': "Please enter the country in which you want to find an expert:"
+}
