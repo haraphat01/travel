@@ -124,7 +124,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "eng")
-async def language_confirmation_ru(callback: CallbackQuery):
+async def language_confirmation_eng(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
