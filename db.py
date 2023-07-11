@@ -21,17 +21,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     experts TEXT,
     admin TEXT,
     counter INTEGER DEFAULT 0,
-    ten TEXT DEFAULT FALSE,
-    eleven TEXT DEFAULT FALSE,
-    twelve TEXT DEFAULT FALSE,
-    thirteen TEXT DEFAULT FALSE,
-    fourteen TEXT DEFAULT FALSE,
-    fifteen TEXT DEFAULT FALSE,
-    sixteen TEXT DEFAULT FALSE,
-    seventeen TEXT DEFAULT FALSE,
-    eighteen TEXT DEFAULT FALSE,
     by_country INTEGER,
-    feedback TEXT
+    feedback TEXT,
+    contact_experts_country TEXT
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
@@ -45,7 +37,11 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
     cost_family INTEGER
 )""")
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS lawyer(
+cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
+    name TEXT,
+    type TEXT,
+    country TEXT,
+    user_id TEXT,
     ten TEXT,
     eleven TEXT,
     twelve TEXT,
@@ -57,52 +53,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS lawyer(
     eighteen TEXT 
 )""")
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS tax_prof(
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
-)""")
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS real_estate_agent(
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
-)""")
-
-cursor.execute("""CREATE TABLE IF NOT EXISTS relocation_buddy(
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
-)""")
-
-cursor.execute("""CREATE TABLE IF NOT EXISTS immigration_adviser(
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
-)""")
 
 connect.commit()

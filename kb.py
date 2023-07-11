@@ -483,6 +483,7 @@ date_schedule = {
 }
 
 
+
 # Next City
 ru_next_city = [
     [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city")],

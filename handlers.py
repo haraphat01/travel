@@ -3,6 +3,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 import asyncio
 import aioschedule
@@ -1044,9 +1045,10 @@ async def cancel(callback: CallbackQuery):
 @router.callback_query(F.data == "book_appointment")
 async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
-    menu = kb.date_schedule[record[1]]
-    msg_text = text.booking_menu[f'{record[1]}'][f'expert_{record[13]}']
-    await callback.message.answer(text=msg_text, reply_markup=menu)
+    # menu = kb.date_schedule[record[1]]
+    msg_text = text.expert_country[f'{record[1]}']
+
+    await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "ten")
