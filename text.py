@@ -125,7 +125,6 @@ questions = {
         'country_search_question': "Выберите страну",
         'country_of_city_search_question': "Выберите страну нужного города",
         'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
-        'afterfeedback': "Спасибо за отзыв!",
         'input_country': "6. Введите страну гражданином которой вы являетесь\nВводите с заглавной буквы",
         'before_questions': "Перед тем как я отправлю тебе варианты мест куда ты можешь переехать, мне нужно задать несколько вопросов.",
         'gender': "1. Введите ваш пол",
@@ -232,6 +231,59 @@ already_book = {
 error = {
     'ru': "К сожалению, я не нашел городов, попробуйте другие страны!",
     'eng': "I'm sorry I didn't find any cities, try another country!"
+}
+
+admin_panel = {
+    'ru': {
+        'welcome': "Добро пожаловать в Админ панель!\n<b>Вводить на английском</b>",
+        'add_city': {
+            'country': "Введите страну",
+            'city': "Введите город",
+            'population': "Введите количество людей проживающих в этом городе",
+            'image': "Пришлите фотографию города",
+            'description': "Описание города",
+            'cost_alone': "Введите сумму проживания в месяц для одного человека",
+            'cost_family': "Введите сумму проживания в месяц для семьи"
+        },
+        'add_expert': {
+            'name': "Введите имя эксперта",
+            'type': "Введите тип эксперта",
+            'country': "Введите страну",
+            'tg': "Введите телеграм алиас эксперта"
+        },
+        'edit': {
+            'city_name': "Введите название города",
+            'description': "Введите новое описание",
+            'image': "Пришлите фотографию",
+            'cost_alone': "Введите сумму проживания для одного человека(в $)",
+            'cost_family': "Введите сумму проживания для семьи(в $)"
+        }
+    },
+    'eng': {
+        'welcome': "Welcome to Admin panel!",
+        'add_city': {
+            'country': "Enter country",
+            'city': "Enter city",
+            'population': "Enter population of the city",
+            'image': "Send photo of the city",
+            'description': "City description",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family"
+        },
+        'add_expert': {
+            'name': "Enter name of expert",
+            'type': "Enter type of expert",
+            'country': "Enter country",
+            'tg': "Enter telegram alias of expert"
+        },
+        'edit': {
+            'city_name': "Enter city name",
+            'description': "Enter new description",
+            'image': "Send a photo",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family",
+        }
+    }
 }
 
 try_again = {

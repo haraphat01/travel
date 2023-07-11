@@ -41,7 +41,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     name TEXT,
     type TEXT,
     country TEXT,
-    user_id TEXT,
+    expert_id TEXT,
     ten TEXT,
     eleven TEXT,
     twelve TEXT,
