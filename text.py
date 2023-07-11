@@ -6,7 +6,6 @@ country_search_question_ru = "Выберите страну"
 country_of_city_search_question = "Select country of needed city"
 country_of_city_search_question_ru = "Выберите страну нужного города"
 
-
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
     'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
@@ -239,6 +238,15 @@ try_again = {
     'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
+visaAdvisory = {
+    'ru': {
+        'Visa required': "Требуется виза",
+        'Visa on arrival': "Требуется виза по прибытию",
+        'Visa free access': "Виза не требуется",
+        'eTA': "Требуется eTA виза",
+        'Visa online': "Требуется онлайн виза",
+    }
+}
 
 error_book = {
     'ru': {
