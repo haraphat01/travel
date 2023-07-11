@@ -1,12 +1,9 @@
-<div aligh="center">
-    [![Relovista][relovista-logo]][telegram-bot-link]
-    <h3>Relovista</h3>
-</div>
-
-
-
+[![Relovista][relovista-logo]
 # Relovista
 ## Telegram bot
+
+![Pipeline badge][badge-pipeline]
+![Coverage badge][badge-coverage]
 
 ## Agenda
 * [Supported languages](#supported-languages)
@@ -145,6 +142,8 @@ Radmir Tukeev (r.tukeev@innopolis.university) - developer
 
 
 [relovista-logo]: README_IMG/logo.jpg
+[badge-pipeline]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/pipeline.svg
+[badge-coverage]: 
 [demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
 [telegram-bot-link]: https://t.me/RelovistaBot
 [telegram-test-bot-link]: https://t.me/RelovistaTestBot

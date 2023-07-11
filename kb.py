@@ -1,6 +1,43 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, \
     ReplyKeyboardRemove
 
+edit_button_ru = [
+    [InlineKeyboardButton(text="✍️Редактировать", callback_data="start_edit"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+edit_button_eng = [
+    [InlineKeyboardButton(text="✍️Edit", callback_data="start_edit"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+]
+
+edit_menu_ru = InlineKeyboardMarkup(inline_keyboard=edit_button_ru)
+edit_menu_eng = InlineKeyboardMarkup(inline_keyboard=edit_button_eng)
+
+edit_menu = {
+    'ru': edit_menu_ru,
+    'eng': edit_menu_eng
+}
+
+confirm_edit_button_ru = [
+    [InlineKeyboardButton(text="✅Подтвердить", callback_data="confirm_edit"),
+     InlineKeyboardButton(text="❌Отмена", callback_data="admin")]
+]
+
+confirm_edit_button_eng = [
+    [InlineKeyboardButton(text="✅Confirm", callback_data="confirm_edit"),
+     InlineKeyboardButton(text="❌Cancel", callback_data="admin")]
+]
+
+confirm_edit_menu_ru = InlineKeyboardMarkup(inline_keyboard=confirm_edit_button_ru)
+confirm_edit_menu_eng = InlineKeyboardMarkup(inline_keyboard=confirm_edit_button_eng)
+
+confirm_edit_menu = {
+    'ru': confirm_edit_menu_ru,
+    'eng': confirm_edit_menu_eng
+}
+
+
 # Language selection
 language_buttons = \
     [
@@ -62,7 +99,8 @@ eng_menu_admin_buttons = [
      InlineKeyboardButton(text="🔍Profile Search", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Visa Advisory", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Contact Experts", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language")],
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language"),
+     InlineKeyboardButton(text="🌟Leave feedback", callback_data="feedback")],
     [InlineKeyboardButton(text="⚙️Admin", callback_data="admin")]
 ]
 
@@ -71,7 +109,8 @@ ru_menu_admin_buttons = [
      InlineKeyboardButton(text="🔍Поиск по параметрам", callback_data="profile_search")],
     [InlineKeyboardButton(text="🗺Визовая консультация", callback_data="visa_advisory"),
      InlineKeyboardButton(text="👨🏻‍🔬Связаться с экспертами", callback_data="contact_experts")],
-    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language")],
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language"),
+     InlineKeyboardButton(text="🌟Оставить отзыв", callback_data="feedback")],
     [InlineKeyboardButton(text="⚙️Админ", callback_data="admin")]
 ]
 
@@ -84,13 +123,15 @@ admin_menu = {
 }
 
 ru_admin_panel_buttons = [
-    [InlineKeyboardButton(text="Добавить город", callback_data="add_city"),
-     InlineKeyboardButton(text="Добавить эксперта", callback_data="add_expert")]
+    [InlineKeyboardButton(text="🆕Добавить город", callback_data="add_city"),
+     InlineKeyboardButton(text="🆕Добавить эксперта", callback_data="add_expert")],
+    [InlineKeyboardButton(text="✍️Отредактировать описание города", callback_data="edit_description")]
 ]
 
 eng_admin_panel_buttons = [
-    [InlineKeyboardButton(text="Add new city", callback_data="add_city"),
-     InlineKeyboardButton(text="Add new expert", callback_data="add_expert")]
+    [InlineKeyboardButton(text="🆕Add new city", callback_data="add_city"),
+     InlineKeyboardButton(text="🆕Add new expert", callback_data="add_expert")],
+    [InlineKeyboardButton(text="✍️Edit description", callback_data="edit_description")]
 ]
 
 admin_panel_ru = InlineKeyboardMarkup(inline_keyboard=ru_admin_panel_buttons)
@@ -499,6 +540,7 @@ date_schedule = {
     'ru': schedule_dates_ru,
     'eng': schedule_dates_eng
 }
+
 
 
 # Next City

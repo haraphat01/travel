@@ -244,18 +244,44 @@ admin_panel = {
             'description': "Описание города",
             'cost_alone': "Введите сумму проживания в месяц для одного человека",
             'cost_family': "Введите сумму проживания в месяц для семьи"
+        },
+        'add_expert': {
+            'name': "Введите имя эксперта",
+            'type': "Введите тип эксперта",
+            'country': "Введите страну",
+            'tg': "Введите телеграм алиас эксперта"
+        },
+        'edit': {
+            'city_name': "Введите название города",
+            'description': "Введите новое описание",
+            'image': "Пришлите фотографию",
+            'cost_alone': "Введите сумму проживания для одного человека(в $)",
+            'cost_family': "Введите сумму проживания для семьи(в $)"
         }
     },
     'eng': {
         'welcome': "Welcome to Admin panel!",
         'add_city': {
-            'country': "Input country",
-            'city': "Input city",
-            'population': "Input population of the city",
+            'country': "Enter country",
+            'city': "Enter city",
+            'population': "Enter population of the city",
             'image': "Send photo of the city",
             'description': "City description",
             'cost_alone': "Enter the amount of accommodation per month for one person",
             'cost_family': "Enter the amount of accommodation per month for a family"
+        },
+        'add_expert': {
+            'name': "Enter name of expert",
+            'type': "Enter type of expert",
+            'country': "Enter country",
+            'tg': "Enter telegram alias of expert"
+        },
+        'edit': {
+            'city_name': "Enter city name",
+            'description': "Enter new description",
+            'image': "Send a photo",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family",
         }
     }
 }
@@ -281,4 +307,9 @@ error_book = {
         'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
         'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
     }
+}
+
+expert_country = {
+    'ru': "Пожалуйста введите страну, в которой вы хотите найти эксперта:",
+    'eng': "Please enter the country in which you want to find an expert:"
 }
