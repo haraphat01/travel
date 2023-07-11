@@ -543,7 +543,7 @@ async def btn_no(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "next_city")
 async def nextCity(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
-    if (record[24] == 0):
+    if (record[16] == 0):
         data = results.by_country(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
         if (data == -1):
