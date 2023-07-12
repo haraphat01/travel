@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="Update README.md">
+    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="Add booking option">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
@@ -198,7 +198,7 @@
       <workItem from="1689179453956" duration="1924000" />
       <workItem from="1689184713351" duration="958000" />
       <workItem from="1689188737432" duration="303000" />
-      <workItem from="1689189363782" duration="313000" />
+      <workItem from="1689189363782" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="Add experts menu">
       <created>1686680404381</created>
@@ -355,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689180775506</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add booking option">
+      <created>1689189708836</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689189708836</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,10 +408,11 @@
     <MESSAGE value="Add third version of README.md" />
     <MESSAGE value="Fix problem with db and destination search" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Add booking option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add booking option" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1689189507525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1689190883443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RelovistaBot$.coverage" NAME=" Coverage Results" MODIFIED="1688923064634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RelovistaBot$test.coverage" NAME="test Coverage Results" MODIFIED="1688921067809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RelovistaBot$text.coverage" NAME="text Coverage Results" MODIFIED="1686678556184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

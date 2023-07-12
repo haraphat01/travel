@@ -1319,8 +1319,7 @@ async def cancel(callback: CallbackQuery):
 
 
 @router.callback_query(F.data == "book_appointment")
-async def book_appointment_callback(callback: CallbackQuery, state: FSMContext) -> None:
-    await state.set_state(ContactExperts.country)
+async def book_appointment(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
     menu = kb.date_schedule[record[1]]
     msg_text = text.expert_country[f'{record[1]}']['time']
@@ -1360,25 +1359,7 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
                                   f"<b>Alias: </b>{expert[3]}")
     except Exception as ex:
         await msg.answer(text="Sorry, no available experts😢")
-    msg_text = text.expert_country[f'{record[1]}']
-    menu = kb.date_schedule[record[1]]
-    await msg.answer(text=msg_text, reply_markup=menu)
 
-@router.message(ContactExperts.country)
-async def book_appointment(msg: Message, state: FSMContext) -> None:
-    record = fetch_info(msg.chat.id)
-    # update_experts_bd('country', f"'{msg.text}'", msg.from_user.id)
-    country = f"'{msg.text}'"
-    data = await state.get_data()
-    flag = True
-    db.cursor.execute(f"Select * from experts where country={country} AND {data['time']}='NULL'")
-    info = db.cursor.fetchall()
-    try:
-        for expert in info:
-            # print(expert[1])
-            await msg.answer(text=f"<b>Name: </b> {expert[0]}\n<b>Country: </b>{expert[2]}\n<b>Expert type: </b> {expert[1]}")
-    except Exception as ex:
-        print("No experts from this country")
     if flag:
         await state.set_state(ContactExperts.expertName)
         msg_text = text.expert_country[f'{record[1]}']['name']
