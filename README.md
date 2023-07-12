@@ -1,9 +1,10 @@
-[![Relovista][relovista-logo]
+![Relovista][relovista-logo]
 # Relovista
 ## Telegram bot
 
 ![Pipeline badge][badge-pipeline]
 ![Coverage badge][badge-coverage]
+![Release badge][badge-release]
 
 ## Agenda
 * [Supported languages](#supported-languages)
@@ -23,6 +24,8 @@ Relovista is a special bot created to help professionals from various fields mov
 
 
 ## How to use
+Choose first option to run Telegram bot from everywhere<br>
+Choose second option to test Telegram bot (tokens are in file config.py, you need to replace token in main.py<br>
 [Deployed version of Telegram bot][telegram-bot-link]<br>
 [Local version of Telegram bot (**local run is required**)][telegram-test-bot-link]
 
@@ -41,13 +44,23 @@ Visa advisory section is needed to know whether user need visa to move from one 
 * #### Feedback
 Feedback section is needed to live feedback about Telegram bot.
 
-## Add your files
+### Section only for administrator<br>
+Admin panel - it can:
+* Add city
+* Edit information about city
+* Add expert
+* Edit information about expert
 
+## Project installation
+1. Install Python 3
+2. Clone the repo (use default cloning)
+3. Install all requirements from the file requirements.txt
+4. Choose the token in main.py (BOT_TOKEN - token of deployed version, BOT_TEST_TOKEN - token of version for testing)
+5. Run main.py
+
+To run using docker:
 ```
-cd existing_repo
-git remote add origin https://gitlab.pg.innopolis.university/d.mikhailov/relovista_official.git
-git branch -M main
-git push -uf origin main
+docker compose up -d
 ```
 
 ## Technologies used
@@ -143,7 +156,8 @@ Radmir Tukeev (r.tukeev@innopolis.university) - developer
 
 [relovista-logo]: README_IMG/logo.jpg
 [badge-pipeline]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/pipeline.svg
-[badge-coverage]: 
+[badge-coverage]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/coverage.svg
+[badge-release]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/-/badges/release.svg
 [demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
 [telegram-bot-link]: https://t.me/RelovistaBot
 [telegram-test-bot-link]: https://t.me/RelovistaTestBot
