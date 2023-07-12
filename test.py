@@ -23,7 +23,7 @@ async def test_start_handler():
 
 @pytest.mark.asyncio
 async def test_ru():
-    assert handlers.language_confirmation_ru("Choose the language: ")
+    assert handlers.language_confirmation_eng("Choose the language: ")
 
 
 @pytest.mark.asyncio
