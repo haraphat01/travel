@@ -112,8 +112,10 @@ async def language_confirmation_ru(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_ru']
     record = fetch_info(callback.from_user.id)
-    if record[14] == "True":
+    if record[14] == "admin":
         menu = kb.admin_menu_ru
+    elif record[14] == "expert":
+        menu = kb.menu_for_experts_ru
     else:
         menu = kb.menu_ru
     update_bd('lang', "'ru'", callback.from_user.id)
@@ -128,8 +130,10 @@ async def language_confirmation_eng(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
-    if record[14] == "True":
+    if record[14] == "admin":
         menu = kb.admin_menu_eng
+    elif record[14] == "expert":
+        menu = kb.menu_for_experts_eng
     else:
         menu = kb.menu_eng
     update_bd('lang', "'eng'", callback.from_user.id)
@@ -137,6 +141,39 @@ async def language_confirmation_eng(callback: CallbackQuery):
     text_to_edit = text.to_edit['eng']['language_confirmation']
     await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.callback_query(F.data == "check_appointments")
+async def check(callback: CallbackQuery) -> None:
+    record = fetch_info(callback.from_user.id)
+    expert_id = f"'@{callback.from_user.username}'"
+    db.cursor.execute(f"Select * from experts where expert_id={expert_id}")
+    data = db.cursor.fetchall()
+    msg_text = ""
+    if record[1] == "ru":
+        msg_text = f"<b>Добро пожаловать, {callback.from_user.first_name}</b>\n\n" \
+                   f"В 10:00: {'Свободно' if data[0][4] == 'NULL' else data[0][4]}\n" \
+                   f"В 11:00: {'Свободно' if data[0][5] == 'NULL' else data[0][5]}\n" \
+                   f"В 12:00: {'Свободно' if data[0][6] == 'NULL' else data[0][6]}\n" \
+                   f"В 13:00: {'Свободно' if data[0][7] == 'NULL' else data[0][7]}\n" \
+                   f"В 14:00: {'Свободно' if data[0][8] == 'NULL' else data[0][8]}\n" \
+                   f"В 15:00: {'Свободно' if data[0][9] == 'NULL' else data[0][9]}\n" \
+                   f"В 16:00: {'Свободно' if data[0][10] == 'NULL' else data[0][10]}\n" \
+                   f"В 17:00: {'Свободно' if data[0][11] == 'NULL' else data[0][11]}\n" \
+                   f"В 18:00: {'Свободно' if data[0][12] == 'NULL' else data[0][12]}"
+    else:
+        msg_text = f"<b>Welcome, {callback.from_user.first_name}</b>\n\n" \
+                   f"At 10am: {'Free' if data[0][4] == 'NULL' else data[0][4]}\n" \
+                   f"At 11am: {'Free' if data[0][5] == 'NULL' else data[0][5]}\n" \
+                   f"At 12am: {'Free' if data[0][6] == 'NULL' else data[0][6]}\n" \
+                   f"At 1pm: {'Free' if data[0][7] == 'NULL' else data[0][7]}\n" \
+                   f"At 2pm: {'Free' if data[0][8] == 'NULL' else data[0][8]}\n" \
+                   f"At 3pm: {'Free' if data[0][9] == 'NULL' else data[0][9]}\n" \
+                   f"At 4pm: {'Free' if data[0][10] == 'NULL' else data[0][10]}\n" \
+                   f"At 5pm: {'Free' if data[0][11] == 'NULL' else data[0][11]}\n" \
+                   f"At 6pm: {'Free' if data[0][12] == 'NULL' else data[0][12]}"
+
+    menu = kb.exit_menu[f'{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 @router.callback_query(F.data == "admin")

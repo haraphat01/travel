@@ -19,7 +19,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     new_language TEXT,
     priority TEXT,
     experts TEXT,
-    admin TEXT,
+    user_type TEXT DEFAULT 'user',
     counter INTEGER DEFAULT 0,
     by_country INTEGER,
     feedback TEXT,
@@ -41,16 +41,16 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     name TEXT,
     type TEXT,
     country TEXT,
-    expert_id TEXT,
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
+    expert_id TEXT PRIMARY KEY UNIQUE,
+    ten TEXT DEFAULT 'NULL',
+    eleven TEXT DEFAULT 'NULL',
+    twelve TEXT DEFAULT 'NULL',
+    thirteen TEXT DEFAULT 'NULL',
+    fourteen TEXT DEFAULT 'NULL',
+    fifteen TEXT DEFAULT 'NULL',
+    sixteen TEXT DEFAULT 'NULL',
+    seventeen TEXT DEFAULT 'NULL',
+    eighteen TEXT DEFAULT 'NULL' 
 )""")
 
 
