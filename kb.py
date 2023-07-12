@@ -19,6 +19,22 @@ edit_menu = {
     'eng': edit_menu_eng
 }
 
+exit_button_ru = [
+    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+exit_button_eng = [
+     [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+]
+
+exit_menu_ru = InlineKeyboardMarkup(inline_keyboard=exit_button_ru)
+exit_menu_eng = InlineKeyboardMarkup(inline_keyboard=exit_button_eng)
+
+exit_menu = {
+    'ru': exit_menu_ru,
+    'eng': exit_menu_eng
+}
+
 confirm_edit_button_ru = [
     [InlineKeyboardButton(text="✅Подтвердить", callback_data="confirm_edit"),
      InlineKeyboardButton(text="❌Отмена", callback_data="admin")]
@@ -73,6 +89,30 @@ main_menu_buttons = {
     'ru': menu_ru,
     'eng': menu_eng
 }
+
+english_menu_with_experts_buttons = [
+    [InlineKeyboardButton(text="🌍Destination Search", callback_data="destination_search"),
+     InlineKeyboardButton(text="🔍Profile Search", callback_data="profile_search")],
+    [InlineKeyboardButton(text="🗺Visa Advisory", callback_data="visa_advisory"),
+     InlineKeyboardButton(text="👨🏻‍🔬Contact Experts", callback_data="contact_experts")],
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Choose language", callback_data="language"),
+     InlineKeyboardButton(text="🌟Leave feedback", callback_data="feedback")],
+    [InlineKeyboardButton(text="🗓Check appointments", callback_data="check_appointments")]
+
+]
+
+russian_menu_with_experts_buttons = [
+    [InlineKeyboardButton(text="🌍Поиск по месту назначения", callback_data="destination_search"),
+     InlineKeyboardButton(text="🔍Поиск по параметрам", callback_data="profile_search")],
+    [InlineKeyboardButton(text="🗺Визовая консультация", callback_data="visa_advisory"),
+     InlineKeyboardButton(text="👨🏻‍🔬Связаться с экспертами", callback_data="contact_experts")],
+    [InlineKeyboardButton(text="🇷🇺🇺🇸Выбрать язык", callback_data="language"),
+     InlineKeyboardButton(text="🌟Оставить отзыв", callback_data="feedback")],
+    [InlineKeyboardButton(text="🗓Посмотреть записи", callback_data="check_appointments")]
+]
+
+menu_for_experts_ru = InlineKeyboardMarkup(inline_keyboard=russian_menu_with_experts_buttons)
+menu_for_experts_eng = InlineKeyboardMarkup(inline_keyboard=english_menu_with_experts_buttons)
 
 # Profile search confirm
 profile_search_confirm_buttons_ru = [
