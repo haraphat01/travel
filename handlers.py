@@ -1110,21 +1110,31 @@ class VisaAdvisory(StatesGroup):
 @router.message(VisaAdvisory.citizenship)
 async def inputCitizenship(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.chat.id)
-    update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
-
-    msg_text = text.questionsVisa[f'{record[1]}']['destination']
-    await state.set_state(VisaAdvisory.destination)
-    await msg.answer(text=msg_text)
+    try_again_text = text.try_again[f'{record[1]}']
+    back = kb.back_menu[f'{record[1]}']
+    if "'" in msg.text or '"' in msg.text:
+        await state.set_state(VisaAdvisory.last)
+        await msg.answer(text=try_again_text, reply_markup=back)
+    else:
+        update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
+        msg_text = text.questionsVisa[f'{record[1]}']['destination']
+        await state.set_state(VisaAdvisory.destination)
+        await msg.answer(text=msg_text)
 
 
 @router.message(VisaAdvisory.destination)
 async def inputDestination(msg: Message, state: FSMContext) -> None:
-    update_bd("destination", f"'{msg.text}'", msg.chat.id)
     record = fetch_info(msg.from_user.id)
-    result = ""
-    result = visaAdvisory.visaAdvisory(record[2], record[3], record[1])
     try_again_text = text.try_again[f'{record[1]}']
     back = kb.back_menu[f'{record[1]}']
+    if "'" in msg.text or '"' in msg.text:
+        await state.set_state(VisaAdvisory.last)
+        await msg.answer(text=try_again_text, reply_markup=back)
+    else:
+        update_bd("destination", f"'{msg.text}'", msg.chat.id)
+        print(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2])
+    result = ""
+    result = visaAdvisory.getVisaAdvisory(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2], record[1])
     if result is None:
         await state.set_state(VisaAdvisory.citizenship)
         await msg.answer(text=try_again_text, reply_markup=back)

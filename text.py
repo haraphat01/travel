@@ -6,7 +6,6 @@ country_search_question_ru = "Выберите страну"
 country_of_city_search_question = "Select country of needed city"
 country_of_city_search_question_ru = "Выберите страну нужного города"
 
-
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
     'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
@@ -125,6 +124,7 @@ questions = {
         'country_search_question': "Выберите страну",
         'country_of_city_search_question': "Выберите страну нужного города",
         'feedback': "Оцените, пожалуйста, работу бота\n✨Понравился ли он вам?",
+        'afterfeedback': "Спасибо за отзыв!",
         'input_country': "6. Введите страну гражданином которой вы являетесь\nВводите с заглавной буквы",
         'before_questions': "Перед тем как я отправлю тебе варианты мест куда ты можешь переехать, мне нужно задать несколько вопросов.",
         'gender': "1. Введите ваш пол",
@@ -233,6 +233,22 @@ error = {
     'eng': "I'm sorry I didn't find any cities, try another country!"
 }
 
+try_again = {
+    'ru': "Что-то не так, введите вашу страну гражданства заново, либо вернитесь в меню",
+    'eng': "Something wrong, enter your citizenship again or go to menu"
+}
+
+
+visaAdvisory = {
+    'ru': {
+        'Visa required': "Требуется виза",
+        'Visa on arrival': "Требуется виза по прибытию",
+        'Visa free access': "Виза не требуется",
+        'eTA visa required': "Требуется eTA виза",
+        'Visa online required': "Требуется онлайн виза",
+    }
+}
+
 admin_panel = {
     'ru': {
         'welcome': "Добро пожаловать в Админ панель!\n<b>Вводить на английском</b>",
@@ -284,11 +300,6 @@ admin_panel = {
             'cost_family': "Enter the amount of accommodation per month for a family",
         }
     }
-}
-
-try_again = {
-    'ru': "Что-то не так, введите вашу страну гражданства заново, либо вернитесь в меню",
-    'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
 
