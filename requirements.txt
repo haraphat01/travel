@@ -25,3 +25,6 @@ urllib3==1.26.15
 yarl==1.8.2
 pytest==7.4.0
 pytest-asyncio==0.21.0
+
+beautifulsoup4~=4.12.2
+fuzzywuzzy~=0.18.0
