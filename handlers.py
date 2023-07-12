@@ -1362,7 +1362,7 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         await msg.answer(text="Sorry, no available experts😢")
     msg_text = text.expert_country[f'{record[1]}']
     menu = kb.date_schedule[record[1]]
-    await callback.message.answer(text=msg_text, reply_markup=menu)
+    await msg.answer(text=msg_text, reply_markup=menu)
 
 @router.message(ContactExperts.country)
 async def book_appointment(msg: Message, state: FSMContext) -> None:
@@ -1370,6 +1370,7 @@ async def book_appointment(msg: Message, state: FSMContext) -> None:
     # update_experts_bd('country', f"'{msg.text}'", msg.from_user.id)
     country = f"'{msg.text}'"
     data = await state.get_data()
+    flag = True
     db.cursor.execute(f"Select * from experts where country={country} AND {data['time']}='NULL'")
     info = db.cursor.fetchall()
     try:
