@@ -6,7 +6,6 @@ country_search_question_ru = "Выберите страну"
 country_of_city_search_question = "Select country of needed city"
 country_of_city_search_question_ru = "Выберите страну нужного города"
 
-
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
     'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
@@ -239,6 +238,20 @@ try_again = {
     'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
+expert_country = {
+    'ru': "Пожалуйста введите страну, в которой вы хотите найти эксперта:",
+    'eng': "Please enter the country in which you want to find an expert:"
+}
+
+visaAdvisory = {
+    'ru': {
+        'Visa required': "Требуется виза",
+        'Visa on arrival': "Требуется виза по прибытию",
+        'Visa free access': "Виза не требуется",
+        'eTA visa required': "Требуется eTA виза",
+        'Visa online required': "Требуется онлайн виза",
+    }
+}
 
 error_book = {
     'ru': {
@@ -254,5 +267,58 @@ error_book = {
         'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
         'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
         'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+    }
+}
+
+admin_panel = {
+    'ru': {
+        'welcome': "Добро пожаловать в Админ панель!\n<b>Вводить на английском</b>",
+        'add_city': {
+            'country': "Введите страну",
+            'city': "Введите город",
+            'population': "Введите количество людей проживающих в этом городе",
+            'image': "Пришлите фотографию города",
+            'description': "Описание города",
+            'cost_alone': "Введите сумму проживания в месяц для одного человека",
+            'cost_family': "Введите сумму проживания в месяц для семьи"
+        },
+        'add_expert': {
+            'name': "Введите имя эксперта",
+            'type': "Введите тип эксперта",
+            'country': "Введите страну",
+            'tg': "Введите телеграм алиас эксперта"
+        },
+        'edit': {
+            'city_name': "Введите название города",
+            'description': "Введите новое описание",
+            'image': "Пришлите фотографию",
+            'cost_alone': "Введите сумму проживания для одного человека(в $)",
+            'cost_family': "Введите сумму проживания для семьи(в $)"
+        }
+    },
+    'eng': {
+        'welcome': "Welcome to Admin panel!",
+        'add_city': {
+            'country': "Enter country",
+            'city': "Enter city",
+            'population': "Enter population of the city",
+            'image': "Send photo of the city",
+            'description': "City description",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family"
+        },
+        'add_expert': {
+            'name': "Enter name of expert",
+            'type': "Enter type of expert",
+            'country': "Enter country",
+            'tg': "Enter telegram alias of expert"
+        },
+        'edit': {
+            'city_name': "Enter city name",
+            'description': "Enter new description",
+            'image': "Send a photo",
+            'cost_alone': "Enter the amount of accommodation per month for one person",
+            'cost_family': "Enter the amount of accommodation per month for a family",
+        }
     }
 }
