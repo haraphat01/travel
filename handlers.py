@@ -1407,21 +1407,6 @@ async def ten(callback: CallbackQuery, state: FSMContext) -> None:
     await state.update_data(time="ten")
     await state.set_state(ContactExperts.country)
     msg_text = text.expert_country[f'{record[1]}']['country']
-    db.cursor.execute(f"Select * from experts")
-    results = db.cursor.fetchall()
-    await state.update_data(time="ten")
-    await state.set_state(ContactExperts.country)
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][3] == callback.from_user.username:
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
-    # await callback.message.answer(text=msg_text)
-    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "eleven")
@@ -1430,20 +1415,6 @@ async def eleven(callback: CallbackQuery, state: FSMContext) -> None:
     await state.update_data(time="eleven")
     await state.set_state(ContactExperts.country)
     msg_text = text.expert_country[f'{record[1]}']['country']
-    db.cursor.execute(f"Select * from experts")
-    results = db.cursor.fetchall()
-    await state.update_data(time="eleven")
-    await state.set_state(ContactExperts.country)
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][4] == callback.from_user.username:
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
-    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "twelve")
@@ -1452,20 +1423,6 @@ async def twelve(callback: CallbackQuery, state: FSMContext) -> None:
     await state.update_data(time="twelve")
     await state.set_state(ContactExperts.country)
     msg_text = text.expert_country[f'{record[1]}']['country']
-    db.cursor.execute(f"Select * from experts")
-    results = db.cursor.fetchall()
-    await state.update_data(time="twelve")
-    await state.set_state(ContactExperts.country)
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][5] == callback.from_user.username:
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
-    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 
