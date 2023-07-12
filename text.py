@@ -243,8 +243,8 @@ visaAdvisory = {
         'Visa required': "Требуется виза",
         'Visa on arrival': "Требуется виза по прибытию",
         'Visa free access': "Виза не требуется",
-        'eTA': "Требуется eTA виза",
-        'Visa online': "Требуется онлайн виза",
+        'eTA visa required': "Требуется eTA виза",
+        'Visa online required': "Требуется онлайн виза",
     }
 }
 

@@ -1,5 +1,5 @@
 countries={
-'Singapore':{
+'singapore':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -153,7 +153,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bahrain',
 'bangladesh',
@@ -185,7 +185,7 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -198,7 +198,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'cameroon',
@@ -240,7 +240,7 @@ countries={
 'yemen',
 ],
 },
-'South Korea':{
+'south korea':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -384,7 +384,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bahrain',
 'bangladesh',
@@ -425,7 +425,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -437,7 +437,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'angola',
 'benin',
 'bhutan',
@@ -481,7 +481,7 @@ countries={
 'yemen',
 ],
 },
-'United Kingdom':{
+'united kingdom':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -626,7 +626,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -664,7 +664,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -677,7 +677,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -722,7 +722,7 @@ countries={
 'yemen',
 ],
 },
-'UK':{
+'finland':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -766,247 +766,6 @@ countries={
 'falkland islands',
 'faroe islands',
 'fiji',
-'finland',
-'france',
-'french guiana',
-'french polynesia',
-'french west indies',
-'gabon',
-'gambia',
-'georgia',
-'germany',
-'gibraltar',
-'greece',
-'greenland',
-'grenada',
-'guam',
-'guatemala',
-'guyana',
-'haiti',
-'honduras',
-'hong kong',
-'hungary',
-'iceland',
-'ireland',
-'israel',
-'italy',
-'jamaica',
-'japan',
-'kazakhstan',
-'kiribati',
-'kosovo',
-'kyrgyzstan',
-'latvia',
-'lesotho',
-'liechtenstein',
-'lithuania',
-'luxembourg',
-'macao',
-'malaysia',
-'malta',
-'marshall islands',
-'mauritius',
-'mayotte',
-'mexico',
-'micronesia',
-'moldova',
-'monaco',
-'mongolia',
-'montenegro',
-'montserrat',
-'morocco',
-'mozambique',
-'namibia',
-'netherlands',
-'new caledonia',
-'nicaragua',
-'north macedonia',
-'northern mariana islands',
-'norway',
-'palestinian territories',
-'panama',
-'paraguay',
-'peru',
-'philippines',
-'poland',
-'portugal',
-'reunion',
-'romania',
-'saint kitts and nevis',
-'saint lucia',
-'san marino',
-'sao tome and principe',
-'senegal',
-'serbia',
-'singapore',
-'slovakia',
-'slovenia',
-'south africa',
-'spain',
-'st. helena',
-'st. maarten',
-'st. pierre and miquelon',
-'st. vincent and the grenadines',
-'suriname',
-'sweden',
-'switzerland',
-'taiwan',
-'thailand',
-'trinidad and tobago',
-'tunisia',
-'turkey',
-'turks and caicos islands',
-'ukraine',
-'united arab emirates',
-'uruguay',
-'uzbekistan',
-'vanuatu',
-'vatican city',
-'venezuela',
-'vietnam',
-'wallis and futuna',
-'zambia',
-],
-'Visa on arrival':[
-'bahrain',
-'bangladesh',
-'burkina faso',
-'burundi',
-'cambodia',
-'comoros',
-'egypt',
-'indonesia',
-'iraq',
-'jordan',
-'kuwait',
-'laos',
-'lebanon',
-'madagascar',
-'malawi',
-'maldives',
-'mauritania',
-'nepal',
-'niue',
-'oman',
-'palau',
-'qatar',
-'rwanda',
-'samoa',
-'saudi arabia',
-'seychelles',
-'sierra leone',
-'solomon islands',
-'somalia',
-'tajikistan',
-'tanzania',
-'timor-leste',
-'togo',
-'tonga',
-'tuvalu',
-'zimbabwe',
-],
-'eTA':[
-'american samoa',
-'australia',
-'canada',
-'new zealand',
-'norfolk island',
-'pakistan',
-'puerto rico',
-'south korea',
-'sri lanka',
-'united states of america',
-'us virgin islands',
-],
-'Visa online':[
-'azerbaijan',
-'benin',
-'bhutan',
-'cameroon',
-'congo (dem. rep.)',
-'cote d\'ivoire (ivory coast)',
-'djibouti',
-'ethiopia',
-'guinea',
-'india',
-'kenya',
-'myanmar',
-'papua new guinea',
-'south sudan',
-'uganda',
-],
-'Visa required':[
-'afghanistan',
-'algeria',
-'angola',
-'central african republic',
-'chad',
-'china',
-'congo',
-'cuba',
-'equatorial guinea',
-'eritrea',
-'ghana',
-'guinea-bissau',
-'iran',
-'liberia',
-'libya',
-'mali',
-'nauru',
-'niger',
-'nigeria',
-'north korea',
-'russia',
-'sudan',
-'syria',
-'turkmenistan',
-'yemen',
-],
-},
-'Finland':{
-'Visa free access':[
-'albania',
-'andorra',
-'anguilla',
-'antigua and barbuda',
-'argentina',
-'armenia',
-'aruba',
-'austria',
-'bahamas',
-'barbados',
-'belarus',
-'belgium',
-'belize',
-'bermuda',
-'bolivia',
-'bonaire, st. eustatius and saba',
-'bosnia and herzegovina',
-'botswana',
-'brazil',
-'british virgin islands',
-'brunei',
-'bulgaria',
-'cape verde',
-'cayman islands',
-'chile',
-'colombia',
-'cook islands',
-'costa rica',
-'croatia',
-'curacao',
-'cyprus',
-'czech republic',
-'denmark',
-'dominica',
-'dominican republic',
-'ecuador',
-'el salvador',
-'estonia',
-'eswatini',
-'falkland islands',
-'faroe islands',
-'fiji',
 'france',
 'french guiana',
 'french polynesia',
@@ -1113,7 +872,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -1144,7 +903,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -1159,7 +918,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -1204,7 +963,7 @@ countries={
 'yemen',
 ],
 },
-'France':{
+'france':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -1354,7 +1113,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -1385,7 +1144,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -1400,7 +1159,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -1445,7 +1204,7 @@ countries={
 'yemen',
 ],
 },
-'Germany':{
+'germany':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -1595,7 +1354,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -1626,7 +1385,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -1641,7 +1400,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -1686,7 +1445,7 @@ countries={
 'yemen',
 ],
 },
-'Spain':{
+'spain':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -1836,7 +1595,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -1867,7 +1626,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -1882,7 +1641,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -1927,7 +1686,7 @@ countries={
 'yemen',
 ],
 },
-'Sweden':{
+'sweden':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -2077,7 +1836,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -2108,7 +1867,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -2123,7 +1882,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -2168,7 +1927,7 @@ countries={
 'yemen',
 ],
 },
-'Italy':{
+'italy':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -2318,7 +2077,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -2349,7 +2108,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -2364,7 +2123,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -2409,7 +2168,7 @@ countries={
 'yemen',
 ],
 },
-'Japan':{
+'japan':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -2553,7 +2312,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bahrain',
 'bangladesh',
@@ -2592,7 +2351,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -2605,7 +2364,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'burkina faso',
@@ -2650,7 +2409,7 @@ countries={
 'yemen',
 ],
 },
-'Austria':{
+'austria':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -2799,7 +2558,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -2830,7 +2589,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -2845,7 +2604,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -2891,7 +2650,7 @@ countries={
 'yemen',
 ],
 },
-'Luxembourg':{
+'luxembourg':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -3040,7 +2799,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -3071,7 +2830,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -3086,7 +2845,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -3132,7 +2891,7 @@ countries={
 'yemen',
 ],
 },
-'Netherlands':{
+'netherlands':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -3281,7 +3040,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -3312,7 +3071,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -3327,7 +3086,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -3373,7 +3132,7 @@ countries={
 'yemen',
 ],
 },
-'Denmark':{
+'denmark':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -3523,7 +3282,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -3553,263 +3312,22 @@ countries={
 'tanzania',
 'togo',
 'zimbabwe',
-],
-'eTA':[
-'american samoa',
-'australia',
-'canada',
-'guam',
-'new zealand',
-'norfolk island',
-'northern mariana islands',
-'puerto rico',
-'south korea',
-'sri lanka',
-'united states of america',
-'us virgin islands',
-],
-'Visa online':[
-'azerbaijan',
-'benin',
-'bhutan',
-'cameroon',
-'congo (dem. rep.)',
-'cote d\'ivoire (ivory coast)',
-'djibouti',
-'ethiopia',
-'guinea',
-'india',
-'iran',
-'kenya',
-'myanmar',
-'pakistan',
-'papua new guinea',
-'south sudan',
-'uganda',
 ],
-'Visa required':[
-'afghanistan',
-'algeria',
-'angola',
-'central african republic',
-'chad',
-'china',
-'congo',
-'cuba',
-'equatorial guinea',
-'eritrea',
-'ghana',
-'guinea-bissau',
-'liberia',
-'libya',
-'mali',
-'nauru',
-'niger',
-'nigeria',
-'north korea',
-'russia',
-'sudan',
-'syria',
-'turkmenistan',
-'yemen',
-],
-},
-'United States of America':{
-'Visa free access':[
-'albania',
+'eTA visa required':[
 'american samoa',
-'andorra',
-'anguilla',
-'antigua and barbuda',
-'argentina',
-'armenia',
-'aruba',
-'austria',
-'bahamas',
-'barbados',
-'belgium',
-'belize',
-'bermuda',
-'bonaire, st. eustatius and saba',
-'bosnia and herzegovina',
-'botswana',
-'brazil',
-'british virgin islands',
-'brunei',
-'bulgaria',
-'canada',
-'cayman islands',
-'central african republic',
-'chile',
-'colombia',
-'cook islands',
-'costa rica',
-'croatia',
-'curacao',
-'cyprus',
-'czech republic',
-'denmark',
-'dominica',
-'dominican republic',
-'ecuador',
-'el salvador',
-'equatorial guinea',
-'estonia',
-'eswatini',
-'falkland islands',
-'faroe islands',
-'fiji',
-'finland',
-'france',
-'french guiana',
-'french polynesia',
-'french west indies',
-'gabon',
-'georgia',
-'germany',
-'gibraltar',
-'greece',
-'greenland',
-'grenada',
-'guam',
-'guatemala',
-'guyana',
-'haiti',
-'honduras',
-'hong kong',
-'hungary',
-'iceland',
-'ireland',
-'israel',
-'italy',
-'jamaica',
-'japan',
-'kazakhstan',
-'kiribati',
-'kosovo',
-'kyrgyzstan',
-'latvia',
-'lesotho',
-'liechtenstein',
-'lithuania',
-'luxembourg',
-'macao',
-'malaysia',
-'malta',
-'marshall islands',
-'mauritius',
-'mayotte',
-'mexico',
-'micronesia',
-'moldova',
-'monaco',
-'mongolia',
-'montenegro',
-'montserrat',
-'morocco',
-'mozambique',
-'namibia',
-'netherlands',
-'new caledonia',
-'nicaragua',
-'north macedonia',
-'northern mariana islands',
-'norway',
-'palau',
-'palestinian territories',
-'panama',
-'paraguay',
-'peru',
-'philippines',
-'poland',
-'portugal',
-'puerto rico',
-'reunion',
-'romania',
-'saint kitts and nevis',
-'saint lucia',
-'san marino',
-'sao tome and principe',
-'senegal',
-'serbia',
-'singapore',
-'slovakia',
-'slovenia',
-'south africa',
-'spain',
-'st. helena',
-'st. maarten',
-'st. pierre and miquelon',
-'st. vincent and the grenadines',
-'suriname',
-'sweden',
-'switzerland',
-'taiwan',
-'tajikistan',
-'thailand',
-'trinidad and tobago',
-'tunisia',
-'turks and caicos islands',
-'ukraine',
-'united arab emirates',
-'united kingdom',
-'uruguay',
-'us virgin islands',
-'vanuatu',
-'vatican city',
-'wallis and futuna',
-'zambia',
-],
-'Visa on arrival':[
-'bahrain',
-'bangladesh',
-'bolivia',
-'burkina faso',
-'burundi',
-'cambodia',
-'cape verde',
-'comoros',
-'egypt',
-'gambia',
-'indonesia',
-'iraq',
-'jordan',
-'kuwait',
-'laos',
-'lebanon',
-'madagascar',
-'malawi',
-'maldives',
-'mauritania',
-'nepal',
-'niue',
-'oman',
-'qatar',
-'rwanda',
-'samoa',
-'saudi arabia',
-'seychelles',
-'sierra leone',
-'solomon islands',
-'somalia',
-'tanzania',
-'timor-leste',
-'togo',
-'tonga',
-'turkey',
-'tuvalu',
-'zimbabwe',
-],
-'eTA':[
 'australia',
+'canada',
+'guam',
 'new zealand',
 'norfolk island',
-'pakistan',
+'northern mariana islands',
+'puerto rico',
 'south korea',
 'sri lanka',
+'united states of america',
+'us virgin islands',
 ],
-'Visa online':[
-'angola',
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -3820,42 +3338,42 @@ countries={
 'ethiopia',
 'guinea',
 'india',
+'iran',
 'kenya',
 'myanmar',
-'nigeria',
+'pakistan',
 'papua new guinea',
 'south sudan',
 'uganda',
-'uzbekistan',
-'vietnam',
 ],
 'Visa required':[
 'afghanistan',
 'algeria',
-'belarus',
+'angola',
+'central african republic',
 'chad',
 'china',
 'congo',
 'cuba',
+'equatorial guinea',
 'eritrea',
 'ghana',
 'guinea-bissau',
-'iran',
 'liberia',
 'libya',
 'mali',
 'nauru',
 'niger',
+'nigeria',
 'north korea',
 'russia',
 'sudan',
 'syria',
 'turkmenistan',
-'venezuela',
 'yemen',
 ],
 },
-'USA':{
+'united states of america':{
 'Visa free access':[
 'albania',
 'american samoa',
@@ -4001,7 +3519,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -4041,7 +3559,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'australia',
 'new zealand',
 'norfolk island',
@@ -4049,7 +3567,7 @@ countries={
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'angola',
 'azerbaijan',
 'benin',
@@ -4096,7 +3614,7 @@ countries={
 'yemen',
 ],
 },
-'Belgium':{
+'belgium':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -4245,7 +3763,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -4276,7 +3794,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -4290,7 +3808,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -4337,7 +3855,7 @@ countries={
 'yemen',
 ],
 },
-'Canada':{
+'canada':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -4481,7 +3999,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bahrain',
 'bangladesh',
@@ -4522,7 +4040,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'new zealand',
@@ -4531,7 +4049,7 @@ countries={
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -4578,7 +4096,7 @@ countries={
 'yemen',
 ],
 },
-'Ireland':{
+'ireland':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -4723,7 +4241,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -4759,7 +4277,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'australia',
 'canada',
 'guam',
@@ -4772,7 +4290,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -4819,7 +4337,7 @@ countries={
 'yemen',
 ],
 },
-'Norway':{
+'norway':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -4964,7 +4482,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -4998,7 +4516,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -5013,7 +4531,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -5060,7 +4578,7 @@ countries={
 'yemen',
 ],
 },
-'Australia':{
+'australia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -5200,7 +4718,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'brunei',
@@ -5243,7 +4761,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'pakistan',
@@ -5253,7 +4771,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'angola',
 'azerbaijan',
 'benin',
@@ -5301,7 +4819,7 @@ countries={
 'yemen',
 ],
 },
-'Portugal':{
+'portugal':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -5449,7 +4967,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -5480,7 +4998,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -5494,7 +5012,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -5542,7 +5060,7 @@ countries={
 'yemen',
 ],
 },
-'Malta':{
+'malta':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -5687,7 +5205,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -5720,7 +5238,7 @@ countries={
 'thailand',
 'togo',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -5735,7 +5253,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -5783,7 +5301,7 @@ countries={
 'yemen',
 ],
 },
-'Switzerland':{
+'switzerland':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -5926,7 +5444,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -5961,7 +5479,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -5976,7 +5494,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -6024,7 +5542,7 @@ countries={
 'yemen',
 ],
 },
-'New Zealand':{
+'new zealand':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -6166,7 +5684,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -6207,7 +5725,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'pakistan',
@@ -6217,7 +5735,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'angola',
 'azerbaijan',
 'benin',
@@ -6265,7 +5783,7 @@ countries={
 'yemen',
 ],
 },
-'Greece':{
+'greece':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -6411,7 +5929,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -6443,7 +5961,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -6457,7 +5975,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -6506,7 +6024,7 @@ countries={
 'yemen',
 ],
 },
-'Hungary':{
+'hungary':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -6651,7 +6169,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -6684,7 +6202,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -6697,7 +6215,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -6747,7 +6265,7 @@ countries={
 'yemen',
 ],
 },
-'Czech Republic':{
+'czech republic':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -6893,7 +6411,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -6926,7 +6444,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -6938,7 +6456,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -6988,7 +6506,7 @@ countries={
 'yemen',
 ],
 },
-'Poland':{
+'poland':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -7133,7 +6651,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -7166,7 +6684,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'guam',
 'new zealand',
@@ -7178,7 +6696,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -7229,7 +6747,7 @@ countries={
 'yemen',
 ],
 },
-'Liechtenstein':{
+'liechtenstein':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -7370,7 +6888,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -7404,7 +6922,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -7418,7 +6936,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -7470,7 +6988,7 @@ countries={
 'yemen',
 ],
 },
-'Lithuania':{
+'lithuania':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -7614,7 +7132,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -7646,7 +7164,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -7659,7 +7177,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -7711,7 +7229,7 @@ countries={
 'yemen',
 ],
 },
-'Slovakia':{
+'slovakia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -7854,7 +7372,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -7888,7 +7406,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -7900,7 +7418,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -7952,7 +7470,7 @@ countries={
 'yemen',
 ],
 },
-'Iceland':{
+'iceland':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -8092,7 +7610,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -8126,7 +7644,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -8141,7 +7659,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -8193,7 +7711,7 @@ countries={
 'yemen',
 ],
 },
-'Latvia':{
+'latvia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -8337,7 +7855,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -8369,7 +7887,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -8381,7 +7899,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -8434,7 +7952,7 @@ countries={
 'yemen',
 ],
 },
-'Estonia':{
+'estonia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -8578,7 +8096,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -8610,7 +8128,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -8622,7 +8140,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -8675,7 +8193,7 @@ countries={
 'yemen',
 ],
 },
-'Slovenia':{
+'slovenia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -8818,7 +8336,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -8851,7 +8369,7 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'canada',
 'guam',
@@ -8863,7 +8381,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -8916,7 +8434,7 @@ countries={
 'yemen',
 ],
 },
-'Malaysia':{
+'malaysia':{
 'Visa free access':[
 'albania',
 'algeria',
@@ -9057,7 +8575,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bahrain',
 'bangladesh',
@@ -9095,7 +8613,7 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'eTA':[
+'eTA visa required':[
 'australia',
 'new zealand',
 'norfolk island',
@@ -9103,7 +8621,7 @@ countries={
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'benin',
 'bhutan',
@@ -9157,7 +8675,7 @@ countries={
 'us virgin islands',
 ],
 },
-'Monaco':{
+'monaco':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -9288,7 +8806,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -9326,7 +8844,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -9341,7 +8859,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -9398,7 +8916,7 @@ countries={
 'yemen',
 ],
 },
-'Cyprus':{
+'cyprus':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -9542,7 +9060,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -9575,13 +9093,13 @@ countries={
 'togo',
 'turkey',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -9639,7 +9157,7 @@ countries={
 'yemen',
 ],
 },
-'United Arab Emirates':{
+'united arab emirates':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -9777,7 +9295,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -9812,7 +9330,7 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'pakistan',
@@ -9820,7 +9338,7 @@ countries={
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'cameroon',
@@ -9880,7 +9398,7 @@ countries={
 'venezuela',
 ],
 },
-'UAE':{
+'uae':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -10018,7 +9536,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -10053,7 +9571,7 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'pakistan',
@@ -10061,7 +9579,7 @@ countries={
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'cameroon',
@@ -10121,7 +9639,7 @@ countries={
 'venezuela',
 ],
 },
-'Romania':{
+'romania':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -10260,7 +9778,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -10295,13 +9813,13 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -10362,7 +9880,7 @@ countries={
 'yemen',
 ],
 },
-'Bulgaria':{
+'bulgaria':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -10500,7 +10018,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -10536,13 +10054,13 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -10603,7 +10121,7 @@ countries={
 'yemen',
 ],
 },
-'Croatia':{
+'croatia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -10744,7 +10262,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -10776,14 +10294,14 @@ countries={
 'togo',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 'united states of america',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -10844,7 +10362,7 @@ countries={
 'yemen',
 ],
 },
-'Chile':{
+'chile':{
 'Visa free access':[
 'albania',
 'american samoa',
@@ -10975,7 +10493,7 @@ countries={
 'vietnam',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bahrain',
 'bangladesh',
@@ -11012,7 +10530,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'guam',
 'new zealand',
@@ -11023,7 +10541,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -11085,7 +10603,7 @@ countries={
 'yemen',
 ],
 },
-'San Marino':{
+'san marino':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -11212,7 +10730,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -11249,7 +10767,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -11263,7 +10781,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -11326,7 +10844,7 @@ countries={
 'yemen',
 ],
 },
-'Andorra':{
+'andorra':{
 'Visa free access':[
 'albania',
 'anguilla',
@@ -11448,7 +10966,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -11489,7 +11007,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -11503,7 +11021,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'botswana',
@@ -11567,7 +11085,7 @@ countries={
 'yemen',
 ],
 },
-'Hong Kong':{
+'hong kong':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -11704,7 +11222,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bolivia',
 'burkina faso',
@@ -11735,7 +11253,7 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'australia',
 'canada',
 'new zealand',
@@ -11743,7 +11261,7 @@ countries={
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bhutan',
 'cameroon',
 'congo (dem. rep.)',
@@ -11808,7 +11326,7 @@ countries={
 'us virgin islands',
 ],
 },
-'Argentina':{
+'argentina':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -11938,7 +11456,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -11977,13 +11495,13 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -12049,7 +11567,7 @@ countries={
 'yemen',
 ],
 },
-'Brazil':{
+'brazil':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -12180,7 +11698,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'burkina faso',
 'burundi',
@@ -12218,12 +11736,12 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -12290,7 +11808,7 @@ countries={
 'yemen',
 ],
 },
-'Brunei':{
+'brunei':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -12415,7 +11933,7 @@ countries={
 'vietnam',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -12450,7 +11968,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -12463,7 +11981,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'azerbaijan',
 'benin',
@@ -12531,7 +12049,7 @@ countries={
 'yemen',
 ],
 },
-'Barbados':{
+'barbados':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -12663,7 +12181,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bolivia',
 'burundi',
@@ -12696,13 +12214,13 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'bahrain',
@@ -12772,7 +12290,7 @@ countries={
 'yemen',
 ],
 },
-'Israel':{
+'israel':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -12899,7 +12417,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'azerbaijan',
 'bolivia',
@@ -12932,13 +12450,13 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'bahrain',
 'benin',
@@ -13013,7 +12531,7 @@ countries={
 'yemen',
 ],
 },
-'Bahamas':{
+'bahamas':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -13136,7 +12654,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -13170,13 +12688,13 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahrain',
 'benin',
@@ -13254,7 +12772,7 @@ countries={
 'yemen',
 ],
 },
-'Mexico':{
+'mexico':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -13375,7 +12893,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bahrain',
 'burundi',
@@ -13411,13 +12929,13 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'azerbaijan',
 'benin',
@@ -13495,7 +13013,7 @@ countries={
 'yemen',
 ],
 },
-'Seychelles':{
+'seychelles':{
 'Visa free access':[
 'albania',
 'algeria',
@@ -13620,7 +13138,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -13650,12 +13168,12 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahrain',
 'bhutan',
@@ -13736,7 +13254,7 @@ countries={
 'yemen',
 ],
 },
-'Vatican City':{
+'vatican city':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -13853,7 +13371,7 @@ countries={
 'vanuatu',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -13888,7 +13406,7 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'australia',
 'canada',
 'new zealand',
@@ -13896,7 +13414,7 @@ countries={
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -13977,7 +13495,7 @@ countries={
 'yemen',
 ],
 },
-'Uruguay':{
+'uruguay':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -14097,7 +13615,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -14131,12 +13649,12 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'australia',
 'benin',
@@ -14218,7 +13736,7 @@ countries={
 'yemen',
 ],
 },
-'Saint Kitts and Nevis':{
+'saint kitts and nevis':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -14344,7 +13862,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -14372,12 +13890,12 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'bahrain',
 'benin',
@@ -14459,7 +13977,7 @@ countries={
 'yemen',
 ],
 },
-'St. Vincent and the Grenadines':{
+'st. vincent and the grenadines':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -14580,7 +14098,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -14613,11 +14131,11 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'benin',
@@ -14700,7 +14218,7 @@ countries={
 'yemen',
 ],
 },
-'Antigua and Barbuda':{
+'antigua and barbuda':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -14821,7 +14339,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -14853,11 +14371,11 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahrain',
 'benin',
 'bhutan',
@@ -14941,7 +14459,7 @@ countries={
 'yemen',
 ],
 },
-'Trinidad and Tobago':{
+'trinidad and tobago':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -15063,7 +14581,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -15092,11 +14610,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'azerbaijan',
 'bahrain',
@@ -15182,7 +14700,7 @@ countries={
 'yemen',
 ],
 },
-'Costa Rica':{
+'costa rica':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -15298,7 +14816,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'burundi',
 'cambodia',
@@ -15332,12 +14850,12 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'azerbaijan',
@@ -15423,7 +14941,7 @@ countries={
 'yemen',
 ],
 },
-'Ukraine':{
+'ukraine':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -15535,7 +15053,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -15573,11 +15091,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'mexico',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahamas',
 'benin',
 'bhutan',
@@ -15664,7 +15182,7 @@ countries={
 'yemen',
 ],
 },
-'Mauritius':{
+'mauritius':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -15786,7 +15304,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -15813,12 +15331,12 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahrain',
 'bhutan',
@@ -15905,7 +15423,7 @@ countries={
 'yemen',
 ],
 },
-'Paraguay':{
+'paraguay':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -16015,7 +15533,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -16050,12 +15568,12 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'azerbaijan',
@@ -16146,7 +15664,7 @@ countries={
 'yemen',
 ],
 },
-'Taiwan':{
+'taiwan':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -16248,7 +15766,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'brunei',
@@ -16284,7 +15802,7 @@ countries={
 'timor-leste',
 'togo',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'australia',
 'canada',
@@ -16296,7 +15814,7 @@ countries={
 'united states of america',
 'us virgin islands',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'bahamas',
 'bahrain',
@@ -16387,7 +15905,7 @@ countries={
 'yemen',
 ],
 },
-'Dominica':{
+'dominica':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -16501,7 +16019,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -16532,11 +16050,11 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'benin',
@@ -16628,7 +16146,7 @@ countries={
 'yemen',
 ],
 },
-'Macao':{
+'macao':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -16740,7 +16258,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bolivia',
 'burundi',
@@ -16772,12 +16290,12 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahamas',
 'benin',
 'bhutan',
@@ -16869,7 +16387,7 @@ countries={
 'yemen',
 ],
 },
-'Saint Lucia':{
+'saint lucia':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -16982,7 +16500,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -17013,12 +16531,12 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'bahrain',
@@ -17110,7 +16628,7 @@ countries={
 'yemen',
 ],
 },
-'Grenada':{
+'grenada':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -17226,7 +16744,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -17254,11 +16772,11 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'bahrain',
@@ -17351,7 +16869,7 @@ countries={
 'yemen',
 ],
 },
-'Panama':{
+'panama':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -17461,7 +16979,7 @@ countries={
 'vietnam',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'burundi',
@@ -17494,11 +17012,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahrain',
 'benin',
@@ -17592,7 +17110,7 @@ countries={
 'yemen',
 ],
 },
-'Peru':{
+'peru':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -17696,7 +17214,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bahrain',
 'bangladesh',
@@ -17733,11 +17251,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'benin',
 'bhutan',
@@ -17833,7 +17351,7 @@ countries={
 'yemen',
 ],
 },
-'Honduras':{
+'honduras':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -17938,7 +17456,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -17970,11 +17488,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'azerbaijan',
@@ -18074,7 +17592,7 @@ countries={
 'yemen',
 ],
 },
-'Serbia':{
+'serbia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -18175,7 +17693,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -18210,11 +17728,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'azerbaijan',
 'bahamas',
@@ -18315,7 +17833,7 @@ countries={
 'yemen',
 ],
 },
-'Guatemala':{
+'guatemala':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -18417,7 +17935,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -18451,11 +17969,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'azerbaijan',
@@ -18556,7 +18074,7 @@ countries={
 'yemen',
 ],
 },
-'Colombia':{
+'colombia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -18658,7 +18176,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -18692,11 +18210,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'azerbaijan',
 'benin',
@@ -18797,7 +18315,7 @@ countries={
 'yemen',
 ],
 },
-'El Salvador':{
+'el salvador':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -18899,7 +18417,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -18932,11 +18450,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'bahrain',
@@ -19038,7 +18556,7 @@ countries={
 'yemen',
 ],
 },
-'Solomon Islands':{
+'solomon islands':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -19138,7 +18656,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -19171,12 +18689,12 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -19279,7 +18797,7 @@ countries={
 'yemen',
 ],
 },
-'Samoa':{
+'samoa':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -19378,7 +18896,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -19409,13 +18927,13 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'australia',
 'bahrain',
@@ -19520,7 +19038,7 @@ countries={
 'yemen',
 ],
 },
-'Nicaragua':{
+'nicaragua':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -19617,7 +19135,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -19650,11 +19168,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'bahrain',
@@ -19761,7 +19279,7 @@ countries={
 'yemen',
 ],
 },
-'North Macedonia':{
+'north macedonia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -19856,7 +19374,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -19891,10 +19409,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahrain',
 'benin',
@@ -20002,7 +19520,7 @@ countries={
 'yemen',
 ],
 },
-'Tuvalu':{
+'tuvalu':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -20100,7 +19618,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -20130,11 +19648,11 @@ countries={
 'togo',
 'tonga',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -20243,7 +19761,7 @@ countries={
 'yemen',
 ],
 },
-'Montenegro':{
+'montenegro':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -20336,7 +19854,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -20370,11 +19888,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'azerbaijan',
 'bahamas',
@@ -20484,7 +20002,7 @@ countries={
 'yemen',
 ],
 },
-'Tonga':{
+'tonga':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -20579,7 +20097,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -20609,12 +20127,12 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -20725,7 +20243,7 @@ countries={
 'yemen',
 ],
 },
-'Moldova':{
+'moldova':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -20816,7 +20334,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -20851,10 +20369,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahrain',
 'benin',
 'bhutan',
@@ -20966,7 +20484,7 @@ countries={
 'yemen',
 ],
 },
-'Georgia':{
+'georgia':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -21050,7 +20568,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -21091,10 +20609,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'benin',
 'bhutan',
 'botswana',
@@ -21207,7 +20725,7 @@ countries={
 'yemen',
 ],
 },
-'Marshall Islands':{
+'marshall islands':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -21299,7 +20817,7 @@ countries={
 'wallis and futuna',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -21331,11 +20849,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -21448,7 +20966,7 @@ countries={
 'yemen',
 ],
 },
-'Kiribati':{
+'kiribati':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -21542,7 +21060,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -21572,11 +21090,11 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -21689,7 +21207,7 @@ countries={
 'yemen',
 ],
 },
-'Venezuela':{
+'venezuela':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -21774,7 +21292,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burkina faso',
@@ -21812,11 +21330,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'armenia',
 'benin',
 'bhutan',
@@ -21930,7 +21448,7 @@ countries={
 'yemen',
 ],
 },
-'Palau':{
+'palau':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -22016,7 +21534,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -22051,12 +21569,12 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'american samoa',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -22171,7 +21689,7 @@ countries={
 'yemen',
 ],
 },
-'Micronesia':{
+'micronesia':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -22258,7 +21776,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -22292,11 +21810,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -22412,7 +21930,7 @@ countries={
 'yemen',
 ],
 },
-'Albania':{
+'albania':{
 'Visa free access':[
 'andorra',
 'antigua and barbuda',
@@ -22500,7 +22018,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -22532,11 +22050,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'azerbaijan',
 'bahamas',
 'bahrain',
@@ -22653,7 +22171,7 @@ countries={
 'yemen',
 ],
 },
-'Bosnia and Herzegovina':{
+'bosnia and herzegovina':{
 'Visa free access':[
 'albania',
 'andorra',
@@ -22739,7 +22257,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -22771,11 +22289,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'azerbaijan',
 'bahamas',
@@ -22894,7 +22412,7 @@ countries={
 'yemen',
 ],
 },
-'Turkey':{
+'turkey':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -22968,7 +22486,7 @@ countries={
 'vanuatu',
 'venezuela',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'burkina faso',
@@ -23009,13 +22527,13 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'mexico',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'bahrain',
 'benin',
@@ -23130,253 +22648,12 @@ countries={
 'united states of america',
 'us virgin islands',
 'vatican city',
-'vietnam',
-'wallis and futuna',
-'yemen',
-],
-},
-'Russia':{
-'Visa free access':[
-'antigua and barbuda',
-'argentina',
-'armenia',
-'azerbaijan',
-'bahamas',
-'barbados',
-'belarus',
-'bolivia',
-'bosnia and herzegovina',
-'botswana',
-'brazil',
-'brunei',
-'cape verde',
-'chile',
-'colombia',
-'cook islands',
-'costa rica',
-'cuba',
-'dominica',
-'dominican republic',
-'ecuador',
-'el salvador',
-'eswatini',
-'fiji',
-'gabon',
-'gambia',
-'georgia',
-'grenada',
-'guatemala',
-'guyana',
-'haiti',
-'honduras',
-'hong kong',
-'israel',
-'jamaica',
-'kazakhstan',
-'kyrgyzstan',
-'laos',
-'macao',
-'malaysia',
-'maldives',
-'mauritius',
-'micronesia',
-'moldova',
-'mongolia',
-'montenegro',
-'morocco',
-'mozambique',
-'myanmar',
-'namibia',
-'nicaragua',
-'palau',
-'palestinian territories',
-'panama',
-'paraguay',
-'peru',
-'philippines',
-'saint kitts and nevis',
-'saint lucia',
-'samoa',
-'sao tome and principe',
-'serbia',
-'south africa',
-'st. vincent and the grenadines',
-'suriname',
-'tajikistan',
-'thailand',
-'trinidad and tobago',
-'tunisia',
-'turkey',
-'turks and caicos islands',
-'united arab emirates',
-'uruguay',
-'uzbekistan',
-'vanuatu',
-'venezuela',
 'vietnam',
-],
-'Visa on arrival':[
-'bahrain',
-'bangladesh',
-'burundi',
-'cambodia',
-'comoros',
-'egypt',
-'indonesia',
-'iraq',
-'jordan',
-'lebanon',
-'madagascar',
-'marshall islands',
-'mauritania',
-'nauru',
-'nepal',
-'niue',
-'oman',
-'qatar',
-'rwanda',
-'saudi arabia',
-'senegal',
-'seychelles',
-'sierra leone',
-'somalia',
-'tanzania',
-'timor-leste',
-'togo',
-'tonga',
-'tuvalu',
-'zambia',
-'zimbabwe',
-],
-'eTA':[
-'mexico',
-'pakistan',
-'south korea',
-'sri lanka',
-],
-'Visa online':[
-'albania',
-'benin',
-'bhutan',
-'burkina faso',
-'congo (dem. rep.)',
-'cote d\'ivoire (ivory coast)',
-'djibouti',
-'ethiopia',
-'guinea',
-'india',
-'iran',
-'kenya',
-'lesotho',
-'malawi',
-'montserrat',
-'papua new guinea',
-'singapore',
-'south sudan',
-'st. helena',
-'uganda',
-],
-'Visa required':[
-'afghanistan',
-'algeria',
-'american samoa',
-'andorra',
-'angola',
-'anguilla',
-'aruba',
-'australia',
-'austria',
-'belgium',
-'belize',
-'bermuda',
-'bonaire, st. eustatius and saba',
-'british virgin islands',
-'bulgaria',
-'cameroon',
-'canada',
-'cayman islands',
-'central african republic',
-'chad',
-'china',
-'congo',
-'croatia',
-'curacao',
-'cyprus',
-'czech republic',
-'denmark',
-'equatorial guinea',
-'eritrea',
-'estonia',
-'falkland islands',
-'faroe islands',
-'finland',
-'france',
-'french guiana',
-'french polynesia',
-'french west indies',
-'germany',
-'ghana',
-'gibraltar',
-'greece',
-'greenland',
-'guam',
-'guinea-bissau',
-'hungary',
-'iceland',
-'ireland',
-'italy',
-'japan',
-'kiribati',
-'kosovo',
-'kuwait',
-'latvia',
-'liberia',
-'libya',
-'liechtenstein',
-'lithuania',
-'luxembourg',
-'mali',
-'malta',
-'mayotte',
-'monaco',
-'netherlands',
-'new caledonia',
-'new zealand',
-'niger',
-'nigeria',
-'norfolk island',
-'north korea',
-'north macedonia',
-'northern mariana islands',
-'norway',
-'poland',
-'portugal',
-'puerto rico',
-'reunion',
-'romania',
-'san marino',
-'slovakia',
-'slovenia',
-'solomon islands',
-'spain',
-'st. maarten',
-'st. pierre and miquelon',
-'sudan',
-'sweden',
-'switzerland',
-'syria',
-'taiwan',
-'turkmenistan',
-'ukraine',
-'united kingdom',
-'united states of america',
-'us virgin islands',
-'vatican city',
 'wallis and futuna',
 'yemen',
 ],
 },
-'Russian Federation':{
+'russia':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -23456,7 +22733,7 @@ countries={
 'venezuela',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -23489,13 +22766,13 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'mexico',
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'benin',
 'bhutan',
@@ -23617,7 +22894,7 @@ countries={
 'yemen',
 ],
 },
-'South Africa':{
+'south africa':{
 'Visa free access':[
 'angola',
 'antigua and barbuda',
@@ -23687,7 +22964,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bolivia',
 'burundi',
@@ -23721,12 +22998,12 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'azerbaijan',
 'bahrain',
@@ -23858,7 +23135,7 @@ countries={
 'yemen',
 ],
 },
-'Qatar':{
+'qatar':{
 'Visa free access':[
 'albania',
 'argentina',
@@ -23926,7 +23203,7 @@ countries={
 'venezuela',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'brunei',
@@ -23957,14 +23234,14 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'australia',
 'benin',
@@ -24099,7 +23376,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Belize':{
+'belize':{
 'Visa free access':[
 'anguilla',
 'antigua and barbuda',
@@ -24173,7 +23450,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -24201,10 +23478,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'bahrain',
@@ -24340,7 +23617,7 @@ countries={
 'yemen',
 ],
 },
-'Kuwait':{
+'kuwait':{
 'Visa free access':[
 'albania',
 'armenia',
@@ -24398,7 +23675,7 @@ countries={
 'vanuatu',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bangladesh',
 'bolivia',
@@ -24435,14 +23712,14 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'benin',
 'bhutan',
@@ -24581,7 +23858,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Timor-Leste':{
+'timor-leste':{
 'Visa free access':[
 'andorra',
 'anguilla',
@@ -24649,7 +23926,7 @@ countries={
 'vatican city',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -24679,10 +23956,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -24822,7 +24099,7 @@ countries={
 'yemen',
 ],
 },
-'Ecuador':{
+'ecuador':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -24884,7 +24161,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -24917,11 +24194,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'azerbaijan',
 'benin',
@@ -25063,7 +24340,7 @@ countries={
 'yemen',
 ],
 },
-'Vanuatu':{
+'vanuatu':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -25123,7 +24400,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -25158,10 +24435,10 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -25304,7 +24581,7 @@ countries={
 'yemen',
 ],
 },
-'Fiji':{
+'fiji':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -25362,7 +24639,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -25395,11 +24672,11 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -25545,7 +24822,7 @@ countries={
 'yemen',
 ],
 },
-'Maldives':{
+'maldives':{
 'Visa free access':[
 'anguilla',
 'antigua and barbuda',
@@ -25605,7 +24882,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -25636,10 +24913,10 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'azerbaijan',
@@ -25786,7 +25063,7 @@ countries={
 'yemen',
 ],
 },
-'Bahrain':{
+'bahrain':{
 'Visa free access':[
 'albania',
 'bahamas',
@@ -25837,7 +25114,7 @@ countries={
 'vanuatu',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bangladesh',
 'bolivia',
@@ -25872,14 +25149,14 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'australia',
@@ -26027,7 +25304,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Nauru':{
+'nauru':{
 'Visa free access':[
 'anguilla',
 'antigua and barbuda',
@@ -26086,7 +25363,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -26116,11 +25393,11 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -26268,7 +25545,7 @@ countries={
 'yemen',
 ],
 },
-'Botswana':{
+'botswana':{
 'Visa free access':[
 'angola',
 'anguilla',
@@ -26329,7 +25606,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -26355,12 +25632,12 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -26509,7 +25786,7 @@ countries={
 'yemen',
 ],
 },
-'Jamaica':{
+'jamaica':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -26568,7 +25845,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -26597,11 +25874,11 @@ countries={
 'turkey',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'azerbaijan',
@@ -26750,7 +26027,7 @@ countries={
 'yemen',
 ],
 },
-'Guyana':{
+'guyana':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -26803,7 +26080,7 @@ countries={
 'uruguay',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -26837,11 +26114,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'benin',
@@ -26991,7 +26268,7 @@ countries={
 'yemen',
 ],
 },
-'Saudi Arabia':{
+'saudi arabia':{
 'Visa free access':[
 'albania',
 'bahrain',
@@ -27042,7 +26319,7 @@ countries={
 'vanuatu',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bangladesh',
 'bolivia',
@@ -27074,14 +26351,14 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'armenia',
 'bahamas',
@@ -27232,7 +26509,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Oman':{
+'oman':{
 'Visa free access':[
 'albania',
 'bahamas',
@@ -27277,7 +26554,7 @@ countries={
 'vanuatu',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'azerbaijan',
 'bangladesh',
@@ -27314,14 +26591,14 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'eTA':[
+'eTA visa required':[
 'new zealand',
 'pakistan',
 'south korea',
 'sri lanka',
 'united kingdom',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'benin',
 'bhutan',
@@ -27473,7 +26750,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Papua New Guinea':{
+'papua new guinea':{
 'Visa free access':[
 'anguilla',
 'antigua and barbuda',
@@ -27522,7 +26799,7 @@ countries={
 'vanuatu',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -27557,11 +26834,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'canada',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'australia',
@@ -27714,7 +26991,7 @@ countries={
 'yemen',
 ],
 },
-'Belarus':{
+'belarus':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -27760,7 +27037,7 @@ countries={
 'venezuela',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -27797,10 +27074,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahamas',
 'bahrain',
 'benin',
@@ -27955,7 +27232,7 @@ countries={
 'yemen',
 ],
 },
-'Bolivia':{
+'bolivia':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -28001,7 +27278,7 @@ countries={
 'venezuela',
 'wallis and futuna',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'burundi',
@@ -28036,10 +27313,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'azerbaijan',
@@ -28196,7 +27473,7 @@ countries={
 'yemen',
 ],
 },
-'Namibia':{
+'namibia':{
 'Visa free access':[
 'angola',
 'anguilla',
@@ -28249,7 +27526,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -28277,10 +27554,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -28437,7 +27714,7 @@ countries={
 'yemen',
 ],
 },
-'Thailand':{
+'thailand':{
 'Visa free access':[
 'albania',
 'argentina',
@@ -28479,7 +27756,7 @@ countries={
 'vanuatu',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bahrain',
 'bolivia',
@@ -28515,12 +27792,12 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'antigua and barbuda',
 'australia',
 'azerbaijan',
@@ -28678,7 +27955,7 @@ countries={
 'yemen',
 ],
 },
-'Lesotho':{
+'lesotho':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -28729,7 +28006,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -28756,11 +28033,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -28919,7 +28196,7 @@ countries={
 'yemen',
 ],
 },
-'Suriname':{
+'suriname':{
 'Visa free access':[
 'antigua and barbuda',
 'argentina',
@@ -28963,7 +28240,7 @@ countries={
 'trinidad and tobago',
 'turks and caicos islands',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -28997,11 +28274,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'benin',
@@ -29160,7 +28437,7 @@ countries={
 'yemen',
 ],
 },
-'Kazakhstan':{
+'kazakhstan':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -29199,7 +28476,7 @@ countries={
 'united arab emirates',
 'uzbekistan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bahrain',
 'bangladesh',
 'bolivia',
@@ -29238,11 +28515,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahamas',
 'benin',
 'bhutan',
@@ -29401,7 +28678,7 @@ countries={
 'yemen',
 ],
 },
-'Kenya':{
+'kenya':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -29447,7 +28724,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burkina faso',
 'cambodia',
@@ -29478,10 +28755,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -29642,7 +28919,7 @@ countries={
 'yemen',
 ],
 },
-'Indonesia':{
+'indonesia':{
 'Visa free access':[
 'barbados',
 'belarus',
@@ -29688,7 +28965,7 @@ countries={
 'venezuela',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bangladesh',
 'bolivia',
@@ -29718,11 +28995,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -29883,7 +29160,7 @@ countries={
 'yemen',
 ],
 },
-'Eswatini':{
+'eswatini':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -29932,7 +29209,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -29958,11 +29235,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -30124,7 +29401,7 @@ countries={
 'yemen',
 ],
 },
-'Malawi':{
+'malawi':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -30171,7 +29448,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -30199,10 +29476,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -30365,7 +29642,7 @@ countries={
 'yemen',
 ],
 },
-'China':{
+'china':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -30399,7 +29676,7 @@ countries={
 'uzbekistan',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bahrain',
 'bangladesh',
@@ -30438,11 +29715,11 @@ countries={
 'tonga',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'benin',
 'bhutan',
@@ -30606,7 +29883,7 @@ countries={
 'yemen',
 ],
 },
-'Tanzania':{
+'tanzania':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -30654,7 +29931,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'cambodia',
 'cape verde',
@@ -30678,11 +29955,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -30847,7 +30124,7 @@ countries={
 'yemen',
 ],
 },
-'Dominican Republic':{
+'dominican republic':{
 'Visa free access':[
 'belize',
 'botswana',
@@ -30880,7 +30157,7 @@ countries={
 'tunisia',
 'uzbekistan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -30918,11 +30195,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -31088,7 +30365,7 @@ countries={
 'yemen',
 ],
 },
-'Zambia':{
+'zambia':{
 'Visa free access':[
 'angola',
 'antigua and barbuda',
@@ -31133,7 +30410,7 @@ countries={
 'vanuatu',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -31159,11 +30436,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -31329,7 +30606,7 @@ countries={
 'yemen',
 ],
 },
-'Armenia':{
+'armenia':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -31365,7 +30642,7 @@ countries={
 'uruguay',
 'uzbekistan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -31400,10 +30677,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'bahrain',
 'benin',
@@ -31570,7 +30847,7 @@ countries={
 'yemen',
 ],
 },
-'Azerbaijan':{
+'azerbaijan':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -31605,7 +30882,7 @@ countries={
 'uzbekistan',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -31641,11 +30918,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'australia',
 'bahrain',
 'benin',
@@ -31811,7 +31088,7 @@ countries={
 'yemen',
 ],
 },
-'Gambia':{
+'gambia':{
 'Visa free access':[
 'bahamas',
 'bangladesh',
@@ -31859,7 +31136,7 @@ countries={
 'uganda',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -31882,10 +31159,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -32052,7 +31329,7 @@ countries={
 'yemen',
 ],
 },
-'Tunisia':{
+'tunisia':{
 'Visa free access':[
 'algeria',
 'barbados',
@@ -32089,7 +31366,7 @@ countries={
 'turkey',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burkina faso',
 'burundi',
@@ -32121,12 +31398,12 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -32293,7 +31570,7 @@ countries={
 'yemen',
 ],
 },
-'Cape Verde':{
+'cape verde':{
 'Visa free access':[
 'angola',
 'bahamas',
@@ -32332,7 +31609,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -32362,10 +31639,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -32534,7 +31811,7 @@ countries={
 'yemen',
 ],
 },
-'Sierra Leone':{
+'sierra leone':{
 'Visa free access':[
 'bahamas',
 'bangladesh',
@@ -32580,7 +31857,7 @@ countries={
 'uganda',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -32602,10 +31879,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -32775,7 +32052,7 @@ countries={
 'yemen',
 ],
 },
-'Uganda':{
+'uganda':{
 'Visa free access':[
 'antigua and barbuda',
 'bahamas',
@@ -32814,7 +32091,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'cambodia',
@@ -32842,10 +32119,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahrain',
 'bhutan',
@@ -33016,7 +32293,7 @@ countries={
 'yemen',
 ],
 },
-'Zimbabwe':{
+'zimbabwe':{
 'Visa free access':[
 'angola',
 'bahamas',
@@ -33057,7 +32334,7 @@ countries={
 'vanuatu',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -33083,10 +32360,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -33257,7 +32534,7 @@ countries={
 'yemen',
 ],
 },
-'Ghana':{
+'ghana':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -33302,7 +32579,7 @@ countries={
 'vanuatu',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -33323,11 +32600,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -33498,7 +32775,7 @@ countries={
 'yemen',
 ],
 },
-'Morocco':{
+'morocco':{
 'Visa free access':[
 'algeria',
 'barbados',
@@ -33534,7 +32811,7 @@ countries={
 'turkey',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -33564,11 +32841,11 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -33739,7 +33016,7 @@ countries={
 'yemen',
 ],
 },
-'Philippines':{
+'philippines':{
 'Visa free access':[
 'barbados',
 'bolivia',
@@ -33778,7 +33055,7 @@ countries={
 'vanuatu',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'burundi',
 'cape verde',
 'comoros',
@@ -33804,11 +33081,11 @@ countries={
 'trinidad and tobago',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -33980,7 +33257,7 @@ countries={
 'yemen',
 ],
 },
-'Kyrgyzstan':{
+'kyrgyzstan':{
 'Visa free access':[
 'antigua and barbuda',
 'armenia',
@@ -34009,7 +33286,7 @@ countries={
 'uzbekistan',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -34044,10 +33321,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahamas',
 'bahrain',
@@ -34221,7 +33498,7 @@ countries={
 'yemen',
 ],
 },
-'Rwanda':{
+'rwanda':{
 'Visa free access':[
 'angola',
 'barbados',
@@ -34252,7 +33529,7 @@ countries={
 'uganda',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'cambodia',
@@ -34284,11 +33561,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -34462,7 +33739,7 @@ countries={
 'yemen',
 ],
 },
-'Benin':{
+'benin':{
 'Visa free access':[
 'barbados',
 'bermuda',
@@ -34498,7 +33775,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -34526,10 +33803,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -34703,7 +33980,7 @@ countries={
 'yemen',
 ],
 },
-'Mongolia':{
+'mongolia':{
 'Visa free access':[
 'argentina',
 'barbados',
@@ -34738,7 +34015,7 @@ countries={
 'uruguay',
 'uzbekistan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -34767,10 +34044,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -34944,7 +34221,7 @@ countries={
 'yemen',
 ],
 },
-'Sao Tome and Principe':{
+'sao tome and principe':{
 'Visa free access':[
 'bahamas',
 'barbados',
@@ -34972,7 +34249,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -35007,10 +34284,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -35185,7 +34462,7 @@ countries={
 'yemen',
 ],
 },
-'Mozambique':{
+'mozambique':{
 'Visa free access':[
 'angola',
 'barbados',
@@ -35221,7 +34498,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -35247,11 +34524,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -35426,7 +34703,7 @@ countries={
 'yemen',
 ],
 },
-'Cuba':{
+'cuba':{
 'Visa free access':[
 'antigua and barbuda',
 'barbados',
@@ -35456,7 +34733,7 @@ countries={
 'uzbekistan',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -35488,10 +34765,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'angola',
 'armenia',
@@ -35667,7 +34944,7 @@ countries={
 'yemen',
 ],
 },
-'Uzbekistan':{
+'uzbekistan':{
 'Visa free access':[
 'antigua and barbuda',
 'armenia',
@@ -35695,7 +34972,7 @@ countries={
 'turkey',
 'ukraine',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -35728,10 +35005,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahamas',
 'bahrain',
@@ -35908,7 +35185,7 @@ countries={
 'yemen',
 ],
 },
-'Madagascar':{
+'madagascar':{
 'Visa free access':[
 'antigua and barbuda',
 'barbados',
@@ -35938,7 +35215,7 @@ countries={
 'uganda',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -35969,10 +35246,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahamas',
 'bahrain',
@@ -36149,7 +35426,7 @@ countries={
 'yemen',
 ],
 },
-'Burkina Faso':{
+'burkina faso':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -36183,7 +35460,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -36210,10 +35487,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -36390,7 +35667,7 @@ countries={
 'yemen',
 ],
 },
-'Gabon':{
+'gabon':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -36419,7 +35696,7 @@ countries={
 'suriname',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -36450,10 +35727,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -36631,7 +35908,7 @@ countries={
 'yemen',
 ],
 },
-'Tajikistan':{
+'tajikistan':{
 'Visa free access':[
 'antigua and barbuda',
 'armenia',
@@ -36657,7 +35934,7 @@ countries={
 'ukraine',
 'uzbekistan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -36690,11 +35967,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'bahamas',
 'bahrain',
@@ -36872,7 +36149,7 @@ countries={
 'yemen',
 ],
 },
-'Guinea':{
+'guinea':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -36903,7 +36180,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -36930,11 +36207,11 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'morocco',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -37113,7 +36390,7 @@ countries={
 'yemen',
 ],
 },
-'Cote d�Ivoire (Ivory Coast)':{
+'cote d�ivoire (ivory coast)':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -37146,7 +36423,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -37172,10 +36449,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -37354,7 +36631,7 @@ countries={
 'yemen',
 ],
 },
-'Togo':{
+'togo':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -37385,7 +36662,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -37413,10 +36690,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -37595,7 +36872,7 @@ countries={
 'yemen',
 ],
 },
-'Mauritania':{
+'mauritania':{
 'Visa free access':[
 'algeria',
 'barbados',
@@ -37625,7 +36902,7 @@ countries={
 'syria',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -37653,10 +36930,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -37836,7 +37113,7 @@ countries={
 'yemen',
 ],
 },
-'Equatorial Guinea':{
+'equatorial guinea':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -37860,7 +37137,7 @@ countries={
 'suriname',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -37893,10 +37170,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -38077,7 +37354,7 @@ countries={
 'yemen',
 ],
 },
-'Senegal':{
+'senegal':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -38111,7 +37388,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -38134,10 +37411,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -38318,7 +37595,7 @@ countries={
 'yemen',
 ],
 },
-'Niger':{
+'niger':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -38352,7 +37629,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -38375,10 +37652,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -38559,7 +37836,7 @@ countries={
 'yemen',
 ],
 },
-'Mali':{
+'mali':{
 'Visa free access':[
 'algeria',
 'bahamas',
@@ -38593,7 +37870,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -38614,11 +37891,11 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'morocco',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -38800,7 +38077,7 @@ countries={
 'yemen',
 ],
 },
-'Guinea-Bissau':{
+'guinea-bissau':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -38830,7 +38107,7 @@ countries={
 'togo',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -38856,10 +38133,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -39041,7 +38318,7 @@ countries={
 'yemen',
 ],
 },
-'Cambodia':{
+'cambodia':{
 'Visa free access':[
 'barbados',
 'brunei',
@@ -39063,7 +38340,7 @@ countries={
 'thailand',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -39096,11 +38373,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 'taiwan',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -39282,7 +38559,7 @@ countries={
 'yemen',
 ],
 },
-'Chad':{
+'chad':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -39310,7 +38587,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -39338,10 +38615,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -39523,7 +38800,7 @@ countries={
 'yemen',
 ],
 },
-'India':{
+'india':{
 'Visa free access':[
 'barbados',
 'bhutan',
@@ -39549,7 +38826,7 @@ countries={
 'trinidad and tobago',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -39579,10 +38856,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -39764,7 +39041,7 @@ countries={
 'yemen',
 ],
 },
-'Bhutan':{
+'bhutan':{
 'Visa free access':[
 'bangladesh',
 'barbados',
@@ -39784,7 +39061,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -39819,10 +39096,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -40005,7 +39282,7 @@ countries={
 'yemen',
 ],
 },
-'Comoros':{
+'comoros':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -40027,7 +39304,7 @@ countries={
 'tunisia',
 'uganda',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -40060,10 +39337,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -40246,7 +39523,7 @@ countries={
 'yemen',
 ],
 },
-'Central African Republic':{
+'central african republic':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -40271,7 +39548,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -40300,10 +39577,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -40487,7 +39764,7 @@ countries={
 'yemen',
 ],
 },
-'Angola':{
+'angola':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -40513,7 +39790,7 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -40539,11 +39816,11 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -40728,7 +40005,7 @@ countries={
 'yemen',
 ],
 },
-'Egypt':{
+'egypt':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -40747,7 +40024,7 @@ countries={
 'saint kitts and nevis',
 'st. vincent and the grenadines',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burkina faso',
 'burundi',
@@ -40781,10 +40058,10 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -40969,7 +40246,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Vietnam':{
+'vietnam':{
 'Visa free access':[
 'barbados',
 'brunei',
@@ -40992,7 +40269,7 @@ countries={
 'suriname',
 'thailand',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cape verde',
@@ -41021,11 +40298,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 'taiwan',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -41210,7 +40487,7 @@ countries={
 'yemen',
 ],
 },
-'Jordan':{
+'jordan':{
 'Visa free access':[
 'barbados',
 'cook islands',
@@ -41233,7 +40510,7 @@ countries={
 'tunisia',
 'turkey',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bolivia',
 'burundi',
@@ -41262,11 +40539,11 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'australia',
@@ -41451,7 +40728,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Algeria':{
+'algeria':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -41472,7 +40749,7 @@ countries={
 'syria',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -41504,10 +40781,10 @@ countries={
 'yemen',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -41692,7 +40969,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Djibouti':{
+'djibouti':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -41710,7 +40987,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -41743,10 +41020,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'azerbaijan',
@@ -41933,7 +41210,7 @@ countries={
 'yemen',
 ],
 },
-'Turkmenistan':{
+'turkmenistan':{
 'Visa free access':[
 'antigua and barbuda',
 'barbados',
@@ -41950,7 +41227,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -41984,10 +41261,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'armenia',
 'azerbaijan',
@@ -42174,7 +41451,7 @@ countries={
 'yemen',
 ],
 },
-'Laos':{
+'laos':{
 'Visa free access':[
 'bermuda',
 'brunei',
@@ -42197,7 +41474,7 @@ countries={
 'thailand',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -42224,11 +41501,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 'taiwan',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -42415,7 +41692,7 @@ countries={
 'yemen',
 ],
 },
-'Liberia':{
+'liberia':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -42443,7 +41720,7 @@ countries={
 'suriname',
 'togo',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -42466,10 +41743,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -42656,7 +41933,7 @@ countries={
 'yemen',
 ],
 },
-'Haiti':{
+'haiti':{
 'Visa free access':[
 'belize',
 'benin',
@@ -42675,7 +41952,7 @@ countries={
 'suriname',
 'taiwan',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -42706,11 +41983,11 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'south korea',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -42897,7 +42174,7 @@ countries={
 'yemen',
 ],
 },
-'Cameroon':{
+'cameroon':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -42919,7 +42196,7 @@ countries={
 'st. vincent and the grenadines',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -42948,10 +42225,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -43138,7 +42415,7 @@ countries={
 'yemen',
 ],
 },
-'Congo':{
+'congo':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -43160,7 +42437,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -43188,11 +42465,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'morocco',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -43379,7 +42656,7 @@ countries={
 'yemen',
 ],
 },
-'Burundi':{
+'burundi':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -43400,7 +42677,7 @@ countries={
 'suriname',
 'uganda',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'cambodia',
@@ -43429,10 +42706,10 @@ countries={
 'zambia',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -43620,7 +42897,7 @@ countries={
 'yemen',
 ],
 },
-'Nigeria':{
+'nigeria':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -43648,7 +42925,7 @@ countries={
 'togo',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -43669,10 +42946,10 @@ countries={
 'timor-leste',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -43861,7 +43138,7 @@ countries={
 'yemen',
 ],
 },
-'Ethiopia':{
+'ethiopia':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -43876,7 +43153,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -43908,10 +43185,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -44102,7 +43379,7 @@ countries={
 'yemen',
 ],
 },
-'South Sudan':{
+'south sudan':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -44123,7 +43400,7 @@ countries={
 'suriname',
 'uganda',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'cambodia',
@@ -44149,10 +43426,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -44343,7 +43620,7 @@ countries={
 'yemen',
 ],
 },
-'Lebanon':{
+'lebanon':{
 'Visa free access':[
 'barbados',
 'cook islands',
@@ -44360,7 +43637,7 @@ countries={
 'syria',
 'turkey',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bolivia',
 'burundi',
@@ -44389,10 +43666,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'australia',
@@ -44584,7 +43861,7 @@ countries={
 'yemen',
 ],
 },
-'Congo (Dem. Rep.)':{
+'congo (dem. rep.)':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -44603,7 +43880,7 @@ countries={
 'suriname',
 'zimbabwe',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -44630,10 +43907,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -44825,7 +44102,7 @@ countries={
 'yemen',
 ],
 },
-'Iran':{
+'iran':{
 'Visa free access':[
 'armenia',
 'cook islands',
@@ -44840,7 +44117,7 @@ countries={
 'turkey',
 'venezuela',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'azerbaijan',
 'bolivia',
 'burundi',
@@ -44870,11 +44147,11 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -45066,7 +44343,7 @@ countries={
 'yemen',
 ],
 },
-'Myanmar':{
+'myanmar':{
 'Visa free access':[
 'brunei',
 'cook islands',
@@ -45083,7 +44360,7 @@ countries={
 'thailand',
 'vietnam',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -45110,11 +44387,11 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 'taiwan',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -45307,7 +44584,7 @@ countries={
 'yemen',
 ],
 },
-'Sudan':{
+'sudan':{
 'Visa free access':[
 'barbados',
 'benin',
@@ -45322,7 +44599,7 @@ countries={
 'suriname',
 'syria',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -45352,10 +44629,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -45548,7 +44825,7 @@ countries={
 'yemen',
 ],
 },
-'Kosovo':{
+'kosovo':{
 'Visa free access':[
 'albania',
 'antigua and barbuda',
@@ -45565,7 +44842,7 @@ countries={
 'suriname',
 'turkey',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -45592,10 +44869,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'bahamas',
 'benin',
 'bhutan',
@@ -45789,7 +45066,7 @@ countries={
 'yemen',
 ],
 },
-'Sri Lanka':{
+'sri lanka':{
 'Visa free access':[
 'bahamas',
 'barbados',
@@ -45809,7 +45086,7 @@ countries={
 'vanuatu',
 'venezuela',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -45832,10 +45109,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'pakistan',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'azerbaijan',
@@ -46030,7 +45307,7 @@ countries={
 'yemen',
 ],
 },
-'Eritrea':{
+'eritrea':{
 'Visa free access':[
 'benin',
 'cook islands',
@@ -46044,7 +45321,7 @@ countries={
 'st. vincent and the grenadines',
 'uganda',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -46072,10 +45349,10 @@ countries={
 'tuvalu',
 'zambia',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -46271,7 +45548,7 @@ countries={
 'yemen',
 ],
 },
-'Libya':{
+'libya':{
 'Visa free access':[
 'algeria',
 'benin',
@@ -46286,7 +45563,7 @@ countries={
 'suriname',
 'tunisia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burkina faso',
 'burundi',
@@ -46313,10 +45590,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -46512,7 +45789,7 @@ countries={
 'yemen',
 ],
 },
-'North Korea':{
+'north korea':{
 'Visa free access':[
 'cook islands',
 'dominica',
@@ -46524,7 +45801,7 @@ countries={
 'st. vincent and the grenadines',
 'suriname',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'armenia',
 'bangladesh',
 'bolivia',
@@ -46554,7 +45831,7 @@ countries={
 'togo',
 'tuvalu',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -46751,7 +46028,7 @@ countries={
 'yemen',
 ],
 },
-'Nepal':{
+'nepal':{
 'Visa free access':[
 'barbados',
 'cook islands',
@@ -46765,7 +46042,7 @@ countries={
 'singapore',
 'st. vincent and the grenadines',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -46791,10 +46068,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'australia',
@@ -46992,7 +46269,7 @@ countries={
 'yemen',
 ],
 },
-'Bangladesh':{
+'bangladesh':{
 'Visa free access':[
 'bahamas',
 'barbados',
@@ -47012,7 +46289,7 @@ countries={
 'trinidad and tobago',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -47031,10 +46308,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahrain',
@@ -47233,7 +46510,7 @@ countries={
 'yemen',
 ],
 },
-'Palestinian Territories':{
+'palestinian territories':{
 'Visa free access':[
 'bolivia',
 'cook islands',
@@ -47247,7 +46524,7 @@ countries={
 'suriname',
 'venezuela',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'burundi',
 'cambodia',
@@ -47272,10 +46549,10 @@ countries={
 'tuvalu',
 'zimbabwe',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -47474,7 +46751,7 @@ countries={
 'yemen',
 ],
 },
-'Yemen':{
+'yemen':{
 'Visa free access':[
 'cook islands',
 'dominica',
@@ -47486,7 +46763,7 @@ countries={
 'suriname',
 'syria',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -47511,10 +46788,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -47715,7 +46992,7 @@ countries={
 'wallis and futuna',
 ],
 },
-'Somalia':{
+'somalia':{
 'Visa free access':[
 'benin',
 'cook islands',
@@ -47726,7 +47003,7 @@ countries={
 'micronesia',
 'st. vincent and the grenadines',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burkina faso',
@@ -47751,10 +47028,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -47956,7 +47233,7 @@ countries={
 'yemen',
 ],
 },
-'Pakistan':{
+'pakistan':{
 'Visa free access':[
 'barbados',
 'cook islands',
@@ -47969,7 +47246,7 @@ countries={
 'trinidad and tobago',
 'vanuatu',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -47991,10 +47268,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'australia',
@@ -48197,7 +47474,7 @@ countries={
 'yemen',
 ],
 },
-'Iraq':{
+'iraq':{
 'Visa free access':[
 'cook islands',
 'dominica',
@@ -48208,7 +47485,7 @@ countries={
 'suriname',
 'zambia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -48230,10 +47507,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'armenia',
@@ -48438,7 +47715,7 @@ countries={
 'yemen',
 ],
 },
-'Syria':{
+'syria':{
 'Visa free access':[
 'cook islands',
 'dominica',
@@ -48447,7 +47724,7 @@ countries={
 'micronesia',
 'niue',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bolivia',
 'burundi',
 'cambodia',
@@ -48469,7 +47746,7 @@ countries={
 'tuvalu',
 'yemen',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',
@@ -48677,14 +47954,14 @@ countries={
 'wallis and futuna',
 ],
 },
-'Afghanistan':{
+'afghanistan':{
 'Visa free access':[
 'cook islands',
 'dominica',
 'haiti',
 'micronesia',
 ],
-'Visa on arrival':[
+'Visa on arrival required':[
 'bangladesh',
 'bolivia',
 'burundi',
@@ -48706,10 +47983,10 @@ countries={
 'togo',
 'tuvalu',
 ],
-'eTA':[
+'eTA visa required':[
 'sri lanka',
 ],
-'Visa online':[
+'Visa online required':[
 'albania',
 'antigua and barbuda',
 'bahamas',

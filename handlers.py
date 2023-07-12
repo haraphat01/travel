@@ -896,14 +896,15 @@ async def inputDestination(msg: Message, state: FSMContext) -> None:
         await msg.answer(text=try_again_text, reply_markup=back)
     else:
         update_bd("destination", f"'{msg.text}'", msg.chat.id)
-        result = ""
-        result = visaAdvisory.getVisaAdvisory(record[3], record[2], record[1])
-        if result is None:
-            await state.set_state(VisaAdvisory.citizenship)
-            await msg.answer(text=try_again_text, reply_markup=back)
-        else:
-            await state.set_state(VisaAdvisory.last)
-            await msg.answer(text=result, reply_markup=back)
+        print(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2])
+    result = ""
+    result = visaAdvisory.getVisaAdvisory(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2], record[1])
+    if result is None:
+        await state.set_state(VisaAdvisory.citizenship)
+        await msg.answer(text=try_again_text, reply_markup=back)
+    else:
+        await state.set_state(VisaAdvisory.last)
+        await msg.answer(text=result, reply_markup=back)
 
 
 @router.callback_query(F.data == "visa_advisory")
