@@ -91,8 +91,14 @@ def fetch_info(id):
     record = db.cursor.fetchone()
     return record
 
+
 def update_bd(bd_field, updated_text, id) -> None:
     update = f"Update users set {bd_field}={updated_text} where id={id}"
+    db.cursor.execute(update)
+    db.connect.commit()
+
+def update_experts_bd(bd_field, updated_text) -> None:
+    update = f"Update experts set {bd_field}={updated_text}"
     db.cursor.execute(update)
     db.connect.commit()
 
@@ -106,6 +112,7 @@ async def start_handler(msg: Message) -> None:
         print(ex)
 
     await msg.answer(text="Choose the language: ", reply_markup=kb.language_menu)
+
 
 @router.callback_query(F.data == "ru")
 async def language_confirmation_ru(callback: CallbackQuery):
@@ -270,6 +277,7 @@ async def confirm_edit(callback: CallbackQuery, state: FSMContext) -> None:
     db.connect.commit()
 
     await callback.message.answer(text="✅Success")
+    await state.set_state(None)
 
 class AddExpert(StatesGroup):
     name = State()
@@ -324,6 +332,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
     db.connect.commit()
 
     await msg.answer(text="✅Success")
+    await state.set_state(None)
 
 class AddCity(StatesGroup):
     country = State()
@@ -399,6 +408,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     db.connect.commit()
 
     await msg.answer(text="✅Success")
+    await state.set_state(None)
 
 @router.callback_query(F.data == "add_city")
 async def city(callback: CallbackQuery, state: FSMContext):
@@ -1137,21 +1147,31 @@ class VisaAdvisory(StatesGroup):
 @router.message(VisaAdvisory.citizenship)
 async def inputCitizenship(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.chat.id)
-    update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
-
-    msg_text = text.questionsVisa[f'{record[1]}']['destination']
-    await state.set_state(VisaAdvisory.destination)
-    await msg.answer(text=msg_text)
+    try_again_text = text.try_again[f'{record[1]}']
+    back = kb.back_menu[f'{record[1]}']
+    if "'" in msg.text or '"' in msg.text:
+        await state.set_state(VisaAdvisory.last)
+        await msg.answer(text=try_again_text, reply_markup=back)
+    else:
+        update_bd("citizenship", f"'{msg.text}'", msg.chat.id)
+        msg_text = text.questionsVisa[f'{record[1]}']['destination']
+        await state.set_state(VisaAdvisory.destination)
+        await msg.answer(text=msg_text)
 
 
 @router.message(VisaAdvisory.destination)
 async def inputDestination(msg: Message, state: FSMContext) -> None:
-    update_bd("destination", f"'{msg.text}'", msg.chat.id)
     record = fetch_info(msg.from_user.id)
-    result = ""
-    result = visaAdvisory.visaAdvisory(record[2], record[3], record[1])
     try_again_text = text.try_again[f'{record[1]}']
     back = kb.back_menu[f'{record[1]}']
+    if "'" in msg.text or '"' in msg.text:
+        await state.set_state(VisaAdvisory.last)
+        await msg.answer(text=try_again_text, reply_markup=back)
+    else:
+        update_bd("destination", f"'{msg.text}'", msg.chat.id)
+        print(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2])
+    result = ""
+    result = visaAdvisory.getVisaAdvisory(fetch_info(msg.from_user.id)[3], fetch_info(msg.from_user.id)[2], record[1])
     if result is None:
         await state.set_state(VisaAdvisory.citizenship)
         await msg.answer(text=try_again_text, reply_markup=back)
@@ -1299,171 +1319,205 @@ async def cancel(callback: CallbackQuery):
 
 
 @router.callback_query(F.data == "book_appointment")
-async def book_appointment(callback: CallbackQuery):
-    d = 1
-    # record = fetch_info(callback.from_user.id)
-    # # menu = kb.date_schedule[record[1]]
-    # msg_text = text.expert_country[f'{record[1]}']
+async def book_appointment_callback(callback: CallbackQuery, state: FSMContext) -> None:
+    await state.set_state(ContactExperts.country)
+    record = fetch_info(callback.from_user.id)
+    menu = kb.date_schedule[record[1]]
+    msg_text = text.expert_country[f'{record[1]}']['time']
 
-    # await callback.message.answer(text=msg_text)
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+
+class ContactExperts(StatesGroup):
+    country = State()
+    expertName = State()
+
+
+@router.message(ContactExperts.country)
+async def countryCallback(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    data = await state.get_data()
+    country = f"'{msg.text}'"
+    db.cursor.execute(
+        f"Select * from experts where country={country} AND {data['time']}='NULL'"
+    )
+    info = db.cursor.fetchall()
+    flag = True
+    try:
+        if len(info) == 0:
+            await msg.answer(text="Sorry, no available experts😢")
+            record = fetch_info(msg.from_user.id)
+            menu = kb.date_schedule[record[1]]
+            msg_text = text.expert_country[f'{record[1]}']['time']
+
+            await msg.answer(text=msg_text, reply_markup=menu)
+            await state.set_state(None)
+            flag = False
+        for expert in info:
+            await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
+                                  f"<b>Country: </b> {expert[2]}\n"
+                                  f"<b>Expert type: </b>{expert[1]}\n"
+                                  f"<b>Alias: </b>{expert[3]}")
+    except Exception as ex:
+        await msg.answer(text="Sorry, no available experts😢")
+    msg_text = text.expert_country[f'{record[1]}']
+    menu = kb.date_schedule[record[1]]
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+@router.message(ContactExperts.country)
+async def book_appointment(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.chat.id)
+    # update_experts_bd('country', f"'{msg.text}'", msg.from_user.id)
+    country = f"'{msg.text}'"
+    data = await state.get_data()
+    db.cursor.execute(f"Select * from experts where country={country} AND {data['time']}='NULL'")
+    info = db.cursor.fetchall()
+    try:
+        for expert in info:
+            # print(expert[1])
+            await msg.answer(text=f"<b>Name: </b> {expert[0]}\n<b>Country: </b>{expert[2]}\n<b>Expert type: </b> {expert[1]}")
+    except Exception as ex:
+        print("No experts from this country")
+    if flag:
+        await state.set_state(ContactExperts.expertName)
+        msg_text = text.expert_country[f'{record[1]}']['name']
+        await msg.answer(text=msg_text)
+
+
+@router.message(ContactExperts.expertName)
+async def countryCallback(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(alias=msg.text)
+    data = await state.get_data()
+    id = f"'{data['alias']}'"
+    username = f"'{msg.from_user.username}'"
+    db.cursor.execute(f"UPDATE experts SET {data['time']}={username} where expert_id={id}")
+    db.connect.commit()
+
+    msg_text = text.expert_country[f'{record[1]}']['success']
+    await msg.answer(text=msg_text)
+    await state.set_state(None)
+
+
 
 @router.callback_query(F.data == "ten")
-async def ten(callback: CallbackQuery):
+async def ten(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
+    await state.update_data(time="ten")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
+    db.cursor.execute(f"Select * from experts")
     results = db.cursor.fetchall()
+    await state.update_data(time="ten")
+    await state.set_state(ContactExperts.country)
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        print(results[i][16])
-        if results[i][16] == "booked":
+        if results[i][3] == callback.from_user.username:
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
     if not is_booked:
-        update_bd('ten', "'booked'", callback.from_user.id)
         msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    # await callback.message.answer(text=msg_text)
+    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "eleven")
-async def eleven(callback: CallbackQuery):
+async def eleven(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
+    await state.update_data(time="eleven")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
+    db.cursor.execute(f"Select * from experts")
     results = db.cursor.fetchall()
+    await state.update_data(time="eleven")
+    await state.set_state(ContactExperts.country)
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][17] == "booked":
+        if results[i][4] == callback.from_user.username:
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
     if not is_booked:
-        update_bd('eleven', "'booked'", callback.from_user.id)
         msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "twelve")
-async def twelve(callback: CallbackQuery):
+async def twelve(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
+    await state.update_data(time="twelve")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
+    db.cursor.execute(f"Select * from experts")
     results = db.cursor.fetchall()
+    await state.update_data(time="twelve")
+    await state.set_state(ContactExperts.country)
     msg_text = "0"
     is_booked = False
     for i in range(len(results)):
-        if results[i][18] == "booked":
+        if results[i][5] == callback.from_user.username:
             msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
             is_booked = True
             break
     if not is_booked:
-        update_bd('twelve', "'booked'", callback.from_user.id)
         msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    msg_text = text.expert_country[f'{record[1]}']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "thirteen")
-async def thirteen(callback: CallbackQuery):
+async def thirteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][19] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('thirteen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="thirteen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fourteen")
-async def fourteen(callback: CallbackQuery):
+async def fourteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][20] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('fourteen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="fourteen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fifteen")
-async def fifteen(callback: CallbackQuery):
+async def fifteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][21] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('fifteen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="fifteen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "sixteen")
-async def sixteen(callback: CallbackQuery):
+async def sixteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][22] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('sixteen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="sixteen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "seventeen")
-async def seventeen(callback: CallbackQuery):
+async def seventeen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][23] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('seventeen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="seventeen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "eighteen")
-async def eighteen(callback: CallbackQuery):
+async def eighteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    db.cursor.execute(f"Select * from users")
-    results = db.cursor.fetchall()
-    msg_text = "0"
-    is_booked = False
-    for i in range(len(results)):
-        if results[i][24] == "booked":
-            msg_text = text.error_book[f'{record[1]}'][f'error_{record[13]}']
-            is_booked = True
-            break
-    if not is_booked:
-        update_bd('eighteen', "'booked'", callback.from_user.id)
-        msg_text = text.already_book[f'{record[1]}'][f'expert_{record[13]}']
+    await state.update_data(time="eighteen")
+    await state.set_state(ContactExperts.country)
+    msg_text = text.expert_country[f'{record[1]}']['country']
     await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),
