@@ -238,10 +238,6 @@ try_again = {
     'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
-expert_country = {
-    'ru': "Пожалуйста введите страну, в которой вы хотите найти эксперта:",
-    'eng': "Please enter the country in which you want to find an expert:"
-}
 
 visaAdvisory = {
     'ru': {
@@ -250,23 +246,6 @@ visaAdvisory = {
         'Visa free access': "Виза не требуется",
         'eTA visa required': "Требуется eTA виза",
         'Visa online required': "Требуется онлайн виза",
-    }
-}
-
-error_book = {
-    'ru': {
-        'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
-        'error_tax_prof': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
-        'error_real_estate_agent': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
-        'error_relocation_buddy': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
-        'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
-    },
-    'eng': {
-        'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
-        'error_tax_prof': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
-        'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
-        'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
-        'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
     }
 }
 
@@ -320,5 +299,40 @@ admin_panel = {
             'cost_alone': "Enter the amount of accommodation per month for one person",
             'cost_family': "Enter the amount of accommodation per month for a family",
         }
+    }
+}
+
+
+error_book = {
+    'ru': {
+        'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_tax_prof': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_real_estate_agent': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_relocation_buddy': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+        'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
+    },
+    'eng': {
+        'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_tax_prof': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_relocation_buddy': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+        'error_immigration_adviser': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
+    }
+}
+
+
+
+expert_country = {
+    'ru': {
+        'time': "Выберите удобное для вас время",
+        'country': "Введите страну в которой вам нужен эксперт" ,
+        'name': "Выберите эксперта к которому хотите записаться. (Введите алиас)",
+        'success': "Вы были успешно записаны к эксперту"
+    },
+    'eng': {
+        'time': "Choose convenient time for you",
+        'country': "Enter the country in which you need an expert.",
+        'name': "Select the expert to whom you wish to make an appointment.(Enter tg alias)",
+        'success': "You have been successfully booked with an expert"
     }
 }
