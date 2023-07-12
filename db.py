@@ -42,15 +42,15 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     type TEXT,
     country TEXT,
     expert_id TEXT,
-    ten TEXT,
-    eleven TEXT,
-    twelve TEXT,
-    thirteen TEXT,
-    fourteen TEXT,
-    fifteen TEXT,
-    sixteen TEXT,
-    seventeen TEXT,
-    eighteen TEXT 
+    ten TEXT DEFAULT 'NULL',
+    eleven TEXT DEFAULT 'NULL',
+    twelve TEXT DEFAULT 'NULL',
+    thirteen TEXT DEFAULT 'NULL',
+    fourteen TEXT DEFAULT 'NULL',
+    fifteen TEXT DEFAULT 'NULL',
+    sixteen TEXT DEFAULT 'NULL',
+    seventeen TEXT DEFAULT 'NULL',
+    eighteen TEXT DEFAULT 'NULL' 
 )""")
 
 

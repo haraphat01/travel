@@ -309,7 +309,19 @@ error_book = {
     }
 }
 
+
+
 expert_country = {
-    'ru': "Пожалуйста введите страну, в которой вы хотите найти эксперта:",
-    'eng': "Please enter the country in which you want to find an expert:"
+    'ru': {
+        'time': "Выберите удобное для вас время",
+        'country': "Введите страну в которой вам нужен эксперт" ,
+        'name': "Выберите эксперта к которому хотите записаться. (Введите алиас)",
+        'success': "Вы были успешно записаны к эксперту"
+    },
+    'eng': {
+        'time': "Choose convenient time for you",
+        'country': "Enter the country in which you need an expert.",
+        'name': "Select the expert to whom you wish to make an appointment.(Enter tg alias)",
+        'success': "You have been successfully booked with an expert"
+    }
 }
