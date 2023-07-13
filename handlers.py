@@ -1378,10 +1378,13 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     data = await state.get_data()
     await state.update_data(country=msg.text)
-    country = f"'{msg.text}'"
+    if record[1] == 'ru':
+        country = visaAdvisory.russian_to_english[msg.text.lower()]
+    else:
+        country = msg.text.lower()
     expert_type = f"'{record[13]}'"
     db.cursor.execute(
-        f"Select * from experts where country={country} AND {data['time']}='NULL' AND type={expert_type}"
+        f"Select * from experts where country='{country}' AND {data['time']}='NULL' AND type={expert_type}"
     )
     info = db.cursor.fetchall()
     flag = True
@@ -1397,7 +1400,7 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
             flag = False
         for expert in info:
             await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
-                                  f"<b>Country: </b> {expert[2]}\n"
+                                  f"<b>Country: </b> {expert[2].capitalize()}\n"
                                   f"<b>Expert type: </b>{expert[1].capitalize()}\n"
                                   f"<b>Alias: </b>{expert[3]}")
     except Exception as ex:
@@ -1415,10 +1418,13 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
     await state.update_data(alias=msg.text)
     data = await state.get_data()
     expert_type = f"'{record[13]}'"
-    country = f"'{data['country']}'"
+    if record[1] == 'ru':
+        country = visaAdvisory.russian_to_english[data['country'].lower()]
+    else:
+        country = data['country'].lower()
     flag = True
     db.cursor.execute(
-        f"Select * from experts where country={country} AND {data['time']}='NULL' AND type={expert_type}"
+        f"Select * from experts where country='{country}' AND {data['time']}='NULL' AND type={expert_type}"
     )
     info = db.cursor.fetchall()
     experts_array = []
@@ -1426,7 +1432,8 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         experts_array.append(expert[3])
     if (data['alias'] not in experts_array):
         await state.set_state(ContactExperts.expertName)
-        await msg.answer(text="Вы ввели неправильный алиас. Попробуйте еще раз!")
+        msg_text = text.error_book[f'{record[1]}']['error_input']
+        await msg.answer(text=msg_text)
         flag = False
     if flag:
         id = f"'{data['alias']}'"
@@ -1435,8 +1442,12 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         db.connect.commit()
 
         msg_text = text.expert_country[f'{record[1]}']['success']
+        update_bd(data['time'], "'booked'", msg.from_user.id)
         await msg.answer(text=msg_text)
         await state.set_state(None)
+        menu = kb.main_menu_buttons[f'{record[1]}']
+        msg_text = text.main_menu[f'menu_{record[1]}']
+        await msg.answer(text=msg_text, reply_markup=menu)
 
 
 @router.callback_query(F.data == "ten")
@@ -1445,7 +1456,6 @@ async def ten(callback: CallbackQuery, state: FSMContext) -> None:
     if record[19] == 'NULL':
         await state.update_data(time="ten")
         await state.set_state(ContactExperts.country)
-        update_bd('ten', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1459,7 +1469,6 @@ async def eleven(callback: CallbackQuery, state: FSMContext) -> None:
     if record[20] == 'NULL':
         await state.update_data(time="eleven")
         await state.set_state(ContactExperts.country)
-        update_bd('eleven', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1473,7 +1482,6 @@ async def twelve(callback: CallbackQuery, state: FSMContext) -> None:
     if record[21] == 'NULL':
         await state.update_data(time="twelve")
         await state.set_state(ContactExperts.country)
-        update_bd('twelve', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1487,7 +1495,6 @@ async def thirteen(callback: CallbackQuery, state: FSMContext):
     if record[22] == 'NULL':
         await state.update_data(time="thirteen")
         await state.set_state(ContactExperts.country)
-        update_bd('thirteen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1501,7 +1508,6 @@ async def fourteen(callback: CallbackQuery, state: FSMContext):
     if record[23] == 'NULL':
         await state.update_data(time="fourteen")
         await state.set_state(ContactExperts.country)
-        update_bd('fourteen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1515,7 +1521,6 @@ async def fifteen(callback: CallbackQuery, state: FSMContext):
     if record[24] == 'NULL':
         await state.update_data(time="fifteen")
         await state.set_state(ContactExperts.country)
-        update_bd('fifteen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1528,7 +1533,6 @@ async def sixteen(callback: CallbackQuery, state: FSMContext):
     if record[25] == 'NULL':
         await state.update_data(time="sixteen")
         await state.set_state(ContactExperts.country)
-        update_bd('sixteen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1541,7 +1545,6 @@ async def seventeen(callback: CallbackQuery, state: FSMContext):
     if record[26] == 'NULL':
         await state.update_data(time="seventeen")
         await state.set_state(ContactExperts.country)
-        update_bd('seventeen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
@@ -1554,7 +1557,6 @@ async def eighteen(callback: CallbackQuery, state: FSMContext):
     if record[27] == 'NULL':
         await state.update_data(time="eighteen")
         await state.set_state(ContactExperts.country)
-        update_bd('eighteen', "'booked'", callback.from_user.id)
         msg_text = text.expert_country[f'{record[1]}']['country']
         await callback.message.answer(text=msg_text)
     else:
