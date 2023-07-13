@@ -305,6 +305,7 @@ admin_panel = {
 
 error_book = {
     'ru': {
+        'error_booking': "К сожалению вы уже записаны на это время к эксперту, пожалуйста выберите любое свободное!",
         'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
         'error_tax_prof': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
         'error_real_estate_agent': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
@@ -312,6 +313,7 @@ error_book = {
         'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
     },
     'eng': {
+        'error_booking': "Unfortunately you are already booked for this time with the expert, please choose any free time!",
         'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
         'error_tax_prof': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
         'error_real_estate_agent': "Unfortunately, the appointment for this time is already booked, please choose any free time!",

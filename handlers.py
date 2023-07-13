@@ -86,6 +86,7 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', '
 DELAY_TIME = 0.1
 router = Router()
 
+
 def fetch_info(id):
     db.cursor.execute(f"Select * from users where id={id}")
     record = db.cursor.fetchone()
@@ -97,10 +98,12 @@ def update_bd(bd_field, updated_text, id) -> None:
     db.cursor.execute(update)
     db.connect.commit()
 
+
 def update_experts_bd(bd_field, updated_text) -> None:
     update = f"Update experts set {bd_field}={updated_text}"
     db.cursor.execute(update)
     db.connect.commit()
+
 
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
@@ -132,6 +135,7 @@ async def language_confirmation_ru(callback: CallbackQuery):
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 @router.callback_query(F.data == "eng")
 async def language_confirmation_eng(callback: CallbackQuery):
     update_bd('by_country', 0, callback.from_user.id)
@@ -149,6 +153,7 @@ async def language_confirmation_eng(callback: CallbackQuery):
     await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "check_appointments")
 async def check(callback: CallbackQuery) -> None:
@@ -183,6 +188,7 @@ async def check(callback: CallbackQuery) -> None:
     menu = kb.exit_menu[f'{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 @router.callback_query(F.data == "admin")
 async def admin(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
@@ -191,6 +197,7 @@ async def admin(callback: CallbackQuery) -> None:
     menu = kb.admin_panel[f'{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 class EditDescription(StatesGroup):
     cityName = State()
     description = State()
@@ -198,12 +205,14 @@ class EditDescription(StatesGroup):
     costAlone = State()
     costFamily = State()
 
+
 @router.callback_query(F.data == "edit_description")
 async def edit_description(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
     msg_text = text.admin_panel[f'{record[1]}']['edit']['city_name']
     await state.set_state(EditDescription.cityName)
     await callback.message.answer(text=msg_text)
+
 
 @router.message(EditDescription.cityName)
 async def start_edit(msg: Message, state: FSMContext) -> None:
@@ -221,12 +230,14 @@ async def start_edit(msg: Message, state: FSMContext) -> None:
                           f"<b>Cost for one people: {data[6]}$</b>\n"
                           f"<b>Cost for family: {data[7]}$</b>", reply_markup=menu)
 
+
 @router.callback_query(F.data == "start_edit")
 async def edit(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
     msg_text = text.admin_panel[f'{record[1]}']['edit']['description']
     await state.set_state(EditDescription.description)
     await callback.message.answer(text=msg_text)
+
 
 @router.message(EditDescription.description)
 async def edit(msg: Message, state: FSMContext) -> None:
@@ -236,6 +247,7 @@ async def edit(msg: Message, state: FSMContext) -> None:
     await state.set_state(EditDescription.image)
     await msg.answer(text=msg_text)
 
+
 @router.message(EditDescription.image)
 async def edit(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -244,6 +256,7 @@ async def edit(msg: Message, state: FSMContext) -> None:
     await state.set_state(EditDescription.costAlone)
     await msg.answer(text=msg_text)
 
+
 @router.message(EditDescription.costAlone)
 async def edit(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -251,6 +264,7 @@ async def edit(msg: Message, state: FSMContext) -> None:
     await state.update_data(costAlone=msg.text)
     await state.set_state(EditDescription.costFamily)
     await msg.answer(text=msg_text)
+
 
 @router.message(EditDescription.costFamily)
 async def edit(msg: Message, state: FSMContext) -> None:
@@ -266,24 +280,28 @@ async def edit(msg: Message, state: FSMContext) -> None:
                           f"<b>Cost for one people: {data['costAlone']}$</b>\n"
                           f"<b>Cost for family: {data['costFamily']}$</b>", reply_markup=menu)
 
+
 @router.callback_query(F.data == "confirm_edit")
 async def confirm_edit(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
     data = await state.get_data()
     description = f"'{data['description']}'"
     city = f"'{data['cityName']}'"
-    db.cursor.execute(f"Update countries set description=?, image=?, cost_alone=?, cost_family=? where city_name={city}",
-                      (description, data['image'], data['costAlone'], data['costFamily']))
+    db.cursor.execute(
+        f"Update countries set description=?, image=?, cost_alone=?, cost_family=? where city_name={city}",
+        (description, data['image'], data['costAlone'], data['costFamily']))
     db.connect.commit()
 
     await callback.message.answer(text="✅Success")
     await state.set_state(None)
+
 
 class AddExpert(StatesGroup):
     name = State()
     type = State()
     country = State()
     telegram = State()
+
 
 @router.callback_query(F.data == "add_expert")
 async def expert(callback: CallbackQuery, state: FSMContext) -> None:
@@ -292,6 +310,7 @@ async def expert(callback: CallbackQuery, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['name']
     await state.set_state(AddExpert.name)
     await callback.message.answer(text=msg_text)
+
 
 @router.message(AddExpert.name)
 async def expert(msg: Message, state: FSMContext) -> None:
@@ -302,14 +321,16 @@ async def expert(msg: Message, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['type']
     await msg.answer(text=msg_text)
 
+
 @router.message(AddExpert.type)
 async def expert(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
-    await state.update_data(type=msg.text)
+    await state.update_data(type=msg.text.lower())
 
     await state.set_state(AddExpert.country)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['country']
     await msg.answer(text=msg_text)
+
 
 @router.message(AddExpert.country)
 async def expert(msg: Message, state: FSMContext) -> None:
@@ -319,6 +340,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
     await state.set_state(AddExpert.telegram)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['tg']
     await msg.answer(text=msg_text)
+
 
 @router.message(AddExpert.telegram)
 async def expert(msg: Message, state: FSMContext) -> None:
@@ -334,6 +356,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
     await msg.answer(text="✅Success")
     await state.set_state(None)
 
+
 class AddCity(StatesGroup):
     country = State()
     city = State()
@@ -342,6 +365,7 @@ class AddCity(StatesGroup):
     description = State()
     costAlone = State()
     costFamily = State()
+
 
 @router.message(AddCity.country)
 async def add_city(msg: Message, state: FSMContext) -> None:
@@ -352,6 +376,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['city']
     await msg.answer(text=msg_text)
 
+
 @router.message(AddCity.city)
 async def add_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -360,6 +385,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     await state.set_state(AddCity.population)
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['population']
     await msg.answer(text=msg_text)
+
 
 @router.message(AddCity.population)
 async def add_city(msg: Message, state: FSMContext) -> None:
@@ -370,6 +396,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['image']
     await msg.answer(text=msg_text)
 
+
 @router.message(AddCity.image)
 async def add_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -378,6 +405,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     await state.set_state(AddCity.description)
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['description']
     await msg.answer(text=msg_text)
+
 
 @router.message(AddCity.description)
 async def add_city(msg: Message, state: FSMContext) -> None:
@@ -388,6 +416,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['cost_alone']
     await msg.answer(text=msg_text)
 
+
 @router.message(AddCity.costAlone)
 async def add_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -397,6 +426,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['cost_family']
     await msg.answer(text=msg_text)
 
+
 @router.message(AddCity.costFamily)
 async def add_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
@@ -404,11 +434,13 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     data = await state.get_data()
     db.cursor.execute(
         "INSERT INTO countries(population, city_name, country, description, image, cost_alone, cost_family) VALUES(?, ?, ?, ?, ?, ?, ?)",
-        (data['population'], data['city'], data['country'], data['description'], data['img'], int(data['costAlone'])//90, int(data['costFamily'])// 90))
+        (data['population'], data['city'], data['country'], data['description'], data['img'],
+         int(data['costAlone']) // 90, int(data['costFamily']) // 90))
     db.connect.commit()
 
     await msg.answer(text="✅Success")
     await state.set_state(None)
+
 
 @router.callback_query(F.data == "add_city")
 async def city(callback: CallbackQuery, state: FSMContext):
@@ -438,6 +470,7 @@ async def profile_search(callback: CallbackQuery):
     menu = kb.confirm_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['before_questions']
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "next")
 async def next(callback: CallbackQuery, state: FSMContext) -> None:
@@ -606,6 +639,7 @@ async def nextCity(callback: CallbackQuery) -> None:
             menu = kb.main_menu[f'{record[1]}']
         await callback.message.edit_text(text=data, reply_markup=menu)
         update_bd('counter', record[15] + 1, callback.from_user.id)
+
 
 @router.callback_query(F.data == "usa")
 async def usa(callback: CallbackQuery) -> None:
@@ -1212,13 +1246,14 @@ async def feedbackCallback(callback: CallbackQuery, state: FSMContext) -> None:
     msg_text = text.questions[f'{record[1]}']['feedback']
     await callback.message.answer(text=msg_text)
 
+
 @router.message(feedbackState.feedback)
 async def feedback(msg: Message, state: FSMContext) -> None:
     await state.set_state(feedbackState.last)
     update_bd("feedback", f"'{msg.text}'", msg.chat.id)
     await msg.answer(text="Спасибо за отзыв!")
-    await msg.answer(text=text.main_menu[f'menu_{fetch_info(msg.chat.id)[1]}'], reply_markup=kb.main_menu_buttons[f'{fetch_info(msg.chat.id)[1]}'])
-
+    await msg.answer(text=text.main_menu[f'menu_{fetch_info(msg.chat.id)[1]}'],
+                     reply_markup=kb.main_menu_buttons[f'{fetch_info(msg.chat.id)[1]}'])
 
 
 @router.callback_query(F.data == "contact_experts")
@@ -1240,6 +1275,7 @@ async def contact_experts(callback: CallbackQuery):
     msg_text = text.cont_exp_quest[f'cont_exp_{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 @router.callback_query(F.data == "lawyer")
 async def lawyer(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -1254,6 +1290,7 @@ async def lawyer(callback: CallbackQuery):
     update_bd('experts', "'lawyer'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
 @router.callback_query(F.data == "tax_prof")
 async def tax_prof(callback: CallbackQuery):
     record = fetch_info(callback.from_user.id)
@@ -1265,8 +1302,9 @@ async def tax_prof(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['tax_prof']
-    update_bd('experts', "'tax_prof'", callback.from_user.id)
+    update_bd('experts', "'tax professional'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "real_estate_agent")
 async def real_estate_agent(callback: CallbackQuery):
@@ -1279,8 +1317,9 @@ async def real_estate_agent(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['real_estate_agent']
-    update_bd('experts', "'real_estate_agent'", callback.from_user.id)
+    update_bd('experts', "'real estate agent'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "relocation_buddy")
 async def relocation_buddy(callback: CallbackQuery):
@@ -1293,8 +1332,9 @@ async def relocation_buddy(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['relocation_buddy']
-    update_bd('experts', "'relocation_buddy'", callback.from_user.id)
+    update_bd('experts', "'relocation buddy'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "immigration_adviser")
 async def immigration_adviser(callback: CallbackQuery):
@@ -1307,8 +1347,9 @@ async def immigration_adviser(callback: CallbackQuery):
 
     menu = kb.experts_options[f'{record[1]}']
     msg_text = text.experts_menu[f'{record[1]}']['immigration_adviser']
-    update_bd('experts', "'immigration_adviser'", callback.from_user.id)
+    update_bd('experts', "'immigration adviser'", callback.from_user.id)
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
 
 @router.callback_query(F.data == "cancel")
 async def cancel(callback: CallbackQuery):
@@ -1336,9 +1377,11 @@ class ContactExperts(StatesGroup):
 async def countryCallback(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     data = await state.get_data()
+    await state.update_data(country=msg.text)
     country = f"'{msg.text}'"
+    expert_type = f"'{record[13]}'"
     db.cursor.execute(
-        f"Select * from experts where country={country} AND {data['time']}='NULL'"
+        f"Select * from experts where country={country} AND {data['time']}='NULL' AND type={expert_type}"
     )
     info = db.cursor.fetchall()
     flag = True
@@ -1355,7 +1398,7 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         for expert in info:
             await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
                                   f"<b>Country: </b> {expert[2]}\n"
-                                  f"<b>Expert type: </b>{expert[1]}\n"
+                                  f"<b>Expert type: </b>{expert[1].capitalize()}\n"
                                   f"<b>Alias: </b>{expert[3]}")
     except Exception as ex:
         await msg.answer(text="Sorry, no available experts😢")
@@ -1371,92 +1414,151 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     await state.update_data(alias=msg.text)
     data = await state.get_data()
-    id = f"'{data['alias']}'"
-    username = f"'{msg.from_user.username}'"
-    db.cursor.execute(f"UPDATE experts SET {data['time']}={username} where expert_id={id}")
-    db.connect.commit()
+    expert_type = f"'{record[13]}'"
+    country = f"'{data['country']}'"
+    flag = True
+    db.cursor.execute(
+        f"Select * from experts where country={country} AND {data['time']}='NULL' AND type={expert_type}"
+    )
+    info = db.cursor.fetchall()
+    experts_array = []
+    for expert in info:
+        experts_array.append(expert[3])
+    if (data['alias'] not in experts_array):
+        await state.set_state(ContactExperts.expertName)
+        await msg.answer(text="Вы ввели неправильный алиас. Попробуйте еще раз!")
+        flag = False
+    if flag:
+        id = f"'{data['alias']}'"
+        username = f"'{msg.from_user.username}'"
+        db.cursor.execute(f"UPDATE experts SET {data['time']}={username} where expert_id={id}")
+        db.connect.commit()
 
-    msg_text = text.expert_country[f'{record[1]}']['success']
-    await msg.answer(text=msg_text)
-    await state.set_state(None)
-
+        msg_text = text.expert_country[f'{record[1]}']['success']
+        await msg.answer(text=msg_text)
+        await state.set_state(None)
 
 
 @router.callback_query(F.data == "ten")
 async def ten(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="ten")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[19] == 'NULL':
+        await state.update_data(time="ten")
+        await state.set_state(ContactExperts.country)
+        update_bd('ten', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
+
 
 @router.callback_query(F.data == "eleven")
 async def eleven(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="eleven")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[20] == 'NULL':
+        await state.update_data(time="eleven")
+        await state.set_state(ContactExperts.country)
+        update_bd('eleven', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
+
 
 @router.callback_query(F.data == "twelve")
 async def twelve(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="twelve")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[21] == 'NULL':
+        await state.update_data(time="twelve")
+        await state.set_state(ContactExperts.country)
+        update_bd('twelve', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "thirteen")
 async def thirteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="thirteen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[22] == 'NULL':
+        await state.update_data(time="thirteen")
+        await state.set_state(ContactExperts.country)
+        update_bd('thirteen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fourteen")
 async def fourteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="fourteen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[23] == 'NULL':
+        await state.update_data(time="fourteen")
+        await state.set_state(ContactExperts.country)
+        update_bd('fourteen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 
 @router.callback_query(F.data == "fifteen")
 async def fifteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="fifteen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[24] == 'NULL':
+        await state.update_data(time="fifteen")
+        await state.set_state(ContactExperts.country)
+        update_bd('fifteen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "sixteen")
 async def sixteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="sixteen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
-
+    if record[25] == 'NULL':
+        await state.update_data(time="sixteen")
+        await state.set_state(ContactExperts.country)
+        update_bd('sixteen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "seventeen")
 async def seventeen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="seventeen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
-
+    if record[26] == 'NULL':
+        await state.update_data(time="seventeen")
+        await state.set_state(ContactExperts.country)
+        update_bd('seventeen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 @router.callback_query(F.data == "eighteen")
 async def eighteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
-    await state.update_data(time="eighteen")
-    await state.set_state(ContactExperts.country)
-    msg_text = text.expert_country[f'{record[1]}']['country']
-    await callback.message.answer(text=msg_text)
+    if record[27] == 'NULL':
+        await state.update_data(time="eighteen")
+        await state.set_state(ContactExperts.country)
+        update_bd('eighteen', "'booked'", callback.from_user.id)
+        msg_text = text.expert_country[f'{record[1]}']['country']
+        await callback.message.answer(text=msg_text)
+    else:
+        msg_text = text.error_book[f'{record[1]}']['error_booking']
+        await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),

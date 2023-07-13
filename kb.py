@@ -563,7 +563,7 @@ english_date_schedule = [
 
 russian_date_schedule = [
     [InlineKeyboardButton(text="10:00", callback_data="ten"),
-     InlineKeyboardButton(text="11:00.", callback_data="eleven")],
+     InlineKeyboardButton(text="11:00", callback_data="eleven")],
     [InlineKeyboardButton(text="12:00", callback_data="twelve"),
      InlineKeyboardButton(text="13:00", callback_data="thirteen")],
     [InlineKeyboardButton(text="14:00", callback_data="fourteen"),

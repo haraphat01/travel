@@ -23,7 +23,16 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     counter INTEGER DEFAULT 0,
     by_country INTEGER,
     feedback TEXT,
-    contact_experts_country TEXT
+    contact_experts_country TEXT,
+    ten TEXT DEFAULT 'NULL',
+    eleven TEXT DEFAULT 'NULL',
+    twelve TEXT DEFAULT 'NULL',
+    thirteen TEXT DEFAULT 'NULL',
+    fourteen TEXT DEFAULT 'NULL',
+    fifteen TEXT DEFAULT 'NULL',
+    sixteen TEXT DEFAULT 'NULL',
+    seventeen TEXT DEFAULT 'NULL',
+    eighteen TEXT DEFAULT 'NULL'
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
