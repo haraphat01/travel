@@ -1,9 +1,12 @@
+import string
+
 from aiogram import F, Router, types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from fuzzywuzzy import process, fuzz
 
 import asyncio
 import aioschedule
@@ -105,8 +108,9 @@ def update_experts_bd(bd_field, updated_text) -> None:
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
     user_id = [msg.chat.id]
+    alias = f"'@{msg.from_user.username}'"
     try:
-        db.cursor.execute("INSERT INTO users(id) VALUES(?)", user_id)
+        db.cursor.execute(f"INSERT INTO users (id, alias) VALUES(?, {alias})", user_id)
         db.connect.commit()
     except Exception as ex:
         print(ex)
@@ -189,6 +193,86 @@ async def admin(callback: CallbackQuery) -> None:
 
     msg_text = text.admin_panel[f'{record[1]}']['welcome']
     menu = kb.admin_panel[f'{record[1]}']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+class DeleteExpert(StatesGroup):
+    country = State()
+    alias = State()
+
+@router.callback_query(F.data == "delete_expert")
+async def deleteExpert(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['delete_expert']['country']
+    await state.set_state(DeleteExpert.country)
+    await callback.message.answer(text=msg_text)
+
+@router.message(DeleteExpert.country)
+async def delete(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(country=msg.text.lower())
+    country = f"'{msg.text.lower()}'"
+    db.cursor.execute(f"SELECT * FROM experts where country={country}")
+    data = db.cursor.fetchall()
+    for expert in data:
+        await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
+                              f"<b>Type: </b>{expert[1]}\n"
+                              f"<b>ID: </b>{expert[3]}")
+    await state.set_state(DeleteExpert.alias)
+    msg_text = text.admin_panel[f'{record[1]}']['delete_expert']['alias']
+    await msg.answer(text=msg_text)
+
+@router.message(DeleteExpert.alias)
+async def delete(msg: Message, state: FSMContext) -> None:
+    alias = f"'@{msg.text.lower()}'"
+    db.cursor.execute(f"DELETE from experts where expert_id={alias}")
+    db.connect.commit()
+    await state.set_state(None)
+
+    await msg.answer(text="✅Success")
+
+
+@router.callback_query(F.data == "check_feedback")
+async def checkFeedback(callback: CallbackQuery) -> None:
+    record = fetch_info(callback.from_user.id)
+    menu = kb.more_menu[f'{record[1]}']
+    db.cursor.execute("SELECT * FROM users where feedback!='NULL'")
+    data = db.cursor.fetchall()
+    id = f"'{callback.from_user.id}'"
+    for i in range(0, 5):
+        try:
+            await callback.message.answer(text=f"<b>{data[record[20]*5 + i][19]}:</b>\n\n"
+                                               f"{data[record[20]*5 + i][17]}")
+        except Exception as ex:
+            db.cursor.execute(f"UPDATE users SET feedback_counter=-1 where id={id}")
+            db.connect.commit()
+            break
+
+    msg_text = text.admin_panel[f'{record[1]}']['feedback']['more']
+    await callback.message.answer(text=msg_text, reply_markup=menu)
+
+
+@router.callback_query(F.data == "more_feedback")
+async def moreFeedback(callback: CallbackQuery) -> None:
+    record = fetch_info(callback.from_user.id)
+    menu = kb.more_menu[f'{record[1]}']
+    id = f"'{callback.from_user.id}'"
+    db.cursor.execute(f"UPDATE users SET feedback_counter={record[20] + 1} where id={id}")
+    db.connect.commit()
+    db.cursor.execute("SELECT * FROM users where feedback!='NULL'")
+    data = db.cursor.fetchall()
+
+    info = fetch_info(callback.from_user.id)
+
+    for i in range(0, 5):
+        try:
+            await callback.message.answer(text=f"<b>{data[info[20]*5 + i][19]}:</b>\n\n"
+                                               f"{data[info[20]*5+i][17]}")
+        except Exception as ex:
+            db.cursor.execute(f"UPDATE users SET feedback_counter=-1 where id={id}")
+            db.connect.commit()
+            break
+
+    msg_text = text.admin_panel[f'{record[1]}']['feedback']['more']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
 class EditDescription(StatesGroup):
@@ -314,7 +398,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
 @router.message(AddExpert.country)
 async def expert(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
-    await state.update_data(country=msg.text)
+    await state.update_data(country=msg.text.lower())
 
     await state.set_state(AddExpert.telegram)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['tg']
@@ -329,6 +413,10 @@ async def expert(msg: Message, state: FSMContext) -> None:
     db.cursor.execute(
         "INSERT INTO experts(name, type, country, expert_id) VALUES(?, ?, ?, ?)",
         (data['name'], data['type'], data['country'], data['telegram']))
+    db.connect.commit()
+    alias = f"'{msg.from_user.username}'"
+    db.cursor.execute(
+        f"Update users set user_type='expert' where alias={alias}")
     db.connect.commit()
 
     await msg.answer(text="✅Success")
@@ -560,7 +648,7 @@ async def alone(callback: CallbackQuery) -> None:
 
 
 @router.callback_query(F.data == "yes")
-async def btn_yes(callback: CallbackQuery) -> None:
+async def btn_yes(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
 
     msg_text = text.questions[f'{record[1]}']['destination']
@@ -568,9 +656,55 @@ async def btn_yes(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
 
-    menu = kb.citizenship_menu[f'{record[1]}']
+    await state.set_state(FindCity.country)
     msg_text = text.questions[f'{record[1]}']['citizenship']
-    await callback.message.answer(text=msg_text, reply_markup=menu)
+    await callback.message.answer(text=msg_text)
+
+class FindCity(StatesGroup):
+    country = State()
+
+@router.message(FindCity.country)
+async def find_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    if record[1] == "ru":
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET citizenship={ctr} where id={id}")
+            db.connect.commit()
+            data = results.by_country(msg.from_user.id)
+            menu = kb.city_menu[f'{record[1]}']
+            if (data == -1):
+                data = text.error[f'{record[1]}']
+                menu = kb.main_menu[f'{record[1]}']
+            await msg.answer(text=data, reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    else:
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)[0].lower().strip()
+            if country in visaAdvisory.english_short_to_full.keys():
+                country = visaAdvisory.english_short_to_full.get(country)
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET citizenship={ctr} where id={id}")
+            db.connect.commit()
+            data = results.by_country(msg.from_user.id)
+            menu = kb.city_menu[f'{record[1]}']
+            if (data == -1):
+                data = text.error[f'{record[1]}']
+                menu = kb.main_menu[f'{record[1]}']
+            await msg.answer(text=data, reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    await state.set_state(None)
 
 
 @router.callback_query(F.data == "no")
@@ -590,6 +724,7 @@ async def btn_no(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "next_city")
 async def nextCity(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    update_bd('counter', record[15] + 1, callback.from_user.id)
     if (record[16] == 0):
         data = results.by_country(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
@@ -597,7 +732,6 @@ async def nextCity(callback: CallbackQuery) -> None:
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
         await callback.message.edit_text(text=data, reply_markup=menu)
-        update_bd('counter', record[15] + 1, callback.from_user.id)
     else:
         data = results.by_user_preferences(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
@@ -605,7 +739,6 @@ async def nextCity(callback: CallbackQuery) -> None:
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
         await callback.message.edit_text(text=data, reply_markup=menu)
-        update_bd('counter', record[15] + 1, callback.from_user.id)
 
 @router.callback_query(F.data == "usa")
 async def usa(callback: CallbackQuery) -> None:
@@ -1053,7 +1186,7 @@ async def population_500k(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "spicy")
 @router.callback_query(F.data == "normal")
-@router.callback_query(F.data == "cold")
+@router.callback_query(F.data == "indifferent")
 async def wait(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
 

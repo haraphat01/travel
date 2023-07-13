@@ -22,8 +22,10 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     user_type TEXT DEFAULT 'user',
     counter INTEGER DEFAULT 0,
     by_country INTEGER,
-    feedback TEXT,
-    contact_experts_country TEXT
+    feedback TEXT DEFAULT 'NULL',
+    contact_experts_country TEXT,
+    alias TEXT,
+    feedback_counter INTEGER DEFAULT 0
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
