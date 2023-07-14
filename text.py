@@ -273,6 +273,14 @@ admin_panel = {
             'image': "Пришлите фотографию",
             'cost_alone': "Введите сумму проживания для одного человека(в $)",
             'cost_family': "Введите сумму проживания для семьи(в $)"
+        },
+        'delete_expert': {
+            'country': "Введите страну",
+            'alias': "Введите телеграм алиас эксперта"
+        },
+        'feedback': {
+            'more': "Нажмите еще, чтобы посмотреть другие отзывы",
+            'end': "Больше нет отзывов"
         }
     },
     'eng': {
@@ -298,6 +306,14 @@ admin_panel = {
             'image': "Send a photo",
             'cost_alone': "Enter the amount of accommodation per month for one person",
             'cost_family': "Enter the amount of accommodation per month for a family",
+        },
+        'delete_expert': {
+            'country': "Enter country",
+            'alias': "Enter telegram alias of expert"
+        },
+        'feedback': {
+            'more': "Click more to see more feedback",
+            'end': "No other feedbacks"
         }
     }
 }
