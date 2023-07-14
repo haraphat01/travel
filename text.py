@@ -63,6 +63,14 @@ to_edit = {
         'immigration_adviser': '\n\nИммиграционный советник',
         'country_search': '\n\nСтрана',
         'country_of_city_search': '\n\nГород',
+        'admin': '\n\nАдмин',
+        'add_new_city': '\n\n🆕Добавить город',
+        'add_new_expert': '\n\n🆕Добавить эксперта',
+        'edit_description': '\n\n✍️Отредактировать описание города',
+        'delete_expert': '\n\n❌Удалить эксперта',
+        'check_feedback': '\n\n🔍Посмотреть отзывы',
+        'more_feedback': '\n\n✅Еще',
+        'feedback_menu': '\n\n🌟Оставить отзыв'
     },
     'eng': {
         'language_confirmation': "\n\nEnglish🇺🇸",
@@ -115,6 +123,14 @@ to_edit = {
         'immigration_adviser': '\n\nImmigration adviser',
         'country_search': '\n\nCountry',
         'country_of_city_search': '\n\nCity',
+        'admin': '\n\nAdmin',
+        'add_new_city': '\n\n🆕Add new city',
+        'add_new_expert': '\n\n🆕Add new expert',
+        'edit_description': '\n\n✍️Edit description',
+        'delete_expert': '\n\n❌Delete expert',
+        'check_feedback': '\n\n🔍Check feedback',
+        'more_feedback': '\n\n✅More',
+        'feedback_menu': '\n\n🌟Leave feedback'
     }
 }
 

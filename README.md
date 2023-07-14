@@ -42,7 +42,7 @@ Contact experts section is needed to make an appointment with specialists
 * #### Visa advisory
 Visa advisory section is needed to know whether user need visa to move from one country to another or not.
 * #### Feedback
-Feedback section is needed to live feedback about Telegram bot.
+Feedback section is needed to leave feedback about Telegram bot.
 
 ### Section only for administrator<br>
 Admin panel - it can:

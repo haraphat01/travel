@@ -189,7 +189,18 @@ async def check(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "admin")
 async def admin(callback: CallbackQuery) -> None:
+    msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
+    text_to_edit = text.to_edit[f'{record[1]}']['admin']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
 
     msg_text = text.admin_panel[f'{record[1]}']['welcome']
     menu = kb.admin_panel[f'{record[1]}']
@@ -202,6 +213,11 @@ class DeleteExpert(StatesGroup):
 @router.callback_query(F.data == "delete_expert")
 async def deleteExpert(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    text_to_edit = text.to_edit[f'{record[1]}']['delete_expert']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     msg_text = text.admin_panel[f'{record[1]}']['delete_expert']['country']
     await state.set_state(DeleteExpert.country)
     await callback.message.answer(text=msg_text)
@@ -223,7 +239,7 @@ async def delete(msg: Message, state: FSMContext) -> None:
 
 @router.message(DeleteExpert.alias)
 async def delete(msg: Message, state: FSMContext) -> None:
-    alias = f"'@{msg.text.lower()}'"
+    alias = f"'{msg.text.lower()}'"
     db.cursor.execute(f"DELETE from experts where expert_id={alias}")
     db.connect.commit()
     await state.set_state(None)
@@ -234,6 +250,11 @@ async def delete(msg: Message, state: FSMContext) -> None:
 @router.callback_query(F.data == "check_feedback")
 async def checkFeedback(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    text_to_edit = text.to_edit[f'{record[1]}']['check_feedback']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.more_menu[f'{record[1]}']
     db.cursor.execute("SELECT * FROM users where feedback!='NULL'")
     data = db.cursor.fetchall()
@@ -254,6 +275,11 @@ async def checkFeedback(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == "more_feedback")
 async def moreFeedback(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['feedback']['more']
+    text_to_edit = text.to_edit[f'{record[1]}']['more_feedback']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     menu = kb.more_menu[f'{record[1]}']
     id = f"'{callback.from_user.id}'"
     db.cursor.execute(f"UPDATE users SET feedback_counter={record[20] + 1} where id={id}")
@@ -285,6 +311,11 @@ class EditDescription(StatesGroup):
 @router.callback_query(F.data == "edit_description")
 async def edit_description(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    text_to_edit = text.to_edit[f'{record[1]}']['edit_description']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     msg_text = text.admin_panel[f'{record[1]}']['edit']['city_name']
     await state.set_state(EditDescription.cityName)
     await callback.message.answer(text=msg_text)
@@ -373,6 +404,11 @@ class AddExpert(StatesGroup):
 @router.callback_query(F.data == "add_expert")
 async def expert(callback: CallbackQuery, state: FSMContext) -> None:
     record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    text_to_edit = text.to_edit[f'{record[1]}']['add_new_expert']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
 
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['name']
     await state.set_state(AddExpert.name)
@@ -415,7 +451,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
         "INSERT INTO experts(name, type, country, expert_id) VALUES(?, ?, ?, ?)",
         (data['name'], data['type'], data['country'], data['telegram']))
     db.connect.commit()
-    alias = f"'{msg.from_user.username}'"
+    alias = f"'{data['telegram']}'"
     db.cursor.execute(
         f"Update users set user_type='expert' where alias={alias}")
     db.connect.commit()
@@ -502,6 +538,12 @@ async def add_city(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "add_city")
 async def city(callback: CallbackQuery, state: FSMContext):
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.admin_panel[f'{record[1]}']['welcome']
+    text_to_edit = text.to_edit[f'{record[1]}']['add_new_city']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     record = fetch_info(callback.from_user.id)
     await state.set_state(AddCity.country)
     msg_text = text.admin_panel[f'{record[1]}']['add_city']['country']
@@ -1342,8 +1384,20 @@ class feedbackState(StatesGroup):
 
 @router.callback_query(F.data == "feedback")
 async def feedbackCallback(callback: CallbackQuery, state: FSMContext) -> None:
-    await state.set_state(feedbackState.feedback)
+    msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
+
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[10] == "True":
+        menu = kb.admin_menu[f'{record[1]}']
+    else:
+        menu = kb
+    text_to_edit = text.to_edit[f'{record[1]}']['feedback_menu']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
+    await state.set_state(feedbackState.feedback)
     msg_text = text.questions[f'{record[1]}']['feedback']
     await callback.message.answer(text=msg_text)
 
@@ -1351,9 +1405,30 @@ async def feedbackCallback(callback: CallbackQuery, state: FSMContext) -> None:
 async def feedback(msg: Message, state: FSMContext) -> None:
     await state.set_state(feedbackState.last)
     update_bd("feedback", f"'{msg.text}'", msg.chat.id)
-    await msg.answer(text="Спасибо за отзыв!")
-    await msg.answer(text=text.main_menu[f'menu_{fetch_info(msg.chat.id)[1]}'],
-                     reply_markup=kb.main_menu_buttons[f'{fetch_info(msg.chat.id)[1]}'])
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[14] == "admin":
+        if record[1] == 'ru':
+            menu = kb.admin_menu_ru
+        else:
+            menu = kb.admin_menu_eng
+    elif record[14] == "expert":
+        if record[1] == 'ru':
+            menu = kb.menu_for_experts_ru
+        else:
+            menu = kb.menu_for_experts_eng
+    else:
+        if record[1] == 'ru':
+            menu = kb.menu_ru
+        else:
+            menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)
 
 
 @router.callback_query(F.data == "contact_experts")
