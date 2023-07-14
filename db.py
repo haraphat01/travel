@@ -33,6 +33,10 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
     eighteen TEXT DEFAULT 'NULL'
+    feedback TEXT DEFAULT 'NULL',
+    contact_experts_country TEXT,
+    alias TEXT,
+    feedback_counter INTEGER DEFAULT 0
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
