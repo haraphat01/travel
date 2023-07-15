@@ -1731,3 +1731,63 @@ async def eighteen(callback: CallbackQuery, state: FSMContext):
         await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),
+class feedback_profile_states(StatesGroup):
+    feedback = State()
+    last = State()
+@router.callback_query(F.data == "feedback_profile")
+async def feedback_profile(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['feedback_menu']
+    await asyncio.sleep(DELAY_TIME)
+
+    await state.set_state(feedback_profile_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_profile']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_profile_states.feedback)
+async def feedback_profile_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_profile_states.last)
+    update_bd("feedback_profile", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)
+
+class feedback_visa_states(StatesGroup):
+    feedback = State()
+    last = State()
+@router.callback_query(F.data == "feedback_visa")
+async def feedback_visa(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    await asyncio.sleep(DELAY_TIME)
+    await state.set_state(feedback_visa_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_visa']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_visa_states.feedback)
+async def feedback_profile_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_visa_states.last)
+    update_bd("feedback_visa", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)

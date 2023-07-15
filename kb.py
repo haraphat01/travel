@@ -608,11 +608,13 @@ date_schedule = {
 # Next City
 ru_next_city = [
     [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city")],
+    [InlineKeyboardButton(text="Оставить отзыв", callback_data="feedback_profile")],
     [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
 eng_next_city = [
     [InlineKeyboardButton(text="✅Next city", callback_data="next_city")],
+    [InlineKeyboardButton(text="Leave feedback", callback_data="feedback_profile")],
     [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
@@ -641,11 +643,13 @@ main_menu = {
 }
 back_eng = [
     [InlineKeyboardButton(text="Try again", callback_data="visa_advisory"),
-     InlineKeyboardButton(text="Return to menu", callback_data="eng")
+     InlineKeyboardButton(text="Leave feedback",callback_data="feedback_visa"),
+     InlineKeyboardButton(text="Return to menu", callback_data="eng"),
      ]
 ]
 back_ru = [
     [InlineKeyboardButton(text="Попробовать еще раз", callback_data="visa_advisory"),
+     InlineKeyboardButton(text="Оставить отзыв",callback_data="feedback_visa"),
      InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
 ]
 back_menu_ru = InlineKeyboardMarkup(inline_keyboard=back_ru)
@@ -655,17 +659,11 @@ back_menu = {
     'eng': back_menu_eng
 }
 
-visaFeedback_ru = [
-    [InlineKeyboardButton(text="Оставить отзыв", callback_data="visa_feedback"),
-        InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
+feedback__ru = [
+    [InlineKeyboardButton(text="Оставить отзыв", callback_data="feedback"),
+     InlineKeyboardButton(text="Вернуться в меню", callback_data="ru")]
 ]
-visaFeedback_eng = [
-    [InlineKeyboardButton(text="Leave feedback", callback_data="visa_feedback"),
+feedback_eng = [
+    [InlineKeyboardButton(text="Leave feedback", callback_data="feedback"),
         InlineKeyboardButton(text="Return to menu", callback_data="eng")]
 ]
-visaFeedback_menu_ru = InlineKeyboardMarkup(inline_keyboard=visaFeedback_ru)
-visaFeedback_menu_eng = InlineKeyboardMarkup(inline_keyboard=visaFeedback_eng)
-visaFeedback_menu = {
-    'ru': visaFeedback_menu_ru,
-    'eng': visaFeedback_menu_eng
-}

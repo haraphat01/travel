@@ -23,6 +23,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     counter INTEGER DEFAULT 0,
     by_country INTEGER,
     feedback TEXT DEFAULT 'NULL',
+    feedback_profile TEXT DEFAULT 'NULL',
+    feedback_visa TEXT DEFAULT 'NULL',
     contact_experts_country TEXT,
     alias TEXT,
     feedback_counter INTEGER DEFAULT 0,
