@@ -619,7 +619,7 @@ ru_one_more = [
 
 eng_one_more = [
     [InlineKeyboardButton(text="✅Try again", callback_data="again"),
-     InlineKeyboardButton(text="❌Main menu", callback_data="ru")]
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
 ru_one_more_menu = InlineKeyboardMarkup(inline_keyboard=ru_one_more)

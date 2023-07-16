@@ -6,8 +6,6 @@ result = []
 for el in record:
     result.append(el[0])
 
-
-
 cities_eng = ["Buenos Aires", "Mexico City", "Medellín", "Guadalajara", "Lima", "Cuenca", "Havana", "São Paulo",
               "Rio de Janeiro", "Oaxaca", "Cancun", "Galapagos Islands", "Florianopolis", "Queretaro", "Cordoba",
               "Santiago", "Puerto Escondido", "Porto Alegre", "Monterrey", "Belo Horizonte", "Paramaribo", "Antigua",
@@ -757,4 +755,3 @@ cities_ru_to_eng = {'Буэнос-Айрес': 'Buenos Aires', 'Мехико': '
 
 for i in range(len(cities_eng)):
     cities_ru_to_eng[cities_ru[i]] = cities_eng[i]
-
