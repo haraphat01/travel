@@ -2,6 +2,7 @@ from utils import division, summa
 import kb
 import handlers
 import pytest
+import notify
 
 import text
 

@@ -11,10 +11,10 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     citizenship TEXT,
     age TEXT,
     gender TEXT,
-    budget TEXT,
+    budget TEXT DEFAULT '8000',
     relocation_motive TEXT,
     climate TEXT,
-    city_size TEXT,
+    city_size TEXT DEFAULT '100000000',
     alone_family TEXT,
     new_language TEXT,
     priority TEXT,
@@ -36,7 +36,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     fifteen TEXT DEFAULT 'NULL',
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL'
+    eighteen TEXT DEFAULT 'NULL',
+    alias TEXT
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
@@ -63,7 +64,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     fifteen TEXT DEFAULT 'NULL',
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL' 
+    eighteen TEXT DEFAULT 'NULL'
 )""")
 
 
