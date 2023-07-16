@@ -37,7 +37,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
     eighteen TEXT DEFAULT 'NULL',
-    alias TEXT
+    alias TEXT,
+    new_users INTEGER DEFAULT 0
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
