@@ -1,4 +1,5 @@
 import string
+import tg_analytic
 
 from aiogram import F, Router, types
 from aiogram.filters import Command
@@ -111,6 +112,7 @@ def update_experts_bd(bd_field, updated_text) -> None:
 
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
+    tg_analytic.statistics(msg.from_user.id, "/start")
     user_id = [msg.chat.id]
     alias = f"'@{msg.from_user.username}'"
     try:
@@ -210,6 +212,13 @@ async def admin(callback: CallbackQuery) -> None:
     msg_text = text.admin_panel[f'{record[1]}']['welcome']
     menu = kb.admin_panel[f'{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
+
+
+@router.callback_query(F.data == "statistics")
+async def stats(callback: CallbackQuery):
+    command = "статистика 1 пользователи команды"
+    st = command.split(' ')
+    await callback.message.answer(text=tg_analytic.analysis(st, callback.from_user.id))
 
 class DeleteExpert(StatesGroup):
     country = State()
@@ -557,6 +566,7 @@ async def city(callback: CallbackQuery, state: FSMContext):
 
 @router.callback_query(F.data == "profile_search")
 async def profile_search(callback: CallbackQuery):
+    tg_analytic.statistics(callback.from_user.id, "🔍Profile search")
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
 
@@ -1137,6 +1147,7 @@ async def language_selection(callback: CallbackQuery):
 
 @router.callback_query(F.data == "destination_search")
 async def destination_search(callback: CallbackQuery):
+    tg_analytic.statistics(callback.from_user.id, "🌍Destination search")
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
 
@@ -1327,6 +1338,7 @@ async def inputDestination(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "visa_advisory")
 async def visa_advisory(callback: CallbackQuery, state: FSMContext) -> None:
+    tg_analytic.statistics(callback.from_user.id, "🗺Visa advisory")
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
 
@@ -1401,6 +1413,7 @@ async def feedback(msg: Message, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "contact_experts")
 async def contact_experts(callback: CallbackQuery):
+    tg_analytic.statistics(callback.from_user.id, "👨🏻‍🔬Contact experts")
     msg_text = text.main_menu['menu_eng']
     record = fetch_info(callback.from_user.id)
 
@@ -1743,6 +1756,7 @@ class feedback_profile_states(StatesGroup):
     last = State()
 @router.callback_query(F.data == "feedback_profile")
 async def feedback_profile(callback: CallbackQuery, state: FSMContext) -> None:
+    tg_analytic.statistics(callback.from_user.id, "🌟Feedback profile search")
     record = fetch_info(callback.from_user.id)
     msg_text = text.main_menu[f'menu_{record[1]}']
     text_to_edit = text.to_edit[f'{record[1]}']['feedback_menu']
@@ -1775,6 +1789,7 @@ class feedback_visa_states(StatesGroup):
     last = State()
 @router.callback_query(F.data == "feedback_visa")
 async def feedback_visa(callback: CallbackQuery, state: FSMContext) -> None:
+    tg_analytic.statistics(callback.from_user.id, "🌟Feedback visa advisory")
     record = fetch_info(callback.from_user.id)
     await asyncio.sleep(DELAY_TIME)
     await state.set_state(feedback_visa_states.feedback)
@@ -1805,6 +1820,7 @@ class feedback_experts_states(StatesGroup):
 
 @router.callback_query(F.data == "feedback_experts")
 async def feedback_experts(callback: CallbackQuery, state: FSMContext) -> None:
+    tg_analytic.statistics(callback.from_user.id, "🌟Feedback contact experts")
     record = fetch_info(callback.from_user.id)
     await asyncio.sleep(DELAY_TIME)
     await state.set_state(feedback_experts_states.feedback)

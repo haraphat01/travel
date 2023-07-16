@@ -185,7 +185,8 @@ ru_admin_panel_buttons = [
      InlineKeyboardButton(text="🆕Добавить эксперта", callback_data="add_expert")],
     [InlineKeyboardButton(text="✍️Отредактировать описание города", callback_data="edit_description"),
      InlineKeyboardButton(text="❌Удалить эксперта", callback_data="delete_expert")],
-    [InlineKeyboardButton(text="🔍Посмотреть отзывы", callback_data="check_feedback")]
+    [InlineKeyboardButton(text="🔍Посмотреть отзывы", callback_data="check_feedback"),
+     InlineKeyboardButton(text="📊Посмотреть статистику", callback_data="statistics")]
 ]
 
 eng_admin_panel_buttons = [
@@ -193,7 +194,8 @@ eng_admin_panel_buttons = [
      InlineKeyboardButton(text="🆕Add new expert", callback_data="add_expert")],
     [InlineKeyboardButton(text="✍️Edit description", callback_data="edit_description"),
      InlineKeyboardButton(text="❌Delete expert", callback_data="delete_expert")],
-    [InlineKeyboardButton(text="🔍Check feedback", callback_data="check_feedback")]
+    [InlineKeyboardButton(text="🔍Check feedback", callback_data="check_feedback"),
+     InlineKeyboardButton(text="📊Statistics", callback_data="statistics")]
 ]
 
 admin_panel_ru = InlineKeyboardMarkup(inline_keyboard=ru_admin_panel_buttons)
