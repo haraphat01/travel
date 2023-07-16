@@ -1,4 +1,5 @@
 import string
+import tg_analytic
 
 from aiogram import F, Router, types
 from aiogram.filters import Command
@@ -111,6 +112,7 @@ def update_experts_bd(bd_field, updated_text) -> None:
 
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
+    tg_analytic.statistics(msg.from_user.id, "/start")
     user_id = [msg.chat.id]
     alias = f"'@{msg.from_user.username}'"
     try:
@@ -211,6 +213,13 @@ async def admin(callback: CallbackQuery) -> None:
     menu = kb.admin_panel[f'{record[1]}']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
+
+@router.callback_query(F.data == "statistics")
+async def stats(callback: CallbackQuery):
+    command = "статистика 1 пользователи команды"
+    st = command.split(' ')
+    await callback.message.answer(text=tg_analytic.analysis(st, callback.from_user.id))
+
 class DeleteExpert(StatesGroup):
     country = State()
     alias = State()
@@ -247,6 +256,9 @@ async def delete(msg: Message, state: FSMContext) -> None:
     alias = f"'{msg.text.lower()}'"
     db.cursor.execute(f"DELETE from experts where expert_id={alias}")
     db.connect.commit()
+    db.cursor.execute(
+        f"Update users set user_type='user' where alias={alias}")
+    db.connect.commit()
     await state.set_state(None)
 
     await msg.answer(text="✅Success")
@@ -266,8 +278,8 @@ async def checkFeedback(callback: CallbackQuery) -> None:
     id = f"'{callback.from_user.id}'"
     for i in range(0, 5):
         try:
-            await callback.message.answer(text=f"<b>{data[record[20]*5 + i][19]}:</b>\n\n"
-                                               f"{data[record[20]*5 + i][17]}")
+            await callback.message.answer(text=f"<b>{data[record[20] * 5 + i][19]}:</b>\n\n"
+                                               f"{data[record[20] * 5 + i][17]}")
         except Exception as ex:
             db.cursor.execute(f"UPDATE users SET feedback_counter=-1 where id={id}")
             db.connect.commit()
@@ -287,7 +299,7 @@ async def moreFeedback(callback: CallbackQuery) -> None:
 
     menu = kb.more_menu[f'{record[1]}']
     id = f"'{callback.from_user.id}'"
-    db.cursor.execute(f"UPDATE users SET feedback_counter={record[20] + 1} where id={id}")
+    db.cursor.execute(f"UPDATE users SET feedback_counter={record[22] + 1} where id={id}")
     db.connect.commit()
     db.cursor.execute("SELECT * FROM users where feedback!='NULL'")
     data = db.cursor.fetchall()
@@ -296,8 +308,8 @@ async def moreFeedback(callback: CallbackQuery) -> None:
 
     for i in range(0, 5):
         try:
-            await callback.message.answer(text=f"<b>{data[info[20]*5 + i][19]}:</b>\n\n"
-                                               f"{data[info[20]*5+i][17]}")
+            await callback.message.answer(text=f"<b>{data[info[22] * 5 + i][32]}:</b>\n\n"
+                                               f"{data[info[22] * 5 + i][17]}")
         except Exception as ex:
             db.cursor.execute(f"UPDATE users SET feedback_counter=-1 where id={id}")
             db.connect.commit()
@@ -535,9 +547,10 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     db.cursor.execute(
         "INSERT INTO countries(population, city_name, country, description, image, cost_alone, cost_family) VALUES(?, ?, ?, ?, ?, ?, ?)",
         (data['population'], data['city'], data['country'], data['description'], data['img'],
-         int(data['costAlone']) // 90, int(data['costFamily']) // 90))
+         int(data['costAlone']), int(data['costFamily']) ))
     db.connect.commit()
 
+    city_parser.cities_eng.append(data['city'])
     await msg.answer(text="✅Success")
     await state.set_state(None)
 
@@ -718,7 +731,8 @@ async def find_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     if record[1] == "ru":
         try:
-            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)
             country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
             ctr = f"'{string.capwords(country)}'"
             id = f"'{msg.from_user.id}'"
@@ -751,7 +765,8 @@ async def find_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     if record[1] == "ru":
         try:
-            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)
             country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
             ctr = f"'{string.capwords(country)}'"
             id = f"'{msg.from_user.id}'"
@@ -762,7 +777,9 @@ async def find_city(msg: Message, state: FSMContext) -> None:
             if (data == -1):
                 data = text.error[f'{record[1]}']
                 menu = kb.main_menu[f'{record[1]}']
-            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
+            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(
+                id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"),
+                                   caption=data, reply_markup=menu)
         except Exception:
             msg_text = text.try_again_profile[f'{record[1]}']
             await msg.answer(text=msg_text)
@@ -782,7 +799,9 @@ async def find_city(msg: Message, state: FSMContext) -> None:
             if (data == -1):
                 data = text.error[f'{record[1]}']
                 menu = kb.main_menu[f'{record[1]}']
-            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
+            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(
+                id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"),
+                                   caption=data, reply_markup=menu)
         except Exception:
             msg_text = text.try_again_profile[f'{record[1]}']
             await msg.answer(text=msg_text)
@@ -815,14 +834,19 @@ async def nextCity(callback: CallbackQuery) -> None:
         if (data == -1):
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
-        await callback.message.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
+        await callback.message.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(
+            id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"),
+                                            caption=data, reply_markup=menu)
     else:
         data = results.by_user_preferences(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
         if (data == -1):
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
-        await callback.message.answer_photo((results.getPhotoByUserPreferences(id) if results.getPhotoByUserPreferences(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
+        await callback.message.answer_photo((results.getPhotoByUserPreferences(id) if results.getPhotoByUserPreferences(
+            id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"),
+                                            caption=data, reply_markup=menu)
+
 
 @router.callback_query(F.data == "business")
 async def relocation_motive(callback: CallbackQuery) -> None:
@@ -1174,7 +1198,8 @@ async def find_city(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
     if record[1] == "ru":
         try:
-            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)
             country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
             ctr = f"'{string.capwords(country)}'"
             id = f"'{msg.from_user.id}'"
@@ -1230,7 +1255,7 @@ async def findSpecificCity(msg: Message, state: FSMContext) -> None:
     if record[1] == "ru":
         try:
             city = process.extractOne(msg.text.lower(), city_parser.cities_ru, score_cutoff=65,
-                                         scorer=fuzz.token_sort_ratio)
+                                      scorer=fuzz.token_sort_ratio)
             city = city_parser.cities_ru_to_eng[city[0].strip()].strip()
             ctr = f"'{city}'"
             db.cursor.execute(f"SELECT * FROM countries where city_name={ctr}")
@@ -1238,11 +1263,11 @@ async def findSpecificCity(msg: Message, state: FSMContext) -> None:
 
             await msg.answer_photo(results.getPhotoByCity(msg.from_user.id, ctr),
                                    caption=f"<b>Страна</b>: {data[0][3]}\n"
-                                  f"<b>Город</b>: {data[0][2]}\n\n"
-                                  f"<b>Цена проживания в месяц</b>: {data[0][6] * 88}₽\n"
-                                  f"<b>Цена проживания в месяц для семьи: </b>{data[0][7] * 88}₽\n"
-                                  f"<b>Описание</b>: {data[0][4][:200]}...\n"
-                                  f"<b>Население</b>: {data[0][1]} человек",
+                                           f"<b>Город</b>: {data[0][2]}\n\n"
+                                           f"<b>Цена проживания в месяц</b>: {data[0][6] * 88}₽\n"
+                                           f"<b>Цена проживания в месяц для семьи: </b>{data[0][7] * 88}₽\n"
+                                           f"<b>Описание</b>: {data[0][4][:200]}...\n"
+                                           f"<b>Население</b>: {data[0][1]} человек",
                                    reply_markup=menu)
         except Exception:
             msg_text = text.try_again_city[f'{record[1]}']
@@ -1252,17 +1277,17 @@ async def findSpecificCity(msg: Message, state: FSMContext) -> None:
     else:
         try:
             city = process.extractOne(msg.text.lower(), city_parser.cities_eng, score_cutoff=65,
-                                         scorer=fuzz.token_sort_ratio)[0].strip()
+                                      scorer=fuzz.token_sort_ratio)[0].strip()
             ctr = f"'{city}'"
             db.cursor.execute(f"SELECT * FROM countries where city_name={ctr}")
             data = db.cursor.fetchall()
             await msg.answer_photo(results.getPhotoByCity(msg.from_user.id, ctr),
                                    caption=f"<b>Country</b>: {data[0][3]}\n"
-                                  f"<b>City</b>: {data[0][2]}\n\n"
-                                  f"<b>Cost of live per month</b>: {data[0][6]}$\n"
-                                  f"<b>Cost of live per month for family: </b>{data[0][7]}$\n"
-                                  f"<b>Description</b>: {data[0][4]}\n"
-                                  f"<b>Population</b>: {data[0][1]} people",
+                                           f"<b>City</b>: {data[0][2]}\n\n"
+                                           f"<b>Cost of live per month</b>: {data[0][6]}$\n"
+                                           f"<b>Cost of live per month for family: </b>{data[0][7]}$\n"
+                                           f"<b>Description</b>: {data[0][4]}\n"
+                                           f"<b>Population</b>: {data[0][1]} people",
                                    reply_markup=menu)
         except Exception:
             msg_text = text.try_again_city[f'{record[1]}']
@@ -1738,3 +1763,93 @@ async def eighteen(callback: CallbackQuery, state: FSMContext):
         await callback.message.answer(text=msg_text)
 
 # text.greet.format(name=msg.from_user.full_name),
+class feedback_profile_states(StatesGroup):
+    feedback = State()
+    last = State()
+@router.callback_query(F.data == "feedback_profile")
+async def feedback_profile(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    text_to_edit = text.to_edit[f'{record[1]}']['feedback_menu']
+    await asyncio.sleep(DELAY_TIME)
+
+    await state.set_state(feedback_profile_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_profile']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_profile_states.feedback)
+async def feedback_profile_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_profile_states.last)
+    update_bd("feedback_profile", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)
+
+class feedback_visa_states(StatesGroup):
+    feedback = State()
+    last = State()
+@router.callback_query(F.data == "feedback_visa")
+async def feedback_visa(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    await asyncio.sleep(DELAY_TIME)
+    await state.set_state(feedback_visa_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_visa']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_visa_states.feedback)
+async def feedback_profile_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_visa_states.last)
+    update_bd("feedback_visa", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)
+
+class feedback_experts_states(StatesGroup):
+    feedback = State()
+    last = State()
+
+@router.callback_query(F.data == "feedback_experts")
+async def feedback_experts(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    await asyncio.sleep(DELAY_TIME)
+    await state.set_state(feedback_experts_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_experts']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_experts_states.feedback)
+async def feedback_experts_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_experts_states.last)
+    update_bd("feedback_experts", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)
