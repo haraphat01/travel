@@ -443,7 +443,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
 @router.message(AddExpert.type)
 async def expert(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
-    await state.update_data(type=visaAdvisory.english_short_to_full[msg.text.lower()])
+    await state.update_data(type=msg.text)
 
     await state.set_state(AddExpert.country)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['country']
@@ -452,7 +452,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
 @router.message(AddExpert.country)
 async def expert(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
-    await state.update_data(country=msg.text.lower())
+    await state.update_data(country=msg.text)
 
     await state.set_state(AddExpert.telegram)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['tg']
