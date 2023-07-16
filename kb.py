@@ -627,7 +627,7 @@ eng_one_more_menu = InlineKeyboardMarkup(inline_keyboard=eng_one_more)
 
 one_more_menu = {
     'ru': ru_one_more_menu,
-    'eng': eng_one_more
+    'eng': eng_one_more_menu
 }
 
 # Next City
