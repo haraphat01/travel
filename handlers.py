@@ -1798,3 +1798,33 @@ async def feedback_profile_state(msg: Message, state: FSMContext) -> None:
     else:
         menu = kb.menu_eng
     await msg.answer(text=msg_text, reply_markup=menu)
+
+class feedback_experts_states(StatesGroup):
+    feedback = State()
+    last = State()
+
+@router.callback_query(F.data == "feedback_experts")
+async def feedback_experts(callback: CallbackQuery, state: FSMContext) -> None:
+    record = fetch_info(callback.from_user.id)
+    await asyncio.sleep(DELAY_TIME)
+    await state.set_state(feedback_experts_states.feedback)
+    msg_text = text.questions[f'{record[1]}']['feedback_experts']
+    await callback.message.answer(text=msg_text)
+
+@router.message(feedback_experts_states.feedback)
+async def feedback_experts_state(msg: Message, state: FSMContext) -> None:
+    await state.set_state(feedback_experts_states.last)
+    update_bd("feedback_experts", f"'{msg.text}'", msg.chat.id)
+    record = fetch_info(msg.from_user.id)
+    if record[1] == 'ru':
+        await msg.answer(text="Спасибо за отзыв!")
+    else:
+        await msg.answer(text="Thanks for the feedback!")
+    msg_text = text.main_menu['menu_eng']
+    menu = kb.gender_menu[f'{record[1]}']
+    msg_text = text.main_menu[f'menu_{record[1]}']
+    if record[1] == 'ru':
+        menu = kb.menu_ru
+    else:
+        menu = kb.menu_eng
+    await msg.answer(text=msg_text, reply_markup=menu)

@@ -448,6 +448,7 @@ english_experts_menu = [
      InlineKeyboardButton(text="Real estate agent", callback_data="real_estate_agent")],
     [InlineKeyboardButton(text="Relocation buddy", callback_data="relocation_buddy")],
     [InlineKeyboardButton(text="Immigration adviser", callback_data="immigration_adviser")],
+    [InlineKeyboardButton(text="Leave feedback about contact experts", callback_data="feedback_experts")],
     [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
@@ -457,6 +458,7 @@ russian_experts_menu = [
      InlineKeyboardButton(text="Агент по недвижимости", callback_data="real_estate_agent")],
     [InlineKeyboardButton(text="Помощник по переезду", callback_data="relocation_buddy")],
     [InlineKeyboardButton(text="Иммиграционный советник", callback_data="immigration_adviser")],
+    [InlineKeyboardButton(text="Оставить отзыв о связи с экспертами", callback_data="feedback_experts")],
     [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
