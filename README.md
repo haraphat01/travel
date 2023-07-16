@@ -116,7 +116,7 @@ Radmir Tukeev (r.tukeev@innopolis.university) - developer
 [relovista-logo]: README_IMG/logo.jpg
 [badge-pipeline]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/pipeline.svg
 [badge-release]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/-/badges/release.svg
-[demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
+[demo-link]: https://youtu.be/SyeyZ7iwCz8
 [telegram-bot-link]: https://t.me/RelovistaBot
 [telegram-test-bot-link]: https://t.me/RelovistaTestBot
 
