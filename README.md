@@ -45,7 +45,7 @@ Feedback section is needed to leave feedback about Telegram bot.
 
 ### Section only for administrator<br>
 Admin panel - it can:
-* Add city
+* Add some city
 * Edit information about city
 * Add expert
 * Edit information about expert
