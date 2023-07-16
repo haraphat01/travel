@@ -604,16 +604,33 @@ date_schedule = {
 }
 
 
+ru_one_more = [
+    [InlineKeyboardButton(text="✅Попробовать еще раз", callback_data="again"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+eng_one_more = [
+    [InlineKeyboardButton(text="✅Try again", callback_data="again"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="ru")]
+]
+
+ru_one_more_menu = InlineKeyboardMarkup(inline_keyboard=ru_one_more)
+eng_one_more_menu = InlineKeyboardMarkup(inline_keyboard=eng_one_more)
+
+one_more_menu = {
+    'ru': ru_one_more_menu,
+    'eng': eng_one_more
+}
 
 # Next City
 ru_next_city = [
-    [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city")],
-    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+    [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
 eng_next_city = [
-    [InlineKeyboardButton(text="✅Next city", callback_data="next_city")],
-    [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+    [InlineKeyboardButton(text="✅Next city", callback_data="next_city"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
 ru_city_menu = InlineKeyboardMarkup(inline_keyboard=ru_next_city)

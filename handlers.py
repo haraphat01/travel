@@ -11,6 +11,7 @@ from fuzzywuzzy import process, fuzz
 import asyncio
 import aioschedule
 
+import city_parser
 import kb
 import results
 import text
@@ -132,7 +133,8 @@ async def language_confirmation_ru(callback: CallbackQuery):
     update_bd('lang', "'ru'", callback.from_user.id)
 
     text_to_edit = text.to_edit['ru']['language_confirmation']
-    await callback.message.edit_text(text="Choose the language: " + text_to_edit)
+    # await callback.message.edit_text(text="Choose the language: " + text_to_edit)
+    # await callback.message.answer(text="Choose the language: ")
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
@@ -150,7 +152,7 @@ async def language_confirmation_eng(callback: CallbackQuery):
     update_bd('lang', "'eng'", callback.from_user.id)
 
     text_to_edit = text.to_edit['eng']['language_confirmation']
-    await callback.message.edit_text(text="Choose the language: " + text_to_edit)
+    # await callback.message.edit_text(text="Choose the language: " + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
@@ -706,6 +708,7 @@ async def btn_yes(callback: CallbackQuery, state: FSMContext) -> None:
 
 class FindCity(StatesGroup):
     country = State()
+    destination = State()
 
 @router.message(FindCity.country)
 async def find_city(msg: Message, state: FSMContext) -> None:
@@ -718,12 +721,6 @@ async def find_city(msg: Message, state: FSMContext) -> None:
             id = f"'{msg.from_user.id}'"
             db.cursor.execute(f"UPDATE users SET citizenship={ctr} where id={id}")
             db.connect.commit()
-            data = results.by_country(msg.from_user.id)
-            menu = kb.city_menu[f'{record[1]}']
-            if (data == -1):
-                data = text.error[f'{record[1]}']
-                menu = kb.main_menu[f'{record[1]}']
-            await msg.answer(text=data, reply_markup=menu)
         except Exception:
             msg_text = text.try_again[f'{record[1]}']
             await msg.answer(text=msg_text)
@@ -738,14 +735,53 @@ async def find_city(msg: Message, state: FSMContext) -> None:
             id = f"'{msg.from_user.id}'"
             db.cursor.execute(f"UPDATE users SET citizenship={ctr} where id={id}")
             db.connect.commit()
+        except Exception:
+            msg_text = text.try_again[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    await state.set_state(FindCity.destination)
+    msg_text = text.questions[f'{record[1]}']['destination_country']
+    await msg.answer(text=msg_text)
+
+@router.message(FindCity.destination)
+async def find_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    if record[1] == "ru":
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET destination={ctr} where id={id}")
+            db.connect.commit()
             data = results.by_country(msg.from_user.id)
             menu = kb.city_menu[f'{record[1]}']
             if (data == -1):
                 data = text.error[f'{record[1]}']
                 menu = kb.main_menu[f'{record[1]}']
-            await msg.answer(text=data, reply_markup=menu)
+            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
         except Exception:
-            msg_text = text.try_again[f'{record[1]}']
+            msg_text = text.try_again_profile[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    else:
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)[0].lower().strip()
+            if country in visaAdvisory.english_short_to_full.keys():
+                country = visaAdvisory.english_short_to_full.get(country)
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET destination={ctr} where id={id}")
+            db.connect.commit()
+            data = results.by_country(msg.from_user.id)
+            menu = kb.city_menu[f'{record[1]}']
+            if (data == -1):
+                data = text.error[f'{record[1]}']
+                menu = kb.main_menu[f'{record[1]}']
+            await msg.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again_profile[f'{record[1]}']
             await msg.answer(text=msg_text)
             await btn_yes()
     await state.set_state(None)
@@ -769,191 +805,21 @@ async def btn_no(callback: CallbackQuery) -> None:
 async def nextCity(callback: CallbackQuery) -> None:
     record = fetch_info(callback.from_user.id)
     update_bd('counter', record[15] + 1, callback.from_user.id)
+    id = f"'{callback.from_user.id}'"
     if (record[16] == 0):
         data = results.by_country(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
         if (data == -1):
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
-        await callback.message.edit_text(text=data, reply_markup=menu)
+        await callback.message.answer_photo((results.getPhotoByCountry(id) if results.getPhotoByCountry(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
     else:
         data = results.by_user_preferences(callback.from_user.id)
         menu = kb.city_menu[f'{record[1]}']
         if (data == -1):
             data = text.error[f'{record[1]}']
             menu = kb.main_menu[f'{record[1]}']
-        await callback.message.edit_text(text=data, reply_markup=menu)
-
-@router.callback_query(F.data == "usa")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['usa']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'United States'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "russia")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['russia']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Russia'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "israel")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['israel']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Israel'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "eu")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['eu']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Europe'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "ukraine")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['ukraine']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Ukraine'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "kazah")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['kazakhstan']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Kazakhstan'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "armenia")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['armenia']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Armenia'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "georgia")
-async def usa(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-    update_bd('counter', 0, callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['citizenship']
-    text_to_edit = text.to_edit[f'{record[1]}']['georgia']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
-    update_bd('citizenship', f"'Georgia'", callback.from_user.id)
-    data = results.by_country(callback.from_user.id)
-    menu = kb.city_menu[f'{record[1]}']
-    if (data == -1):
-        data = text.error[f'{record[1]}']
-        menu = kb.main_menu[f'{record[1]}']
-    await callback.message.edit_text(text=data, reply_markup=menu)
-    update_bd('counter', record[15] + 1, callback.from_user.id)
-
-
-@router.callback_query(F.data == "other_country")
-async def input_country(callback: CallbackQuery) -> None:
-    record = fetch_info(callback.from_user.id)
-
-    msg_text = text.questions[f'{record[1]}']['input_country']
-    await callback.message.answer(text=msg_text)
-    # await country(callback.from_user.id)
-
-
-# @router.message(F.text.in_(countries))
-# async def country(msg: Message):
-#     record = fetch_info(msg.chat.id)
-#     update_bd('citizenship', f"'{msg.text}'", msg.chat.id)
-#
-#     menu = kb.relocation_motive_menu[f'{record[1]}']
-#     msg_text = text.questions[f'{record[1]}']['relocation_motive']
-#     await msg.answer(text=msg_text, reply_markup=menu)
-
+        await callback.message.answer_photo((results.getPhotoByUserPreferences(id) if results.getPhotoByUserPreferences(id) != -1 else "https://releika.ru/wp-content/uploads/2/e/3/2e32cdc84a47df0f4481a31b51f900e0.jpeg"), caption=data, reply_markup=menu)
 
 @router.callback_query(F.data == "business")
 async def relocation_motive(callback: CallbackQuery) -> None:
@@ -1280,39 +1146,138 @@ async def destination_search(callback: CallbackQuery):
     text_to_edit = text.to_edit[f'{record[1]}']['destination_search']
     await callback.message.edit_text(text=msg_text + text_to_edit)
     await asyncio.sleep(DELAY_TIME)
+    id = f"'{callback.from_user.id}'"
+    db.cursor.execute(f"UPDATE users SET counter=0 where id={id}")
+    db.connect.commit()
+
     record = fetch_info(callback.from_user.id)
 
     menu = kb.destination_menu[f'{record[1]}']
     msg_text = text.questions[f'{record[1]}']['destination_search_question']
     await callback.message.answer(text=msg_text, reply_markup=menu)
 
-
 @router.callback_query(F.data == "country_search")
-async def country_search(callback: CallbackQuery):
+async def country_search(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
+    await state.set_state(FindSpecificCountry.country)
+    msg_text = text.questions[f'{record[1]}']['destination_country']
+    await callback.message.answer(text=msg_text)
 
-    msg_text = text.questions[f'{record[1]}']['destination_search_question']
-    text_to_edit = text.to_edit[f'{record[1]}']['country_search']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
+class FindSpecificCountry(StatesGroup):
+    country = State()
 
-    menu = kb.citizenship_menu[f'{record[1]}']
-    msg_text = text.questions[f'{record[1]}']['country_search_question']
-    await callback.message.answer(text=msg_text, reply_markup=menu)
+@router.message(FindSpecificCountry.country)
+async def find_city(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    if record[1] == "ru":
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries_ru, score_cutoff=65, scorer=fuzz.token_sort_ratio)
+            country = visaAdvisory.russian_to_english_profile_search[country[0].strip()].strip()
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET destination={ctr} where id={id}")
+            db.connect.commit()
+            data = results.by_country_without_cost(msg.from_user.id)
+            menu = kb.city_menu[f'{record[1]}']
+            if (data == -1):
+                data = text.error[f'{record[1]}']
+                menu = kb.main_menu[f'{record[1]}']
+            await msg.answer_photo(results.getPhotoByCountryWithoutCost(id), caption=data, reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again_profile[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    else:
+        try:
+            country = process.extractOne(msg.text.lower(), visaAdvisory.countries, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)[0].lower().strip()
+            if country in visaAdvisory.english_short_to_full.keys():
+                country = visaAdvisory.english_short_to_full.get(country)
+            ctr = f"'{string.capwords(country)}'"
+            id = f"'{msg.from_user.id}'"
+            db.cursor.execute(f"UPDATE users SET destination={ctr} where id={id}")
+            db.connect.commit()
+            data = results.by_country_without_cost(msg.from_user.id)
+            menu = kb.city_menu[f'{record[1]}']
+            if (data == -1):
+                data = text.error[f'{record[1]}']
+                menu = kb.main_menu[f'{record[1]}']
+            await msg.answer_photo(results.getPhotoByCountryWithoutCost(id), caption=data, reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again_profile[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await btn_yes()
+    await state.set_state(None)
 
+class FindSpecificCity(StatesGroup):
+    city = State()
 
 @router.callback_query(F.data == "country_of_city_search")
-async def country_of_city_search(callback: CallbackQuery):
+async def country_of_city_search(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
+    await state.set_state(FindSpecificCity.city)
+    msg_text = text.questions[f'{record[1]}']['city']
+    await callback.message.answer(text=msg_text)
 
-    msg_text = text.questions[f'{record[1]}']['destination_search_question']
-    text_to_edit = text.to_edit[f'{record[1]}']['country_of_city_search']
-    await callback.message.edit_text(text=msg_text + text_to_edit)
-    await asyncio.sleep(DELAY_TIME)
+@router.message(FindSpecificCity.city)
+async def findSpecificCity(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    menu = kb.one_more_menu[f'{record[1]}']
+    flag = True
+    if record[1] == "ru":
+        try:
+            city = process.extractOne(msg.text.lower(), city_parser.cities_ru, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)
+            city = city_parser.cities_ru_to_eng[city[0].strip()].strip()
+            ctr = f"'{city}'"
+            db.cursor.execute(f"SELECT * FROM countries where city_name={ctr}")
+            data = db.cursor.fetchall()
 
-    menu = kb.citizenship_menu[f'{record[1]}']
-    msg_text = text.questions[f'{record[1]}']['country_search_question']
-    await callback.message.answer(text=msg_text, reply_markup=menu)
+            await msg.answer_photo(results.getPhotoByCity(msg.from_user.id, ctr),
+                                   caption=f"<b>Страна</b>: {data[0][3]}\n"
+                                  f"<b>Город</b>: {data[0][2]}\n\n"
+                                  f"<b>Цена проживания в месяц</b>: {data[0][6] * 88}₽\n"
+                                  f"<b>Цена проживания в месяц для семьи: </b>{data[0][7] * 88}₽\n"
+                                  f"<b>Описание</b>: {data[0][4][:200]}...\n"
+                                  f"<b>Население</b>: {data[0][1]} человек",
+                                   reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again_city[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await state.set_state(FindSpecificCity.city)
+            flag = False
+    else:
+        try:
+            city = process.extractOne(msg.text.lower(), city_parser.cities_eng, score_cutoff=65,
+                                         scorer=fuzz.token_sort_ratio)[0].strip()
+            ctr = f"'{city}'"
+            db.cursor.execute(f"SELECT * FROM countries where city_name={ctr}")
+            data = db.cursor.fetchall()
+            await msg.answer_photo(results.getPhotoByCity(msg.from_user.id, ctr),
+                                   caption=f"<b>Country</b>: {data[0][3]}\n"
+                                  f"<b>City</b>: {data[0][2]}\n\n"
+                                  f"<b>Cost of live per month</b>: {data[0][6]}$\n"
+                                  f"<b>Cost of live per month for family: </b>{data[0][7]}$\n"
+                                  f"<b>Description</b>: {data[0][4]}\n"
+                                  f"<b>Population</b>: {data[0][1]} people",
+                                   reply_markup=menu)
+        except Exception:
+            msg_text = text.try_again_city[f'{record[1]}']
+            await msg.answer(text=msg_text)
+            await state.set_state(FindSpecificCity.city)
+            flag = False
+
+    if flag:
+        await state.set_state(None)
+
+
+@router.callback_query(F.data == "again")
+async def tryAgain(callback: CallbackQuery, state: FSMContext):
+    record = fetch_info(callback.from_user.id)
+    await state.set_state(FindSpecificCity.city)
+    msg_text = text.questions[f'{record[1]}']['city']
+    await callback.message.answer(text=msg_text)
+
 
 
 class VisaAdvisory(StatesGroup):
