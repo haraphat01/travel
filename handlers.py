@@ -443,7 +443,7 @@ async def expert(msg: Message, state: FSMContext) -> None:
 @router.message(AddExpert.type)
 async def expert(msg: Message, state: FSMContext) -> None:
     record = fetch_info(msg.from_user.id)
-    await state.update_data(type=msg.text.lower())
+    await state.update_data(type=visaAdvisory.english_short_to_full[msg.text.lower()])
 
     await state.set_state(AddExpert.country)
     msg_text = text.admin_panel[f'{record[1]}']['add_expert']['country']
@@ -1186,6 +1186,13 @@ async def destination_search(callback: CallbackQuery):
 @router.callback_query(F.data == "country_search")
 async def country_search(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['destination_search_question']
+    text_to_edit = text.to_edit[f'{record[1]}']['country_search']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
+    record = fetch_info(callback.from_user.id)
     await state.set_state(FindSpecificCountry.country)
     msg_text = text.questions[f'{record[1]}']['destination_country']
     await callback.message.answer(text=msg_text)
@@ -1243,6 +1250,12 @@ class FindSpecificCity(StatesGroup):
 @router.callback_query(F.data == "country_of_city_search")
 async def country_of_city_search(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
+
+    msg_text = text.questions[f'{record[1]}']['destination_search_question']
+    text_to_edit = text.to_edit[f'{record[1]}']['city_search']
+    await callback.message.edit_text(text=msg_text + text_to_edit)
+    await asyncio.sleep(DELAY_TIME)
+
     await state.set_state(FindSpecificCity.city)
     msg_text = text.questions[f'{record[1]}']['city']
     await callback.message.answer(text=msg_text)

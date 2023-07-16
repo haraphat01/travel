@@ -70,7 +70,9 @@ to_edit = {
         'delete_expert': '\n\n❌Удалить эксперта',
         'check_feedback': '\n\n🔍Посмотреть отзывы',
         'more_feedback': '\n\n✅Еще',
-        'feedback_menu': '\n\n🌟Оставить отзыв'
+        'feedback_menu': '\n\n🌟Оставить отзыв',
+        'country_search': '\n\nСтрана',
+        'city_search': '\n\nГород'
     },
     'eng': {
         'language_confirmation': "\n\nEnglish🇺🇸",
@@ -130,7 +132,9 @@ to_edit = {
         'delete_expert': '\n\n❌Delete expert',
         'check_feedback': '\n\n🔍Check feedback',
         'more_feedback': '\n\n✅More',
-        'feedback_menu': '\n\n🌟Leave feedback'
+        'feedback_menu': '\n\n🌟Leave feedback',
+        'country_search': '\n\nCountry',
+        'city_search': '\n\nCity'
     }
 }
 
@@ -283,7 +287,6 @@ try_again = {
     'eng': "Something wrong, enter your citizenship again or go to menu"
 }
 
-
 visaAdvisory = {
     'ru': {
         'Visa required': "Требуется виза",
@@ -363,7 +366,6 @@ admin_panel = {
     }
 }
 
-
 error_book = {
     'ru': {
         'error_mail': "Вы неправильно ввели вашу почту. Убедитесь что вы добавили знак '@' и попробуйте снова!",
@@ -396,7 +398,7 @@ input_user = {
         'email': "Введите вашу электронную почту(mail, gmail и т.д.):"
     },
     'eng': {
-        'email':"Enter your e-mail(mail, gmail, etc.):"
+        'email': "Enter your e-mail(mail, gmail, etc.):"
     }
 }
 

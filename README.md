@@ -3,8 +3,9 @@
 ## Telegram bot
 
 ![Pipeline badge][badge-pipeline]
-![Coverage badge][badge-coverage]
 ![Release badge][badge-release]
+
+Relovista is a special bot created to help professionals from various fields move to other countries.
 
 ## Agenda
 * [Supported languages](#supported-languages)
@@ -12,8 +13,6 @@
 * [How to use](#how-to-use)
 * [Features](#features)
 * [Requirements](#requirements)
-
-Relovista is a special bot created to help professionals from various fields move to other countries.
 
 ## Supported languages
 1) English
@@ -50,12 +49,14 @@ Admin panel - it can:
 * Edit information about city
 * Add expert
 * Edit information about expert
+* Check feedback
+* Check statistics of the bot
 
 ## Project installation
 1. Install Python 3
 2. Clone the repo (use default cloning)
 3. Install all requirements from the file requirements.txt
-4. Choose the token in main.py (BOT_TOKEN - token of deployed version, BOT_TEST_TOKEN - token of version for testing)
+4. Choose the token in admin.py (BOT_TOKEN - token of deployed version, BOT_TEST_TOKEN - token of version for testing)
 5. Run main.py
 
 To run using docker:
@@ -84,10 +85,12 @@ docker compose up -d
 * charset-normalizer==3.1.0
 * colorama==0.4.6
 * frozenlist==1.3.3
+* fuzzywuzzy==0.18.0
 * idna==3.4
 * magic-filter==1.0.9
 * multidict==6.0.4
 * pydantic==1.10.7
+* python-Levenshtein==0.21.1
 * regex==2023.3.23
 * requests==2.28.2
 * tiktoken==0.3.3
@@ -97,6 +100,8 @@ docker compose up -d
 * yarl==1.8.2
 * pytest==7.4.0
 * pytest-asyncio==0.21.0
+* beautifulsoup4~=4.12.2
+* pandas==2.0.3
 
 ## License
 MIT License is used for this project.
@@ -110,7 +115,6 @@ Radmir Tukeev (r.tukeev@innopolis.university) - developer
 
 [relovista-logo]: README_IMG/logo.jpg
 [badge-pipeline]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/pipeline.svg
-[badge-coverage]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/badges/main/coverage.svg
 [badge-release]: https://gitlab.pg.innopolis.university/i.zubkov/RelovistaBot/-/badges/release.svg
 [demo-link]: https://www.youtube.com/watch?v=N_mcxFjSv-A
 [telegram-bot-link]: https://t.me/RelovistaBot
