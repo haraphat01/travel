@@ -757,3 +757,4 @@ cities_ru_to_eng = {'Буэнос-Айрес': 'Buenos Aires', 'Мехико': '
 
 for i in range(len(cities_eng)):
     cities_ru_to_eng[cities_ru[i]] = cities_eng[i]
+
