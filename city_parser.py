@@ -6,6 +6,8 @@ result = []
 for el in record:
     result.append(el[0])
 
+
+
 cities_eng = ["Buenos Aires", "Mexico City", "Medellín", "Guadalajara", "Lima", "Cuenca", "Havana", "São Paulo",
               "Rio de Janeiro", "Oaxaca", "Cancun", "Galapagos Islands", "Florianopolis", "Queretaro", "Cordoba",
               "Santiago", "Puerto Escondido", "Porto Alegre", "Monterrey", "Belo Horizonte", "Paramaribo", "Antigua",
@@ -223,7 +225,8 @@ cities_eng = ["Buenos Aires", "Mexico City", "Medellín", "Guadalajara", "Lima",
               "Ivano-Frankivsk",
               "Sochi", "Kaliningrad", "Ulyanovsk", "Izhevsk", "Krivoy-Rog", "Lviv", "Krasnodar", "Saratov", "Dnipro",
               "Odessa", "Volgograd", "Ufa", "Rostov-on-Don", "Chelyabinsk", "Kazan", "Samara", "Nizhny", "Kharkiv",
-              "Yekaterinburg", "Minsk", "Kyiv", "Saint Petersburg", "Moscow", "Stuttgart", "Innopolis"]
+              "Yekaterinburg", "Minsk", "Kyiv", "Saint Petersburg", "Moscow", "Stuttgart", "Innopolis", "Tyumen",
+              "Vladimir"]
 
 cities_ru = [
     "Буэнос-Айрес", "Мехико", "Медельин", "Гвадалахара", "Лима", "Куэнка", "Гавана", "Сан-Паулу",
@@ -397,7 +400,7 @@ cities_ru = [
     "Монца", "Ватикан", "Турин", "Сиена", "Аяччо", "Эксетер", "Обнинск", "Новочеркасск", "Ивано-Франковск",
     "Сочи", "Калининград", "Ульяновск", "Ижевск", "Кривой Рог", "Львов", "Краснодар", "Саратов", "Днепр",
     "Одесса", "Волгоград", "Уфа", "Ростов-на-Дону", "Челябинск", "Казань", "Самара", "Нижний", "Харьков",
-    "Екатеринбург", "Минск", "Киев", "Санкт-Петербург", "Москва", "Штутгарт", "Иннополис"
+    "Екатеринбург", "Минск", "Киев", "Санкт-Петербург", "Москва", "Штутгарт", "Иннополис", "Тюмень", "Владимир"
 ]
 
 cities_ru_to_eng = {'Буэнос-Айрес': 'Buenos Aires', 'Мехико': 'Mexico City', 'Медельин': 'Medellín',
@@ -754,5 +757,3 @@ cities_ru_to_eng = {'Буэнос-Айрес': 'Buenos Aires', 'Мехико': '
 
 for i in range(len(cities_eng)):
     cities_ru_to_eng[cities_ru[i]] = cities_eng[i]
-
-print(cities_ru_to_eng)
