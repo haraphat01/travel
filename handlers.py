@@ -1,3 +1,5 @@
+import string
+
 from aiogram import F, Router, types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
@@ -8,6 +10,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 import asyncio
 import aioschedule
 
+import notify
 import kb
 import results
 import text
@@ -99,17 +102,12 @@ def update_bd(bd_field, updated_text, id) -> None:
     db.connect.commit()
 
 
-def update_experts_bd(bd_field, updated_text) -> None:
-    update = f"Update experts set {bd_field}={updated_text}"
-    db.cursor.execute(update)
-    db.connect.commit()
-
-
 @router.message(Command("start"))
 async def start_handler(msg: Message) -> None:
     user_id = [msg.chat.id]
+    alias = f"'@{msg.from_user.username}'"
     try:
-        db.cursor.execute("INSERT INTO users(id) VALUES(?)", user_id)
+        db.cursor.execute(f"INSERT INTO users(id, alias) VALUES(?, {alias})", user_id)
         db.connect.commit()
     except Exception as ex:
         print(ex)
@@ -1371,6 +1369,7 @@ async def book_appointment(callback: CallbackQuery):
 class ContactExperts(StatesGroup):
     country = State()
     expertName = State()
+    userEmail = State()
 
 
 @router.message(ContactExperts.country)
@@ -1379,7 +1378,11 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
     data = await state.get_data()
     await state.update_data(country=msg.text)
     if record[1] == 'ru':
-        country = visaAdvisory.russian_to_english[msg.text.lower()]
+        try:
+            country = visaAdvisory.russian_to_english[msg.text.lower()]
+        except Exception:
+            msg_text = text.error_book[f'{record[1]}']['error_country']
+            await msg.answer(text=msg_text)
     else:
         country = msg.text.lower()
     expert_type = f"'{record[13]}'"
@@ -1390,7 +1393,8 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
     flag = True
     try:
         if len(info) == 0:
-            await msg.answer(text="Sorry, no available experts😢")
+            print(2)
+            await msg.answer(text=text.error_book[f'{record[1]}']['error_expert'])
             record = fetch_info(msg.from_user.id)
             menu = kb.date_schedule[record[1]]
             msg_text = text.expert_country[f'{record[1]}']['time']
@@ -1399,12 +1403,20 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
             await state.set_state(None)
             flag = False
         for expert in info:
-            await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
-                                  f"<b>Country: </b> {expert[2].capitalize()}\n"
-                                  f"<b>Expert type: </b>{expert[1].capitalize()}\n"
-                                  f"<b>Alias: </b>{expert[3]}")
+            if record[1] == 'eng':
+                await msg.answer(text=f"<b>Name: </b>{expert[0]}\n"
+                                      f"<b>Country: </b> {expert[2].capitalize()}\n"
+                                      f"<b>Expert type: </b>{expert[1].capitalize()}\n"
+                                      f"<b>Alias: </b>{expert[3]}")
+            else:
+                country = visaAdvisory.english_to_russian[expert[2]]
+                experts = visaAdvisory.english_to_russian[expert[1]]
+                await msg.answer(text=f"<b>Имя: </b>{expert[0]}\n"
+                                      f"<b>Страна: </b> {country.capitalize()}\n"
+                                      f"<b>Тип эксперта: </b>{experts.capitalize()}\n"
+                                      f"<b>Алиас: </b>{expert[3]}")
     except Exception as ex:
-        await msg.answer(text="Sorry, no available experts😢")
+        await msg.answer(text=text.error_book[f'{record[1]}']['error_expert'])
 
     if flag:
         await state.set_state(ContactExperts.expertName)
@@ -1436,11 +1448,30 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         await msg.answer(text=msg_text)
         flag = False
     if flag:
-        id = f"'{data['alias']}'"
-        username = f"'{msg.from_user.username}'"
-        db.cursor.execute(f"UPDATE experts SET {data['time']}={username} where expert_id={id}")
-        db.connect.commit()
+        await state.set_state(ContactExperts.userEmail)
+        msg_text = text.input_user[f'{record[1]}']['email']
+        await msg.answer(text=msg_text)
 
+
+@router.message(ContactExperts.userEmail)
+async def countryCallback(msg: Message, state: FSMContext) -> None:
+    record = fetch_info(msg.from_user.id)
+    await state.update_data(email=msg.text)
+    data = await state.get_data()
+    expert_type = f"'{record[13]}'"
+    db.cursor.execute(
+        f"Select * from experts where {data['time']}='NULL' AND type={expert_type}"
+    )
+    info = db.cursor.fetchall()
+    for expert in info:
+        expert_id = f"'{expert[3]}'"
+    usermail = f"'{msg.text}'"
+    if '@' not in usermail:
+        msg_text = text.error_book[f'{record[1]}']['error_mail']
+        await msg.answer(text=msg_text)
+    else:
+        db.cursor.execute(f"UPDATE experts SET {data['time']}={usermail} where expert_id={expert_id}")
+        db.connect.commit()
         msg_text = text.expert_country[f'{record[1]}']['success']
         update_bd(data['time'], "'booked'", msg.from_user.id)
         await msg.answer(text=msg_text)
@@ -1448,6 +1479,10 @@ async def countryCallback(msg: Message, state: FSMContext) -> None:
         menu = kb.main_menu_buttons[f'{record[1]}']
         msg_text = text.main_menu[f'menu_{record[1]}']
         await msg.answer(text=msg_text, reply_markup=menu)
+        alias = f"'{data['alias']}'"
+        db.cursor.execute(f"SELECT * FROM users WHERE alias={alias}")
+        id = db.cursor.fetchone()
+        await notify.notification("У вас новая запись.\n\nYou have a new entry", id[0])
 
 
 @router.callback_query(F.data == "ten")
@@ -1527,6 +1562,7 @@ async def fifteen(callback: CallbackQuery, state: FSMContext):
         msg_text = text.error_book[f'{record[1]}']['error_booking']
         await callback.message.answer(text=msg_text)
 
+
 @router.callback_query(F.data == "sixteen")
 async def sixteen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
@@ -1539,6 +1575,7 @@ async def sixteen(callback: CallbackQuery, state: FSMContext):
         msg_text = text.error_book[f'{record[1]}']['error_booking']
         await callback.message.answer(text=msg_text)
 
+
 @router.callback_query(F.data == "seventeen")
 async def seventeen(callback: CallbackQuery, state: FSMContext):
     record = fetch_info(callback.from_user.id)
@@ -1550,6 +1587,7 @@ async def seventeen(callback: CallbackQuery, state: FSMContext):
     else:
         msg_text = text.error_book[f'{record[1]}']['error_booking']
         await callback.message.answer(text=msg_text)
+
 
 @router.callback_query(F.data == "eighteen")
 async def eighteen(callback: CallbackQuery, state: FSMContext):

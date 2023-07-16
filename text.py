@@ -8,7 +8,7 @@ country_of_city_search_question_ru = "Выберите страну нужног
 
 main_menu = {
     'menu_ru': "Добро пожаловать в Relovista!\nЯ - специальный бот, который создан чтобы помочь специалистам из разных сфер деятельности переезжать в другие страны.",
-    'menu_eng': "Welcome to Relovista\n I am a special bot created to help professionals from various fields move to other countries."
+    'menu_eng': "Welcome to Relovista\nI am a special bot created to help professionals from various fields move to other countries."
 }
 
 to_edit = {
@@ -305,6 +305,9 @@ admin_panel = {
 
 error_book = {
     'ru': {
+        'error_mail': "Вы неправильно ввели вашу почту. Убедитесь что вы добавили знак '@' и попробуйте снова!",
+        'error_expert': "К сожалению, нет доступных экспертов😢.",
+        'error_country': "Вы неправильно ввели страну. Попробуйте еще раз!",
         'error_input': "Вы ввели неправильный алиас. Попробуйте еще раз!",
         'error_booking': "К сожалению вы уже записаны на это время к эксперту, пожалуйста выберите любое свободное!",
         'error_lawyer': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
@@ -314,6 +317,9 @@ error_book = {
         'error_immigration_adviser': "К сожалению запись на это время уже забронирована, пожалуйста выберите любое свободное!",
     },
     'eng': {
+        'error_mail': "You have entered your email incorrectly. Make sure you add the '@' sign and try again!",
+        'error_expert': "Sorry, no available experts😢.",
+        'error_country': "You have entered an country incorrectly. Try again!",
         'error_input': "You have entered an incorrect alias. Try again!",
         'error_booking': "Unfortunately you are already booked for this time with the expert, please choose any free time!",
         'error_lawyer': "Unfortunately, the appointment for this time is already booked, please choose any free time!",
@@ -324,12 +330,19 @@ error_book = {
     }
 }
 
-
+input_user = {
+    'ru': {
+        'email': "Введите вашу электронную почту(mail, gmail и т.д.):"
+    },
+    'eng': {
+        'email':"Enter your e-mail(mail, gmail, etc.):"
+    }
+}
 
 expert_country = {
     'ru': {
         'time': "Выберите удобное для вас время",
-        'country': "Введите страну в которой вам нужен эксперт" ,
+        'country': "Введите страну в которой вам нужен эксперт",
         'name': "Выберите эксперта к которому хотите записаться. (Введите алиас)",
         'success': "Вы были успешно записаны к эксперту"
     },
@@ -338,5 +351,14 @@ expert_country = {
         'country': "Enter the country in which you need an expert.",
         'name': "Select the expert to whom you wish to make an appointment.(Enter tg alias)",
         'success': "You have been successfully booked with an expert"
+    }
+}
+
+send_to_expert = {
+    'ru': {
+        'send': "К вам на прием записался новый клиент."
+    },
+    'eng': {
+        'send': "You have a new appointment"
     }
 }

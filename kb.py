@@ -425,7 +425,8 @@ english_experts_menu = [
      InlineKeyboardButton(text="Tax professional", callback_data="tax_prof"),
      InlineKeyboardButton(text="Real estate agent", callback_data="real_estate_agent")],
     [InlineKeyboardButton(text="Relocation buddy", callback_data="relocation_buddy")],
-    [InlineKeyboardButton(text="Immigration adviser", callback_data="immigration_adviser")]
+    [InlineKeyboardButton(text="Immigration adviser", callback_data="immigration_adviser")],
+    [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
 russian_experts_menu = [
@@ -433,7 +434,8 @@ russian_experts_menu = [
      InlineKeyboardButton(text="Специалист по налогообложению", callback_data="tax_prof"),
      InlineKeyboardButton(text="Агент по недвижимости", callback_data="real_estate_agent")],
     [InlineKeyboardButton(text="Помощник по переезду", callback_data="relocation_buddy")],
-    [InlineKeyboardButton(text="Иммиграционный советник", callback_data="immigration_adviser")]
+    [InlineKeyboardButton(text="Иммиграционный советник", callback_data="immigration_adviser")],
+    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
 experts_menu_eng = InlineKeyboardMarkup(inline_keyboard=english_experts_menu)
@@ -558,7 +560,8 @@ english_date_schedule = [
      InlineKeyboardButton(text="3 p.m.", callback_data="fifteen")],
     [InlineKeyboardButton(text="4 p.m.", callback_data="sixteen"),
      InlineKeyboardButton(text="5 p.m.", callback_data="seventeen")],
-    [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")]
+    [InlineKeyboardButton(text="6 p.m.", callback_data="eighteen")],
+    [InlineKeyboardButton(text="❌Back to experts", callback_data="cancel")]
 ]
 
 russian_date_schedule = [
@@ -570,7 +573,8 @@ russian_date_schedule = [
      InlineKeyboardButton(text="15:00", callback_data="fifteen")],
     [InlineKeyboardButton(text="16:00", callback_data="sixteen"),
      InlineKeyboardButton(text="17:00", callback_data="seventeen")],
-    [InlineKeyboardButton(text="18:00", callback_data="eighteen")]
+    [InlineKeyboardButton(text="18:00", callback_data="eighteen")],
+    [InlineKeyboardButton(text="❌Вернуться к экспертам", callback_data="cancel")]
 ]
 
 schedule_dates_eng = InlineKeyboardMarkup(inline_keyboard=english_date_schedule)
