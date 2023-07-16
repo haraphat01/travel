@@ -35,6 +35,24 @@ exit_menu = {
     'eng': exit_menu_eng
 }
 
+more_button_ru = [
+    [InlineKeyboardButton(text="✅Еще", callback_data="more_feedback"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+more_button_eng = [
+    [InlineKeyboardButton(text="✅More", callback_data="more_feedback"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+]
+
+more_menu_ru = InlineKeyboardMarkup(inline_keyboard=more_button_ru)
+more_menu_eng = InlineKeyboardMarkup(inline_keyboard=more_button_eng)
+
+more_menu = {
+    'ru': more_menu_ru,
+    'eng': more_menu_eng
+}
+
 confirm_edit_button_ru = [
     [InlineKeyboardButton(text="✅Подтвердить", callback_data="confirm_edit"),
      InlineKeyboardButton(text="❌Отмена", callback_data="admin")]
@@ -165,13 +183,17 @@ admin_menu = {
 ru_admin_panel_buttons = [
     [InlineKeyboardButton(text="🆕Добавить город", callback_data="add_city"),
      InlineKeyboardButton(text="🆕Добавить эксперта", callback_data="add_expert")],
-    [InlineKeyboardButton(text="✍️Отредактировать описание города", callback_data="edit_description")]
+    [InlineKeyboardButton(text="✍️Отредактировать описание города", callback_data="edit_description"),
+     InlineKeyboardButton(text="❌Удалить эксперта", callback_data="delete_expert")],
+    [InlineKeyboardButton(text="🔍Посмотреть отзывы", callback_data="check_feedback")]
 ]
 
 eng_admin_panel_buttons = [
     [InlineKeyboardButton(text="🆕Add new city", callback_data="add_city"),
      InlineKeyboardButton(text="🆕Add new expert", callback_data="add_expert")],
-    [InlineKeyboardButton(text="✍️Edit description", callback_data="edit_description")]
+    [InlineKeyboardButton(text="✍️Edit description", callback_data="edit_description"),
+     InlineKeyboardButton(text="❌Delete expert", callback_data="delete_expert")],
+    [InlineKeyboardButton(text="🔍Check feedback", callback_data="check_feedback")]
 ]
 
 admin_panel_ru = InlineKeyboardMarkup(inline_keyboard=ru_admin_panel_buttons)
@@ -586,16 +608,33 @@ date_schedule = {
 }
 
 
+ru_one_more = [
+    [InlineKeyboardButton(text="✅Попробовать еще раз", callback_data="again"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+]
+
+eng_one_more = [
+    [InlineKeyboardButton(text="✅Try again", callback_data="again"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="ru")]
+]
+
+ru_one_more_menu = InlineKeyboardMarkup(inline_keyboard=ru_one_more)
+eng_one_more_menu = InlineKeyboardMarkup(inline_keyboard=eng_one_more)
+
+one_more_menu = {
+    'ru': ru_one_more_menu,
+    'eng': eng_one_more
+}
 
 # Next City
 ru_next_city = [
-    [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city")],
-    [InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
+    [InlineKeyboardButton(text="✅Следующий город", callback_data="next_city"),
+     InlineKeyboardButton(text="❌Главное меню", callback_data="ru")]
 ]
 
 eng_next_city = [
-    [InlineKeyboardButton(text="✅Next city", callback_data="next_city")],
-    [InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
+    [InlineKeyboardButton(text="✅Next city", callback_data="next_city"),
+     InlineKeyboardButton(text="❌Main menu", callback_data="eng")]
 ]
 
 ru_city_menu = InlineKeyboardMarkup(inline_keyboard=ru_next_city)
