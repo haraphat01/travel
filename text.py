@@ -167,7 +167,7 @@ questions = {
         'country_of_city_search_question': "Select country of needed city",
         "feedback": "Please evaluate the bot's work\n✨Do you like it?",
         'input_country': "Enter the country of which you are a citizen\nEnter with a capital letter",
-        'feedback_profile': "Please evaluate the work of search by parameters",
+        'feedback_profile': "Please evaluate the work of search countries/cities",
         'feedback_visa': "Please evaluate the work of visa advisory",
         'feedback_experts': "Please evaluate the work of experts",
         'before_questions': "Before I send you options for places you can move to, I need to ask a few questions.",
