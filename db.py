@@ -34,7 +34,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     fifteen TEXT DEFAULT 'NULL',
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL'
+    eighteen TEXT DEFAULT 'NULL',
+    alias TEXT
 )""")
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS countries(
@@ -61,7 +62,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     fifteen TEXT DEFAULT 'NULL',
     sixteen TEXT DEFAULT 'NULL',
     seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL' 
+    eighteen TEXT DEFAULT 'NULL'
 )""")
 
 
