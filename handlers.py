@@ -547,7 +547,7 @@ async def add_city(msg: Message, state: FSMContext) -> None:
     db.cursor.execute(
         "INSERT INTO countries(population, city_name, country, description, image, cost_alone, cost_family) VALUES(?, ?, ?, ?, ?, ?, ?)",
         (data['population'], data['city'], data['country'], data['description'], data['img'],
-         int(data['costAlone']) // 90, int(data['costFamily']) // 90))
+         int(data['costAlone']), int(data['costFamily']) ))
     db.connect.commit()
 
     city_parser.cities_eng.append(data['city'])

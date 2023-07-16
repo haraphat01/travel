@@ -225,7 +225,8 @@ cities_eng = ["Buenos Aires", "Mexico City", "Medellín", "Guadalajara", "Lima",
               "Ivano-Frankivsk",
               "Sochi", "Kaliningrad", "Ulyanovsk", "Izhevsk", "Krivoy-Rog", "Lviv", "Krasnodar", "Saratov", "Dnipro",
               "Odessa", "Volgograd", "Ufa", "Rostov-on-Don", "Chelyabinsk", "Kazan", "Samara", "Nizhny", "Kharkiv",
-              "Yekaterinburg", "Minsk", "Kyiv", "Saint Petersburg", "Moscow", "Stuttgart", "Innopolis"]
+              "Yekaterinburg", "Minsk", "Kyiv", "Saint Petersburg", "Moscow", "Stuttgart", "Innopolis", "Tyumen",
+              "Vladimir"]
 
 cities_ru = [
     "Буэнос-Айрес", "Мехико", "Медельин", "Гвадалахара", "Лима", "Куэнка", "Гавана", "Сан-Паулу",
@@ -399,7 +400,7 @@ cities_ru = [
     "Монца", "Ватикан", "Турин", "Сиена", "Аяччо", "Эксетер", "Обнинск", "Новочеркасск", "Ивано-Франковск",
     "Сочи", "Калининград", "Ульяновск", "Ижевск", "Кривой Рог", "Львов", "Краснодар", "Саратов", "Днепр",
     "Одесса", "Волгоград", "Уфа", "Ростов-на-Дону", "Челябинск", "Казань", "Самара", "Нижний", "Харьков",
-    "Екатеринбург", "Минск", "Киев", "Санкт-Петербург", "Москва", "Штутгарт", "Иннополис"
+    "Екатеринбург", "Минск", "Киев", "Санкт-Петербург", "Москва", "Штутгарт", "Иннополис", "Тюмень", "Владимир"
 ]
 
 cities_ru_to_eng = {'Буэнос-Айрес': 'Buenos Aires', 'Мехико': 'Mexico City', 'Медельин': 'Medellín',
