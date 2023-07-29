@@ -79,7 +79,7 @@ def analysis(bid, user_id):
             message_to_user += 'Date: %s\n' % days
             for i in unique_commands:
                 if i in commands:
-                    message_to_user += '%s - %s times\n' % (i, commands.get(i))
+                    message_to_user += '%s - %s time(s)\n' % (i, commands.get(i))
                 else:
                     message_to_user += '%s - 0 times\n' % i
                     
