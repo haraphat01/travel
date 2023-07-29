@@ -213,7 +213,7 @@
       <workItem from="1689506218529" duration="2792000" />
       <workItem from="1689526605527" duration="751000" />
       <workItem from="1689710012454" duration="62000" />
-      <workItem from="1690365451357" duration="25053000" />
+      <workItem from="1690365451357" duration="25511000" />
     </task>
     <task id="LOCAL-00001" summary="Add experts menu">
       <created>1686680404381</created>
@@ -426,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690668633088</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="updated contact experts section">
+      <created>1690668877969</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1690668877969</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
