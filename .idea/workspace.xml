@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="delete some print">
-      <change beforePath="$PROJECT_DIR$/.idea/RelovistaBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RelovistaBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
-    </list>
+    <list default="true" id="99381745-4013-4c89-ab02-67bc9be8931f" name="Changes" comment="updated contact experts section" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +213,7 @@
       <workItem from="1689506218529" duration="2792000" />
       <workItem from="1689526605527" duration="751000" />
       <workItem from="1689710012454" duration="62000" />
-      <workItem from="1690365451357" duration="24752000" />
+      <workItem from="1690365451357" duration="25053000" />
     </task>
     <task id="LOCAL-00001" summary="Add experts menu">
       <created>1686680404381</created>
@@ -427,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689521258989</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="updated contact experts section">
+      <created>1690668633088</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1690668633088</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +479,8 @@
     <MESSAGE value="Add notices to expert, translate expert types and countries, fix all bugs!" />
     <MESSAGE value="import notify to test.py!" />
     <MESSAGE value="delete some print" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete some print" />
+    <MESSAGE value="updated contact experts section" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated contact experts section" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RelovistaBot$main.coverage" NAME="main Coverage Results" MODIFIED="1690667264262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
