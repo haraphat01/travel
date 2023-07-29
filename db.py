@@ -28,15 +28,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS users(
     feedback_experts TEXT DEFAULT 'NULL',
     contact_experts_country TEXT,
     feedback_counter INTEGER DEFAULT 0,
-    ten TEXT DEFAULT 'NULL',
-    eleven TEXT DEFAULT 'NULL',
-    twelve TEXT DEFAULT 'NULL',
-    thirteen TEXT DEFAULT 'NULL',
-    fourteen TEXT DEFAULT 'NULL',
-    fifteen TEXT DEFAULT 'NULL',
-    sixteen TEXT DEFAULT 'NULL',
-    seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL',
     alias TEXT,
     new_users INTEGER DEFAULT 0
 )""")
@@ -56,16 +47,13 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS experts(
     name TEXT,
     type TEXT,
     country TEXT,
-    expert_id TEXT PRIMARY KEY UNIQUE,
-    ten TEXT DEFAULT 'NULL',
-    eleven TEXT DEFAULT 'NULL',
-    twelve TEXT DEFAULT 'NULL',
-    thirteen TEXT DEFAULT 'NULL',
-    fourteen TEXT DEFAULT 'NULL',
-    fifteen TEXT DEFAULT 'NULL',
-    sixteen TEXT DEFAULT 'NULL',
-    seventeen TEXT DEFAULT 'NULL',
-    eighteen TEXT DEFAULT 'NULL'
+    expert_id TEXT PRIMARY KEY UNIQUE
+)""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS booking(
+    expert_type TEXT,
+    email TEXT,
+    country TEXT
 )""")
 
 
