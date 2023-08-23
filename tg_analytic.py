@@ -41,7 +41,7 @@ def analysis(bid, user_id):
     number_of_days = len(df['data'].unique())
 
     message_to_user = 'Bot usage statistics per %s %s: \n\n' % (season, day_type.get(season, 'days'))
-    # message_to_user += 'Всего статистика собрана за %s %s: \n' % (number_of_days, day_type.get(season, 'дней'))
+    message_to_user += 'Total statistics collected for %s %s: \n' % (number_of_days, day_type.get(season, 'days'))
     if season > number_of_days:
         season = number_of_days
         message_to_user += 'The number of days you specified is more than available\n' \

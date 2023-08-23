@@ -219,7 +219,7 @@ async def admin(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "statistics")
 async def stats(callback: CallbackQuery):
-    command = "статистика 1 пользователи команды"
+    command = "статистика 30 пользователи команды"
     st = command.split(' ')
     await callback.message.answer(text=tg_analytic.analysis(st, callback.from_user.id))
 
