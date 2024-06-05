@@ -1,4 +1,4 @@
-FROM python:3.9-bookworm
+FROM quay.io/pypa/manylinux2014-x86_64:latest
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
