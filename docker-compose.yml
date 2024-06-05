@@ -9,3 +9,7 @@ services:
         context: .
         dockerfile: Dockerfile
     command: sh -c "python main.py"
+    heroku:
+      container_name: relovista-bot
+
+

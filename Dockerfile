@@ -5,11 +5,11 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /RelovistaBot
 
-COPY ./requirements.txt ./
-
+COPY requirements.txt ./
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r ./requirements.txt
+RUN pip install -r requirements.txt
 
-COPY ./ ./
+COPY . ./
+RUN chmod -R 755 ./
 
-RUN chmod -R 777 ./
+CMD ["python3", "main.py"]
